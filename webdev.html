@@ -1,327 +1,1674 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Development — tommyy.fit</title>
-  <meta name="description" content="Explore modern web development resources, tips, and featured projects by tommyy.fit. Gym, coffee, and healthy food web projects included.">
+  <title>Web Development Services | tommyyfit - Custom Websites & Digital Solutions</title>
+  <meta name="description"
+    content="Professional web development services: responsive websites, e-commerce solutions, SEO optimization, and custom web applications. Transform your online presence today.">
+
+  <!-- SEO Meta Tags -->
+  <meta name="keywords"
+    content="web development, website design, responsive websites, e-commerce development, SEO optimization, custom web applications, frontend development, backend development">
+  <meta name="author" content="tommyyfit">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://www.tommyyfit/services/webdev">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Web Development Services | tommyyfit">
+  <meta property="og:description"
+    content="Professional web development services: responsive websites, e-commerce solutions, SEO optimization, and custom web applications.">
+  <meta property="og:url" content="https://www.tommyyfit/services/webdev">
+  <meta property="og:image" content="https://www.tommyyfit/assets/og-image-webdev.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Development Services | tommyyfit">
+  <meta name="twitter:description"
+    content="Professional web development services: responsive websites, e-commerce solutions, SEO optimization, and custom web applications.">
+  <meta name="twitter:image" content="https://www.tommyyfit/assets/og-image-webdev.png">
+  <meta name="theme-color" content="#1e293b">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
-  
-  <!-- Preload critical resources -->
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Load Tailwind via CDN with fallback -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Check if Tailwind loaded successfully
-    setTimeout(function() {
-      if (!window.tailwind) {
-        // Fallback to local Tailwind if CDN fails
-        document.write('<link rel="stylesheet" href="css/tailwind.css">');
-      }
-    }, 1000);
-    
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            midnight: '#0f172a', 
-            sky: '#38bdf8', 
-            mint: '#10b981', 
-            accent: '#fbbf24', 
-            slate: '#475569',
-            softblue: '#e0f2fe',
-            softmint: '#d1fae5'
+            midnight: '#0f172a',
+            sky: '#38bdf8',
+            mint: '#10b981',
+            accent: '#fbbf24',
+            coral: '#f87171',
+            violet: '#8b5cf6',
+            slate: {
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a'
+            }
           },
           fontFamily: {
-            display: ['Poppins', 'sans-serif'], 
+            display: ['Poppins', 'sans-serif'],
             body: ['Inter', 'sans-serif']
           },
           animation: {
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-            'float': 'float 6s ease-in-out infinite'
+            fadeIn: 'fadeIn 1s ease-out forwards',
+            float: 'float 3s ease-in-out infinite',
+            pulseGlow: 'pulseGlow 2s infinite',
+            bounceIn: 'bounceIn 0.7s cubic-bezier(.25,.8,.25,1) both',
+            slideUp: 'slideUp 0.7s cubic-bezier(.25,.8,.25,1) both',
+            gradient: 'gradient 8s ease infinite',
+            shake: 'shake 0.5s ease-in-out',
+            slideInLeft: 'slideInLeft 0.8s ease-out',
+            slideInRight: 'slideInRight 0.8s ease-out',
+            zoomIn: 'zoomIn 0.5s ease-out',
+            spinSlow: 'spinSlow 3s linear infinite',
+            bounceSlow: 'bounceSlow 2s infinite',
+            fadeInUp: 'fadeInUp 1s ease-out',
+            fadeInDown: 'fadeInDown 1s ease-out',
+            fadeInLeft: 'fadeInLeft 1s ease-out',
+            fadeInRight: 'fadeInRight 1s ease-out',
           },
           keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(32px)' },
-              '100%': { opacity: '1', transform: 'none' }
+            fadeIn: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
             },
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-10px)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 0 0 rgba(16,185,129,0.7)' },
+              '50%': { boxShadow: '0 0 40px 10px rgba(16,185,129,0.3)' }
+            },
+            bounceIn: {
+              '0%': { opacity: 0, transform: 'scale(0.3)' },
+              '50%': { opacity: 1, transform: 'scale(1.05)' },
+              '70%': { transform: 'scale(0.9)' },
+              '100%': { opacity: 1, transform: 'scale(1)' }
+            },
+            slideUp: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' }
+            },
+            shake: {
+              '0%, 100%': { transform: 'translateX(0)' },
+              '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
+              '20%, 40%, 60%, 80%': { transform: 'translateX(5px)' }
+            },
+            slideInLeft: {
+              '0%': { opacity: 0, transform: 'translateX(-100px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' }
+            },
+            slideInRight: {
+              '0%': { opacity: 0, transform: 'translateX(100px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' }
+            },
+            zoomIn: {
+              '0%': { opacity: 0, transform: 'scale(0.5)' },
+              '100%': { opacity: 1, transform: 'scale(1)' }
+            },
+            spinSlow: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' }
+            },
+            bounceSlow: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            fadeInUp: {
+              '0%': { opacity: 0, transform: 'translateY(30px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            },
+            fadeInDown: {
+              '0%': { opacity: 0, transform: 'translateY(-30px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' }
+            },
+            fadeInLeft: {
+              '0%': { opacity: 0, transform: 'translateX(-30px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' }
+            },
+            fadeInRight: {
+              '0%': { opacity: 0, transform: 'translateX(30px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' }
             }
-          },
-          boxShadow: {
-            'soft': '0 10px 30px rgba(0, 0, 0, 0.05)',
-            'medium': '0 15px 35px rgba(0, 0, 0, 0.08)'
           }
         }
       }
-    };
+    }
   </script>
-  
+
+  <!-- Enhanced CSS Styles -->
   <style>
-    /* Critical CSS */
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background: linear-gradient(to bottom, #f8fafc, #f0f9ff); 
-      color: #334155; 
+    /* Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #334155;
       overflow-x: hidden;
     }
-    
-    /* Tag styling */
+
+    /* Text Gradient */
+    .text-gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Background Gradients */
+    .bg-gradient-animated {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    .bg-gradient-primary {
+      background: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
+    }
+
+    /* Project Card Styles */
+    .project-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .project-card:hover::before {
+      left: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .project-image {
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15));
+      z-index: 1;
+    }
+
+    /* Tag Styles */
     .tag {
       display: inline-block;
-      background-color: #e0f2fe;
-      color: #0c4a6e;
+      background-color: #f1f5f9;
+      color: #475569;
       padding: 0.25rem 0.75rem;
       border-radius: 100px;
       font-size: 0.75rem;
       font-weight: 500;
       transition: all 0.2s ease;
     }
-    
+
     .tag:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
-    
-    /* Project card hover effects */
-    .project-card {
+
+    /* Filter Button Styles */
+    .filter-btn {
       transition: all 0.3s ease;
-      border: 1px solid transparent;
+      background-color: #f8fafc;
+      border: none;
+      position: relative;
+      overflow: hidden;
     }
-    
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      border-color: #38bdf8;
+
+    .filter-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #38bdf8, #10b981);
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
     }
-    
-    /* Performance optimizations */
-    .tilt { 
-      transform: translateZ(0);
-      backface-visibility: hidden;
-      perspective: 1000px;
+
+    .filter-btn.active::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
-    
-    /* Gradient text animation */
+
+    .filter-btn.active {
+      background: linear-gradient(90deg, #38bdf8, #10b981);
+      color: white;
+    }
+
+    .filter-btn:not(.active):hover {
+      background-color: #e2e8f0;
+    }
+
+    /* Modal Styles */
+    .modal {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: scale(0.9);
+      opacity: 0;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      transform: scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Custom Scrollbar for Modal */
+    .modal-content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .modal-content::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 10px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Gradient Text Animation */
     .gradient-text {
       background: linear-gradient(90deg, #38bdf8, #10b981, #fbbf24, #f87171);
       background-size: 300% 300%;
       animation: gradient 8s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    /* Button hover effects */
-    .cta-button {
+
+    /* Search Box Styles */
+    .search-box {
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
-    
-    .cta-button:hover {
+
+    .search-box:focus {
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+      border-color: #10b981;
+    }
+
+    /* Status Badge Styles */
+    .status-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      z-index: 2;
+    }
+
+    .status-available {
+      background-color: #10b981;
+      color: white;
+    }
+
+    .status-coming-soon {
+      background-color: #f59e0b;
+      color: white;
+    }
+
+    .status-in-progress {
+      background-color: #38bdf8;
+      color: white;
+    }
+
+    /* Project Card Content Styles */
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .project-description {
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      color: #10b981;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: #0d9668;
+    }
+
+    .project-link svg {
+      margin-left: 0.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .project-link:hover svg {
+      transform: translateX(3px);
+    }
+
+    .launch-date {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    /* Modal Section Styling */
+    .modal-section {
+      background-color: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Focus States for Accessibility */
+    button:focus,
+    a:focus,
+    input:focus {
+      outline: 2px solid #10b981;
+      outline-offset: 2px;
+    }
+
+    /* Service Card Styles */
+    .service-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: #38bdf8;
+    }
+
+    /* Pricing Card Styles */
+    .pricing-card {
+      border: 2px solid #e2e8f0;
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #38bdf8, #10b981);
+    }
+
+    .pricing-card.featured {
+      border-color: #38bdf8;
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
+    }
+
+    .pricing-card.featured::before {
+      height: 6px;
+      background: linear-gradient(90deg, #38bdf8, #10b981, #fbbf24);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Skill Bar Styles */
+    .skill-bar {
+      height: 8px;
+      background-color: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .skill-level {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #10b981);
+      border-radius: 4px;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #38bdf8, #10b981);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
     }
-    
-    /* Reduced motion for accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      
-      html {
-        scroll-behavior: auto;
+
+    /* Section Divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+      margin: 4rem 0;
+    }
+
+    /* Feature Grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Animation Classes */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .pricing-card.featured {
+        transform: scale(1);
       }
     }
   </style>
 </head>
-<body class="antialiased">
-  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-lg shadow-soft z-50">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+<body class="font-body bg-white text-slate-700 antialiased">
+  <!-- ========== EASY EDIT SECTION START ========== -->
+  <!-- 
+    EDIT THE CONTENT BELOW - JUST CHANGE THE TEXT BETWEEN QUOTES
+    Keep the structure the same, only modify the text values
+  -->
+
+  <script>
+    // ========== WEBSITE CONTENT DATA - EDIT THIS SECTION ==========
+    const websiteContent = {
+      // Hero Section
+      hero: {
+        title: "Web Development",
+        subtitle: "Custom-built websites designed for performance, growth, and a flawless user experience.",
+        ctaButton: "Start Your Project"
+      },
+
+      // Development Pillars
+      pillars: [
+        {
+          icon: "💻",
+          title: "Cross-Platform Responsiveness",
+          description: "Guaranteeing a perfect experience on any device, from a small smartphone to a large desktop monitor. Mobile-first development is a core principle."
+        },
+        {
+          icon: "⚡",
+          title: "Core Web Vitals Performance",
+          description: "Dedicated focus on fast loading times and smooth interactions to achieve high Core Web Vitals scores, essential for user retention and search ranking."
+        },
+        {
+          icon: "🔍",
+          title: "Technical SEO Foundation",
+          description: "Building sites with clean semantic HTML, correct structured data, and optimal site architecture for superior crawlability and higher organic visibility."
+        },
+        {
+          icon: "🛡️",
+          title: "Security & Maintenance",
+          description: "Implementing robust security measures and providing ongoing maintenance to ensure your website remains secure and up-to-date."
+        }
+      ],
+
+      // Services Offered
+      services: [
+        {
+          icon: "🌐",
+          title: "Custom Website Development",
+          description: "Tailored websites built from scratch to meet your specific business needs and goals.",
+          features: ["Responsive Design", "SEO Optimization", "Fast Loading", "Custom CMS"]
+        },
+        {
+          icon: "🛒",
+          title: "E-commerce Solutions",
+          description: "Complete online stores with payment integration, inventory management, and customer portals.",
+          features: ["Payment Gateway", "Product Management", "Order Tracking", "Security"]
+        },
+        {
+          icon: "📱",
+          title: "Progressive Web Apps",
+          description: "Web applications that function like native mobile apps with offline capabilities.",
+          features: ["Offline Functionality", "Push Notifications", "App-like Experience", "Cross-Platform"]
+        },
+        {
+          icon: "🔧",
+          title: "Website Maintenance",
+          description: "Ongoing support, updates, and optimization to keep your website running smoothly.",
+          features: ["Regular Updates", "Security Monitoring", "Backup Solutions", "Performance Tuning"]
+        }
+      ],
+
+      // Portfolio Section
+      portfolio: {
+        title: "Our Featured Portfolio",
+        description: "A selection of recent web development projects showcasing our versatility and technical quality across diverse business sectors.",
+        filters: ["All Projects", "Business Landing", "Fitness Tool", "Blogs", "E-commerce", "Portfolio", "Web App"]
+      },
+
+      // Projects Data - Add/Edit your projects here
+      projects: [
+        {
+          id: 1,
+          name: "Ascend Athletics",
+          category: "business-landing",
+          status: "available",
+          tags: ["Business", "Landing Page", "High-End UI", "Fitness"],
+          description: "A high-performance gym website focused on lead generation, showcasing premium membership tiers and class schedules with engaging media.",
+          liveUrl: "https://ascendathletics.com",
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80",
+          // Detailed view content
+          detailed: {
+            title: "Ascend Athletics",
+            category: "Business Website",
+            status: "Available",
+            description: "A high-performance gym website focused on lead generation, showcasing premium membership tiers and class schedules with engaging media. This project focused on creating an engaging experience that highlights the gym's facilities, trainers, and membership options with a conversion-focused design.",
+            features: [
+              "Conversion-focused landing page design",
+              "Interactive class schedule with integrated booking functionality",
+              "Trainer profiles with specialization details and credentials",
+              "Transparent membership options with clear pricing",
+              "Integrated lead-capture forms",
+              "Mobile-responsive design with touch-friendly interface",
+              "Performance optimization for fast loading times"
+            ],
+            technologies: [
+              "HTML5 & CSS3 with modern layout techniques",
+              "Tailwind CSS for consistent and maintainable styling",
+              "Vanilla JavaScript (ES6+) for interactive elements",
+              "Netlify for fast, reliable hosting with form handling",
+              "Google Analytics integration for tracking user behavior"
+            ]
+          }
+        },
+        {
+          id: 2,
+          name: "NEOFIT RECOMP",
+          category: "fitness-tool",
+          status: "available",
+          tags: ["Fitness Tool", "Calculator", "Data Visualization", "JavaScript"],
+          description: "An advanced, data-driven body recomposition tool using JavaScript algorithms to provide detailed muscle gain and fat loss estimates based on user biometrics.",
+          liveUrl: "webs/bodyrecomp.html",
+          image: "https://images.unsplash.com/photo-1541300951-ce0379207865?auto=format&fit=crop&w=600&q=80",
+          detailed: {
+            title: "NEOFIT RECOMP",
+            category: "Fitness Tool",
+            status: "Available",
+            description: "An advanced, data-driven body recomposition tool using JavaScript algorithms to provide detailed muscle gain and fat loss estimates based on user biometrics. Features interactive forms, real-time adjustments, and comprehensive visualizations for tracking progress.",
+            features: [
+              "Algorithm-based analysis for accurate body recomposition predictions",
+              "Real-time dynamic updates as users adjust inputs for weight, protein, and training intensity",
+              "Interactive input forms with validation for various biometrics",
+              "Comprehensive results display including weekly muscle gain and fat loss estimates with potential ranges",
+              "Chart visualization of potential progress over time",
+              "Export functionality for saving results",
+              "Responsive design optimized for mobile devices"
+            ],
+            technologies: [
+              "HTML5 for structured semantic forms and content layout",
+              "CSS for responsive design and interactive UI elements",
+              "Advanced Vanilla JavaScript for calculations and dynamic real-time updates",
+              "Chart.js for interactive visualization",
+              "Local storage for saving user preferences"
+            ]
+          }
+        },
+      ],
+
+      // Pricing Plans (Updated to € and realistic beginner prices)
+      pricing: [
+        {
+          name: "Starter",
+          price: "€799",
+          period: "one-time",
+          description: "Perfect for small businesses and personal brands just getting started",
+          features: [
+            "3-5 Page Website",
+            "Responsive Design",
+            "Basic SEO Setup",
+            "Contact Form",
+            "2 Weeks Support",
+            "Basic Analytics"
+          ],
+          cta: "Get Started",
+          featured: false
+        },
+        {
+          name: "Professional",
+          price: "€1,499",
+          period: "one-time",
+          description: "Ideal for growing businesses with more complex needs",
+          features: [
+            "5-10 Page Website",
+            "Advanced SEO Optimization",
+            "Basic E-commerce Functionality",
+            "CMS Integration",
+            "1 Month Support",
+            "Advanced Analytics",
+            "Performance Optimization"
+          ],
+          cta: "Get Started",
+          featured: true
+        },
+        {
+          name: "Enterprise",
+          price: "€2,999+",
+          period: "one-time",
+          description: "Custom solutions for businesses with specific requirements",
+          features: [
+            "10+ Pages",
+            "Custom Web Application",
+            "API Integrations",
+            "Priority Support",
+            "Advanced Security",
+            "Dedicated Project Manager",
+            "Ongoing Maintenance Options"
+          ],
+          cta: "Contact Us",
+          featured: false
+        }
+      ],
+
+      // FAQ Section
+      faqs: [
+        {
+          question: "How long does it typically take to build a website?",
+          answer: "The timeline depends on the complexity of your project. A basic website takes 2-4 weeks, while more complex projects with custom functionality can take 6-12 weeks. We provide a detailed timeline during our initial consultation."
+        },
+        {
+          question: "Do you provide website maintenance after launch?",
+          answer: "Yes, we offer ongoing maintenance packages that include regular updates, security monitoring, backups, and technical support. This ensures your website remains secure and up-to-date."
+        },
+        {
+          question: "Can you work with our existing design or branding?",
+          answer: "Absolutely! We can work with your existing design assets, brand guidelines, or create a completely new design that aligns with your vision and business goals."
+        },
+        {
+          question: "What platforms and technologies do you work with?",
+          answer: "We work with a wide range of technologies including HTML5, CSS3. We choose the best technology stack based on your specific needs."
+        },
+        {
+          question: "Do you offer e-commerce solutions?",
+          answer: "Yes, we develop custom e-commerce websites with payment gateway integration, inventory management, and secure checkout processes tailored to your business requirements."
+        }
+      ],
+
+      // Contact Section
+      contact: {
+        title: "Ready to Elevate Your Online Presence?",
+        subtitle: "Partner with us to build a high-performing, modern website that drives real business results.",
+        email: "tommyy.fitt@gmail.com",
+        responseTime: "Response time: Typically within 4-12 hours",
+        officeHours: "Mon-Fri: 9am-6pm CET"
+      },
+
+      // Footer
+      footer: {
+        brand: "tommyy.fit",
+        tagline: "Elevating brands with superior digital development.",
+        copyright: "© 2025 tommyy.fit. All rights reserved.",
+        links: [
+          { text: "Home", url: "index.html" },
+          { text: "About", url: "index.html#about" },
+          { text: "Services", url: "index.html#services" },
+          { text: "Portfolio", url: "index.html#portfolio" },
+          { text: "Contact", url: "index.html#contact" }
+        ]
+      }
+    };
+  </script>
+  <!-- ========== EASY EDIT SECTION END ========== -->
+
+  <!-- Loading Screen -->
+  <div id="loader"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-midnight transition-opacity duration-700">
+    <div class="flex flex-col items-center">
+      <div class="w-16 h-16 border-4 border-sky border-t-mint rounded-full animate-spin mb-4"></div>
+      <span class="text-white text-lg font-display tracking-widest animate-pulse">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div id="progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-sky to-mint z-50" style="width: 0%"></div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top no-print">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-md z-40 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center group" aria-label="Home">
-        <span class="text-2xl md:text-3xl font-display font-extrabold tracking-tight text-midnight hover:text-mint transition-colors duration-300 select-none" style="letter-spacing:-0.02em;">tommyy.fit</span>
+        <span
+          class="text-2xl md:text-3xl font-display font-extrabold tracking-tight text-midnight group-hover:text-mint transition-colors duration-300 select-none"
+          style="letter-spacing:-0.02em;">tommyy.fit</span>
       </a>
-      
+
       <ul class="hidden md:flex space-x-8">
-        <li><a href="index.html#resources" class="text-slate-600 hover:text-mint transition-colors duration-300 font-medium">Resources</a></li>
-        <li><a href="index.html#projects" class="text-slate-600 hover:text-mint transition-colors duration-300 font-medium">Projects</a></li>
-        <li><a href="index.html#contact" class="text-slate-600 hover:text-mint transition-colors duration-300 font-medium">Contact</a></li>
+        <li><a href="index.html#about"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">About</a></li>
+        <li><a href="index.html#resources"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Resources</a></li>
+        <li><a href="index.html#projects"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Projects</a></li>
+        <li><a href="index.html#contact"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Contact</a></li>
       </ul>
-      
-      <button id="mobile-btn" aria-expanded="false" aria-label="Toggle mobile menu" class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-mint rounded">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-midnight" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+      <button id="mobile-btn" aria-expanded="false"
+        class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-mint rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-slate-800" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </nav>
-    
-    <div id="mobile-menu" class="hidden bg-white/95 shadow-lg md:hidden">
-      <a href="index.html#resources" class="block px-6 py-3 hover:bg-slate-50 transition-colors duration-300 font-medium">Resources</a>
-      <a href="index.html#projects" class="block px-6 py-3 hover:bg-slate-50 transition-colors duration-300 font-medium">Projects</a>
-      <a href="index.html#contact" class="block px-6 py-3 hover:bg-slate-50 transition-colors duration-300 font-medium">Contact</a>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-xl z-50 md:hidden p-6 transform translate-x-full transition-transform duration-300">
+      <button id="close-menu" class="absolute top-4 right-4 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="mt-16 flex flex-col space-y-6">
+        <a href="index.html#about"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">About</a>
+        <a href="index.html#resources"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Resources</a>
+        <a href="index.html#projects"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Projects</a>
+        <a href="index.html#contact"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Contact</a>
+      </div>
     </div>
   </header>
 
-  <main class="pt-24 pb-20">
-    <section class="max-w-4xl mx-auto px-6 text-center mb-16 animate-fade-in-up" style="animation-delay: 0.1s;">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold mb-6 tracking-tight" style="letter-spacing:-0.02em;">
-        <span class="block gradient-text bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(56,189,248,0.18)]">
-          Websites I Build for You
-        </span>
-      </h1>
-      <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">See my work below. If you want a website, just write me. I am ready to help you grow online.</p>
-    </section>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-midnight">
+      <!-- Animated Background -->
+      <div class="absolute inset-0 bg-midnight z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-midnight/80 to-midnight/95 z-10"></div>
+        <div class="absolute inset-0 bg-gradient-animated"></div>
+      </div>
 
-    <section class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Project 1: Gym Website (Available) -->
-      <a href="webs/fittrack.html" class="project-card bg-white rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 tilt animate-fade-in-up group" style="animation-delay: 0.2s;" tabindex="0" aria-label="FitTrack Pro Website">
-        <div class="relative overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=80" alt="Gym Website Screenshot" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" width="600" height="300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 bg-mint text-white text-xs font-bold rounded-full shadow-md">Available</span>
-          </div>
-        </div>
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2 text-midnight group-hover:text-sky transition-colors duration-300">FitTrack Pro</h2>
-          <div class="mb-3 flex flex-wrap gap-2">
-            <span class="tag">Gym</span>
-            <span class="tag">Landing Page</span>
-            <span class="tag">Modern UI</span>
-          </div>
-          <p class="text-slate-600 mb-4">This gym website is made for local gym. I designed it to showcase their services and attract new members.</p>
-          <span class="inline-block px-4 py-2 bg-gradient-to-r from-sky to-mint text-white rounded-full font-semibold shadow-md transition-transform duration-300 group-hover:scale-105 cta-button">Website Preview</span>
-        </div>
-      </a>
+      <!-- Hero Content -->
+      <div class="relative z-30 flex flex-col items-center justify-center w-full text-center px-6 py-24">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-white mb-6 leading-tight">
+          <span class="text-gradient" id="hero-title">Web Development</span>
+        </h1>
 
-      <!-- Project 2: Coming Soon -->
-      <div class="project-card bg-white rounded-2xl shadow-soft overflow-hidden opacity-90 cursor-not-allowed tilt animate-fade-in-up" style="animation-delay: 0.3s;">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Coming Soon Coffee Shop" class="w-full h-48 object-cover grayscale" loading="lazy" width="600" height="300">
-          <div class="absolute top-4 right-4 bg-slate-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Coming Soon</div>
-        </div>
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2 text-slate-500">Brewed Bliss</h2>
-          <div class="mb-3 flex flex-wrap gap-2">
-            <span class="tag bg-slate-100 text-slate-500">Coffee</span>
-            <span class="tag bg-slate-100 text-slate-500">Landing Page</span>
-            <span class="tag bg-slate-100 text-slate-500">Professional UI</span>
-          </div>
-          <p class="text-slate-500 mb-4">A friendly and fast coffee landing website, designed for great representation of local coffee shop.</p>
-          <span class="inline-block px-4 py-2 bg-slate-200 text-slate-500 rounded-full font-semibold">Coming Soon</span>
+        <p class="text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed mb-8"
+          id="hero-subtitle">
+          Custom-built websites designed for performance, growth, and a flawless user experience.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-8">
+          <a href="#contact"
+            class="px-8 py-4 bg-gradient-to-r from-sky to-mint text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
+            Start Your Project
+          </a>
+          <a href="#portfolio"
+            class="px-8 py-4 bg-white/10 text-white font-semibold rounded-full backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+            View Our Work
+          </a>
         </div>
       </div>
 
-      <!-- Project 3: Coming Soon -->
-      <div class="project-card bg-white rounded-2xl shadow-soft overflow-hidden opacity-90 cursor-not-allowed tilt animate-fade-in-up" style="animation-delay: 0.4s;">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Coming Soon Healthy Food Blog" class="w-full h-48 object-cover grayscale" loading="lazy" width="600" height="300">
-          <div class="absolute top-4 right-4 bg-slate-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Coming Soon</div>
-        </div>
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2 text-slate-500">GreenPlate Journal</h2>
-          <div class="mb-3 flex flex-wrap gap-2">
-            <span class="tag bg-slate-100 text-slate-500">Healthy Food</span>
-            <span class="tag bg-slate-100 text-slate-500">Blog</span>
-            <span class="tag bg-slate-100 text-slate-500">SEO</span>
-          </div>
-          <p class="text-slate-500 mb-4">Coming soon. A simple, beautiful blog sharing healthy recipes and wellness tips with great mobile design and SEO structure.</p>
-          <span class="inline-block px-4 py-2 bg-slate-200 text-slate-500 rounded-full font-semibold">Coming Soon</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Callout -->
-    <section class="max-w-3xl mx-auto px-6 py-16 text-center animate-fade-in-up" style="animation-delay: 0.5s;">
-      <div class="bg-gradient-to-br from-sky/10 to-mint/15 p-8 md:p-10 rounded-2xl shadow-soft">
-        <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-4">Want a website like these?</h2>
-        <p class="text-lg text-slate-600 mb-4">I build simple, modern websites for people and businesses. Fast, easy, and mobile-friendly.</p>
-        <p class="text-base text-slate-500 mb-6">Ready to start your project? <br>Just email me:</p>
-        <a href="mailto:tommyy.fitt@gmail.com" class="inline-block px-6 py-3 bg-gradient-to-r from-sky to-mint text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cta-button" aria-label="Email Tommy">
-          tommyy.fitt@gmail.com
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounceSlow">
+        <a href="#services" class="text-white/70 hover:text-white transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
         </a>
+      </div>
+    </section>
+
+    <!-- Development Pillars Section -->
+    <section class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-midnight text-center mb-4 leading-tight">Our
+          Development Pillars</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">We build websites that not only look great but
+          perform exceptionally across all metrics that matter.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="pillars-container">
+          <!-- Pillars will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-midnight text-center mb-4 leading-tight">Our
+          Services</h2>
+        <p class="text-slate-600 text-center max-w-2xl mx-auto mb-12">Comprehensive web development solutions tailored
+          to your business needs.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="services-container">
+          <!-- Services will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-midnight mb-4 leading-tight" id="portfolio-title">
+            Our Featured Portfolio</h2>
+          <p class="text-slate-700 max-w-2xl mx-auto leading-relaxed" id="portfolio-description">A selection of recent
+            web development projects showcasing our versatility and technical quality across diverse business sectors.
+          </p>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="mb-10">
+          <div class="mb-6 max-w-2xl mx-auto">
+            <div class="relative">
+              <input type="text" id="project-search" placeholder="Search projects by name or technology..."
+                class="w-full px-6 py-3 rounded-full border border-slate-200 focus:ring-2 focus:ring-mint focus:border-transparent outline-none transition-all search-box">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-slate-400 absolute right-4 top-1/2 transform -translate-y-1/2" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-3" id="project-filters">
+            <!-- Filters will be dynamically inserted here -->
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Projects will be dynamically inserted here -->
+        </div>
+
+        <!-- No Projects Message -->
+        <div id="no-projects" class="hidden text-center py-12">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-slate-300 mb-4" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h3 class="text-xl font-semibold text-slate-600">No projects found</h3>
+          <p class="text-slate-500 mt-2">Try adjusting your search or filter criteria</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-slate-900 text-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white text-center mb-4 leading-tight">Pricing Plans
+        </h2>
+        <p class="text-slate-300 text-center max-w-2xl mx-auto mb-12">Transparent pricing with no hidden fees. Choose
+          the plan that best fits your needs.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="pricing-container">
+          <!-- Pricing cards will be dynamically inserted here -->
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-slate-400">Need a custom solution? <a href="#contact" class="text-sky hover:underline">Contact
+              us</a> for a personalized quote.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-slate-50">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-midnight text-center mb-4 leading-tight">Frequently
+          Asked Questions</h2>
+        <p class="text-slate-600 text-center mb-12">Get answers to the most common questions about our web development
+          services.</p>
+
+        <div class="space-y-4" id="faq-container">
+          <!-- FAQs will be dynamically inserted here -->
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-slate-600">Still have questions? <a href="#contact"
+              class="text-mint font-medium hover:underline">Contact us</a> and we'll be happy to help.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4 leading-tight" id="contact-title">Ready
+          to Elevate Your Online Presence?</h2>
+        <p class="text-slate-300 mb-8 leading-relaxed" id="contact-subtitle">Partner with us to build a high-performing,
+          modern website that drives real business results.</p>
+
+        <div class="bg-slate-800 p-8 rounded-2xl">
+          <p class="text-lg text-slate-200 mb-6">Start a conversation with our development lead today:</p>
+          <a href="mailto:contact@tommyy.fit"
+            class="inline-block px-8 py-4 bg-gradient-to-r from-sky to-mint text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform mb-4"
+            id="contact-email">
+            contact@tommyy.fit
+          </a>
+          <p class="text-slate-400 mt-2 text-sm" id="contact-response">Response time: Typically within 4-12 hours</p>
+          <p class="text-slate-400 text-sm mt-2" id="contact-hours">Office Hours: Mon-Fri: 9am-6pm CET</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="py-10 text-center text-slate-500 text-sm bg-white border-t mt-16 relative">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col items-center justify-center space-y-2 mb-4">
-        <span>© 2025 tommyy.fit</span>
+  <!-- Project Modal -->
+  <div id="project-modal"
+    class="modal fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity backdrop-blur-sm">
+    <div class="modal-content bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="sticky top-0 bg-white p-6 border-b border-slate-200 flex justify-between items-center">
+        <h3 id="modal-title" class="text-2xl font-bold text-slate-800">Project Title</h3>
+        <button id="close-modal"
+          class="p-2 text-slate-500 hover:text-slate-800 rounded-full hover:bg-slate-100 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
-      <div class="text-xs text-slate-400 mb-8">Privacy: We do not collect cookies or personal data.</div>
-      
-      <!-- Updates Icon (Easter Egg) in Footer -->
-      <div class="relative w-full flex items-center justify-center">
-        <a href="update.html" id="updates-footer-icon" class="flex items-center group focus:outline-none transition-all duration-300 hover:opacity-80 animate-float" tabindex="0" aria-label="View updates log">
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-mint to-sky text-white text-xl shadow-lg">
-            ❓
-          </span>
-          <span class="ml-2 px-3 py-1 rounded bg-white/90 text-midnight text-xs font-semibold shadow-lg border border-mint opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 pointer-events-none select-none whitespace-nowrap">
-            See latest updates
-          </span>
-        </a>
+
+      <div class="p-6">
+        <div class="h-64 project-image rounded-lg mb-6" id="modal-image">
+        </div>
+
+        <div class="flex flex-wrap gap-4 mb-6">
+          <div class="flex items-center bg-slate-100 px-4 py-2 rounded-full">
+            <span class="text-slate-600 mr-2">🏷️</span>
+            <span id="modal-category" class="text-slate-800 font-medium">Category</span>
+          </div>
+          <div class="flex items-center bg-slate-100 px-4 py-2 rounded-full">
+            <span class="text-slate-600 mr-2">📱</span>
+            <span id="modal-status" class="text-slate-800 font-medium">Status</span>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="text-xl font-semibold text-slate-800 mb-4">Project Overview</h4>
+          <p id="modal-description" class="text-slate-700">
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="text-xl font-semibold text-slate-800 mb-4">Key Features</h4>
+          <ul id="modal-features" class="list-disc list-inside space-y-2 text-slate-700">
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="text-xl font-semibold text-slate-800 mb-4">Technology Stack</h4>
+          <ul id="modal-technologies" class="list-disc list-inside space-y-2 text-slate-700">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-midnight text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <span class="text-xl font-display font-bold" id="footer-brand">tommyy.fit</span>
+          <p class="text-slate-400 mt-2" id="footer-tagline">Elevating brands with superior digital development.</p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2" id="footer-links">
+            <!-- Footer links will be dynamically inserted here -->
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Services</h3>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="#" class="hover:text-white transition-colors">Web Development</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">E-commerce Solutions</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">SEO Optimization</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Website Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Connect With Us</h3>
+          <div class="flex space-x-4">
+            <a href="mailto:contact@tommyy.fit" class="text-slate-400 hover:text-white transition-colors"
+              aria-label="Email">
+              <span class="sr-only">Email</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </a>
+
+            <a href="https://github.com/tommyyfit" target="_blank"
+              class="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">
+              <span class="sr-only">GitHub</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </a>
+
+            <a href="https://linkedin.com/company/tommyyfit" target="_blank"
+              class="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+              <span class="sr-only">LinkedIn</span>
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm1.5-11.23c-1.397 0-2.527-1.13-2.527-2.527s1.13-2.527 2.527-2.527 2.527 1.13 2.527 2.527-1.13 2.527-2.527 2.527zm4.5 11.23h-3v-5.604c0-3.368 4-3.522 4 0v5.604z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-slate-500 text-sm" id="footer-copyright">© 2025 tommyy.fit. All rights reserved.</p>
+        <div class="mt-4 md:mt-0 flex space-x-4">
+          <a href="privacy.html" class="text-slate-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
+          <a href="terms.html" class="text-slate-500 hover:text-white text-sm transition-colors">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Enhanced JavaScript -->
   <script>
-    // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileBtn = document.getElementById('mobile-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', function() {
-          const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
-          mobileBtn.setAttribute('aria-expanded', !isExpanded);
-          mobileMenu.classList.toggle('hidden');
+    // ========== CONTENT RENDERING FUNCTIONS ==========
+    // These functions automatically populate the page with your content
+    // You don't need to modify anything below this line unless you want custom behavior
+
+    function renderContent() {
+      // Set hero section content
+      document.getElementById('hero-title').textContent = websiteContent.hero.title;
+      document.getElementById('hero-subtitle').textContent = websiteContent.hero.subtitle;
+
+      // Render development pillars
+      const pillarsContainer = document.getElementById('pillars-container');
+      websiteContent.pillars.forEach(pillar => {
+        const pillarHTML = `
+          <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-slate-100">
+            <div class="w-14 h-14 rounded-lg bg-sky/10 flex items-center justify-center mb-4">
+              <span class="text-2xl">${pillar.icon}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-800 mb-2">${pillar.title}</h3>
+            <p class="text-slate-700">${pillar.description}</p>
+          </div>
+        `;
+        pillarsContainer.innerHTML += pillarHTML;
+      });
+
+      // Render services
+      const servicesContainer = document.getElementById('services-container');
+      websiteContent.services.forEach(service => {
+        const featuresHTML = service.features.map(feature => `<li class="flex items-center"><span class="text-mint mr-2">✓</span> ${feature}</li>`).join('');
+
+        const serviceHTML = `
+          <div class="service-card bg-white p-6 rounded-2xl">
+            <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-4">
+              <span class="text-2xl text-white">${service.icon}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-800 mb-2">${service.title}</h3>
+            <p class="text-slate-700 mb-4">${service.description}</p>
+            <ul class="space-y-2">
+              ${featuresHTML}
+            </ul>
+          </div>
+        `;
+        servicesContainer.innerHTML += serviceHTML;
+      });
+
+      // Set portfolio section content
+      document.getElementById('portfolio-title').textContent = websiteContent.portfolio.title;
+      document.getElementById('portfolio-description').textContent = websiteContent.portfolio.description;
+
+      // Render filter buttons
+      const filtersContainer = document.getElementById('project-filters');
+      websiteContent.portfolio.filters.forEach((filter, index) => {
+        const filterId = index === 0 ? 'all' : filter.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        const activeClass = index === 0 ? 'active' : '';
+        const filterHTML = `
+          <button class="filter-btn ${activeClass} px-5 py-2 rounded-full transition-all" data-filter="${filterId}">
+            ${filter}
+          </button>
+        `;
+        filtersContainer.innerHTML += filterHTML;
+      });
+
+      // Render projects
+      const projectsContainer = document.getElementById('projects-grid');
+      websiteContent.projects.forEach(project => {
+        const statusClass = project.status === 'available' ? 'status-available' :
+          project.status === 'coming-soon' ? 'status-coming-soon' : 'status-in-progress';
+        const statusText = project.status === 'available' ? 'Available' :
+          project.status === 'coming-soon' ? 'Coming Soon' : 'In Progress';
+
+        let actionHTML = '';
+        if (project.status === 'available') {
+          actionHTML = `
+            <a href="${project.liveUrl}" target="_blank" class="project-link">
+              Live Preview
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          `;
+        } else {
+          actionHTML = `
+            <span class="launch-date">${project.launchDate}</span>
+          `;
+        }
+
+        const tagsHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+        const projectHTML = `
+          <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100" data-category="${project.category}" data-status="${project.status}" data-name="${project.name.toLowerCase()}" data-project="${project.id}">
+            <div class="h-48 project-image relative" style="background-image: url('${project.image}')">
+              <div class="status-badge ${statusClass}">
+                ${statusText}
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">${project.name}</h3>
+              <div class="project-tags">
+                ${tagsHTML}
+              </div>
+              <p class="project-description">${project.description}</p>
+              <div class="project-actions">
+                ${actionHTML}
+              </div>
+            </div>
+          </div>
+        `;
+        projectsContainer.innerHTML += projectHTML;
+      });
+
+      // Render pricing cards
+      const pricingContainer = document.getElementById('pricing-container');
+      websiteContent.pricing.forEach(plan => {
+        const featuresHTML = plan.features.map(feature => `<li class="flex items-center py-2"><span class="text-mint mr-2">✓</span> ${feature}</li>`).join('');
+        const featuredClass = plan.featured ? 'featured' : '';
+
+        const pricingHTML = `
+          <div class="pricing-card bg-slate-800 p-6 rounded-2xl ${featuredClass}">
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-white mb-2">${plan.name}</h3>
+              <div class="text-4xl font-bold text-white mb-2">${plan.price}</div>
+              <div class="text-slate-400">${plan.period === 'one-time' ? 'One-time payment' : 'Per month'}</div>
+            </div>
+            <p class="text-slate-300 text-center mb-6">${plan.description}</p>
+            <ul class="mb-6">
+              ${featuresHTML}
+            </ul>
+            <button class="w-full py-3 bg-gradient-to-r from-sky to-mint text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">
+              ${plan.cta}
+            </button>
+          </div>
+        `;
+        pricingContainer.innerHTML += pricingHTML;
+      });
+
+      // Render FAQs
+      const faqContainer = document.getElementById('faq-container');
+      websiteContent.faqs.forEach((faq, index) => {
+        const faqHTML = `
+          <div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
+            <button class="faq-question w-full text-left p-4 font-semibold text-slate-800 flex justify-between items-center" data-index="${index}">
+              <span>${faq.question}</span>
+              <svg class="faq-arrow w-5 h-5 text-slate-500 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden p-4 border-t border-slate-200 text-slate-700">
+              ${faq.answer}
+            </div>
+          </div>
+        `;
+        faqContainer.innerHTML += faqHTML;
+      });
+
+      // Set contact section content
+      document.getElementById('contact-title').textContent = websiteContent.contact.title;
+      document.getElementById('contact-subtitle').textContent = websiteContent.contact.subtitle;
+      document.getElementById('contact-email').textContent = websiteContent.contact.email;
+      document.getElementById('contact-email').href = `mailto:${websiteContent.contact.email}`;
+      document.getElementById('contact-response').textContent = websiteContent.contact.responseTime;
+      document.getElementById('contact-hours').textContent = `Office Hours: ${websiteContent.contact.officeHours}`;
+
+      // Set footer content
+      document.getElementById('footer-brand').textContent = websiteContent.footer.brand;
+      document.getElementById('footer-tagline').textContent = websiteContent.footer.tagline;
+      document.getElementById('footer-copyright').textContent = websiteContent.footer.copyright;
+
+      // Render footer links
+      const footerLinksContainer = document.getElementById('footer-links');
+      websiteContent.footer.links.forEach(link => {
+        const linkHTML = `
+          <li><a href="${link.url}" class="text-slate-400 hover:text-white transition-colors">${link.text}</a></li>
+        `;
+        footerLinksContainer.innerHTML += linkHTML;
+      });
+    }
+
+    // ========== WEBSITE FUNCTIONALITY ==========
+    // DOM Elements
+    const DOM = {
+      loader: document.getElementById('loader'),
+      progressBar: document.getElementById('progress'),
+      mobileBtn: document.getElementById('mobile-btn'),
+      mobileMenu: document.getElementById('mobile-menu'),
+      closeMenu: document.getElementById('close-menu'),
+      backToTop: document.getElementById('back-to-top'),
+      filterButtons: document.querySelectorAll('.filter-btn'),
+      projectCards: document.querySelectorAll('.project-card'),
+      projectsGrid: document.getElementById('projects-grid'),
+      noProjects: document.getElementById('no-projects'),
+      projectModal: document.getElementById('project-modal'),
+      closeModal: document.getElementById('close-modal'),
+      modalTitle: document.getElementById('modal-title'),
+      modalCategory: document.getElementById('modal-category'),
+      modalStatus: document.getElementById('modal-status'),
+      modalDescription: document.getElementById('modal-description'),
+      modalFeatures: document.getElementById('modal-features'),
+      modalTechnologies: document.getElementById('modal-technologies'),
+      modalImage: document.getElementById('modal-image'),
+      projectSearch: document.getElementById('project-search'),
+    };
+
+    // Initialize page functionality
+    function init() {
+      // Render content first
+      renderContent();
+
+      // Re-select DOM elements after content is rendered
+      setTimeout(() => {
+        // Re-select elements that were dynamically added
+        DOM.projectCards = document.querySelectorAll('.project-card');
+        DOM.filterButtons = document.querySelectorAll('.filter-btn');
+
+        // Hide loader when page is loaded
+        DOM.loader.style.opacity = '0';
+        setTimeout(() => {
+          DOM.loader.style.display = 'none';
+        }, 700);
+
+        // Progress bar
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Mobile menu toggle
+        setupMobileMenu();
+
+        // Back to top button
+        setupBackToTop();
+
+        // Project filtering and search
+        setupProjectInteraction();
+
+        // Modal functionality
+        setupModals();
+
+        // FAQ accordion
+        setupFAQAccordion();
+
+        // Add event listener for pricing card clicks
+        document.querySelectorAll('.pricing-card button').forEach(button => {
+          button.addEventListener('click', () => {
+            window.location.href = '#contact';
+          });
         });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-          if (!mobileBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
-            mobileBtn.setAttribute('aria-expanded', 'false');
-            mobileMenu.classList.add('hidden');
-          }
-        });
-      }
-      
-      // Tilt effect for project cards
-      const tiltElements = document.querySelectorAll('.tilt');
-      
-      tiltElements.forEach(el => {
-        if (el.classList.contains('cursor-not-allowed')) return;
-        
-        el.addEventListener('mousemove', function(e) {
-          const rect = this.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          const angleY = (x - centerX) / 25;
-          const angleX = (centerY - y) / 25;
-          
-          this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-        
-        el.addEventListener('mouseleave', function() {
-          this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+      }, 100);
+    }
+
+    function updateProgressBar() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      DOM.progressBar.style.width = scrolled + '%';
+    }
+
+    function setupMobileMenu() {
+      DOM.mobileBtn.addEventListener('click', () => {
+        DOM.mobileMenu.classList.toggle('translate-x-full');
+        const expanded = DOM.mobileBtn.getAttribute('aria-expanded') === 'true' || false;
+        DOM.mobileBtn.setAttribute('aria-expanded', !expanded);
+      });
+
+      DOM.closeMenu.addEventListener('click', () => {
+        DOM.mobileMenu.classList.add('translate-x-full');
+        DOM.mobileBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      // Close menu on link click inside mobile menu
+      DOM.mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          DOM.mobileMenu.classList.add('translate-x-full');
+          DOM.mobileBtn.setAttribute('aria-expanded', 'false');
         });
       });
-    });
+    }
+
+    function setupBackToTop() {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          DOM.backToTop.classList.add('visible');
+        } else {
+          DOM.backToTop.classList.remove('visible');
+        }
+      });
+
+      DOM.backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    function setupProjectInteraction() {
+      const filterProjects = (filter, searchTerm = '') => {
+        let visibleCount = 0;
+        const lowerSearchTerm = searchTerm.toLowerCase();
+
+        DOM.projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          const name = card.getAttribute('data-name').toLowerCase();
+          const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+          const searchableText = `${name} ${tags.join(' ')}`;
+
+          // 1. Check Filter Match
+          const matchesFilter = filter === 'all' || category === filter;
+
+          // 2. Check Search Match (in name, title, or tags)
+          const matchesSearch = lowerSearchTerm === '' || searchableText.includes(lowerSearchTerm);
+
+          if (matchesFilter && matchesSearch) {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          DOM.noProjects.classList.remove('hidden');
+          DOM.projectsGrid.classList.add('hidden');
+        } else {
+          DOM.noProjects.classList.add('hidden');
+          DOM.projectsGrid.classList.remove('hidden');
+        }
+      };
+
+      DOM.filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active class
+          DOM.filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const filter = button.getAttribute('data-filter');
+          const searchTerm = DOM.projectSearch.value;
+
+          filterProjects(filter, searchTerm);
+        });
+      });
+
+      DOM.projectSearch.addEventListener('input', () => {
+        const searchTerm = DOM.projectSearch.value;
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+
+        filterProjects(activeFilter, searchTerm);
+      });
+    }
+
+    function setupModals() {
+      // --- Project Modal Logic ---
+      const openProjectModal = (projectId) => {
+        const project = websiteContent.projects.find(p => p.id == projectId);
+        if (!project) return;
+
+        // Populate modal with project data
+        DOM.modalTitle.textContent = project.detailed ? project.detailed.title : project.name;
+        DOM.modalCategory.textContent = project.detailed ? project.detailed.category : project.category;
+        DOM.modalStatus.textContent = project.detailed ? project.detailed.status :
+          project.status === 'available' ? 'Available' :
+            project.status === 'coming-soon' ? 'Coming Soon' : 'In Progress';
+        DOM.modalDescription.textContent = project.detailed ? project.detailed.description : project.description;
+        DOM.modalImage.style.backgroundImage = `url('${project.image}')`;
+
+        // Clear previous features and technologies
+        DOM.modalFeatures.innerHTML = '';
+        DOM.modalTechnologies.innerHTML = '';
+
+        // Add features if available
+        if (project.detailed && project.detailed.features) {
+          project.detailed.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            DOM.modalFeatures.appendChild(li);
+          });
+        } else {
+          DOM.modalFeatures.innerHTML = '<li>Detailed feature list coming soon</li>';
+        }
+
+        // Add technologies if available
+        if (project.detailed && project.detailed.technologies) {
+          project.detailed.technologies.forEach(tech => {
+            const li = document.createElement('li');
+            li.textContent = tech;
+            DOM.modalTechnologies.appendChild(li);
+          });
+        } else {
+          DOM.modalTechnologies.innerHTML = '<li>Technology stack details coming soon</li>';
+        }
+
+        // Show modal
+        DOM.projectModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeProjectModal = () => {
+        DOM.projectModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      };
+
+      // Set up event listeners for project cards
+      document.addEventListener('click', (e) => {
+        const projectCard = e.target.closest('.project-card');
+        if (projectCard) {
+          // Check if the click was on a link (Live Preview)
+          if (e.target.tagName === 'A' || e.target.closest('a')) {
+            return; // Don't open modal if clicking a link
+          }
+
+          const projectId = projectCard.getAttribute('data-project');
+          openProjectModal(projectId);
+        }
+      });
+
+      // Close project modal event listeners
+      DOM.closeModal.addEventListener('click', closeProjectModal);
+      DOM.projectModal.addEventListener('click', (e) => {
+        if (e.target === DOM.projectModal) {
+          closeProjectModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && DOM.projectModal.classList.contains('active')) {
+          closeProjectModal();
+        }
+      });
+    }
+
+    function setupFAQAccordion() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const arrow = question.querySelector('.faq-arrow');
+
+          // Toggle answer visibility
+          answer.classList.toggle('hidden');
+
+          // Rotate arrow
+          arrow.classList.toggle('rotate-180');
+        });
+      });
+    }
+
+    // Initialize the page
+    init();
   </script>
 </body>
+
 </html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service | tommyy.fit — Web Development Services</title>
+  <meta name="description"
+    content="Terms of service for tommyy.fit web development services. Learn about our policies, rights, and responsibilities." />
+
+  <!-- SEO & Social -->
+  <link rel="canonical" href="https://tommyyfit.github.io/portfolio.github.io/terms.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Terms of Service | tommyy.fit Web Development" />
+  <meta property="og:description"
+    content="Terms of service for tommyy.fit web development services. Learn about our policies, rights, and responsibilities." />
+  <meta property="og:url" content="https://tommyyfit.github.io/portfolio.github.io/terms.html" />
+  <meta property="og:image" content="https://tommyyfit.github.io/portfolio.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Terms of Service | tommyy.fit Web Development" />
+  <meta name="twitter:description"
+    content="Terms of service for tommyy.fit web development services. Learn about our policies, rights, and responsibilities." />
+  <meta name="twitter:image" content="https://tommyyfit.github.io/portfolio.github.io/og-image.png" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="script.js" as="script" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: "#0f172a",
+            sky: "#38bdf8",
+            mint: "#10b981",
+            accent: "#fbbf24",
+            slate: {
+              600: "#475569",
+              700: "#334155",
+              800: "#1e293b",
+              900: "#0f172a",
+            },
+          },
+          fontFamily: {
+            display: ["Poppins", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+          },
+          animation: {
+            fadeIn: "fadeIn 1s ease-out forwards",
+            float: "float 3s ease-in-out infinite",
+            pulseGlow: "pulseGlow 2s infinite",
+            bounceIn: "bounceIn 0.7s cubic-bezier(.68,-0.55,.27,1.55) both",
+            slideUp: "slideUp 0.7s cubic-bezier(.68,-0.55,.27,1.55) both",
+            ripple: "ripple 0.5s linear",
+            typing: "typing 2.5s steps(30, end) forwards",
+            blink: "blink 1s steps(1) infinite",
+            gradient: "gradient 8s ease infinite",
+            heroGradient: "heroGradient 8s ease-in-out infinite alternate",
+            textReveal: "textReveal 1s ease forwards",
+          },
+          keyframes: {
+            fadeIn: {
+              "0%": { opacity: 0, transform: "translateY(20px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-10px)" },
+            },
+            pulseGlow: {
+              "0%, 100%": { boxShadow: "0 0 0 0 rgba(16,185,129,0.7)" },
+              "50%": { boxShadow: "0 0 40px 10px rgba(16,185,129,0.3)" },
+            },
+            bounceIn: {
+              "0%": { opacity: 0, transform: "scale(0.3)" },
+              "50%": { opacity: 1, transform: "scale(1.05)" },
+              "70%": { transform: "scale(0.9)" },
+              "100%": { opacity: 1, transform: "scale(1)" },
+            },
+            slideUp: {
+              "0%": { opacity: 0, transform: "translateY(40px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
+            ripple: {
+              "0%": { boxShadow: "0 0 0 0 rgba(56,189,248,0.4)" },
+              "100%": { boxShadow: "0 0 0 20px rgba(56,189,248,0)" },
+            },
+            typing: {
+              from: { width: 0 },
+            },
+            blink: {
+              "0%, 100%": { opacity: 1 },
+              "50%": { opacity: 0 },
+            },
+            gradient: {
+              "0%, 100%": { backgroundPosition: "0% 50%" },
+              "50%": { backgroundPosition: "100% 50%" },
+            },
+            heroGradient: {
+              "0%, 100%": {
+                background: "linear-gradient(120deg, rgba(56, 189, 248, 0.12) 0%, rgba(16, 185, 129, 0.1) 100%)",
+              },
+              "50%": {
+                background: "linear-gradient(240deg, rgba(16, 185, 129, 0.14) 0%, rgba(56, 189, 248, 0.1) 100%)",
+              },
+            },
+            textReveal: {
+              "0%": { opacity: 0, transform: "translateY(20px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="font-body bg-white text-slate-600 antialiased">
+  <!-- Loader Overlay -->
+  <div id="loader"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-midnight transition-opacity duration-700">
+    <div class="flex flex-col items-center">
+      <div class="w-16 h-16 border-4 border-sky border-t-mint rounded-full animate-spin mb-4"
+        style="animation-duration: 1.5s"></div>
+      <span class="text-white text-lg font-display tracking-widest animate-pulse">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div id="progress" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-md z-40 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center group" aria-label="Home">
+        <span
+          class="text-2xl md:text-3xl font-display font-extrabold tracking-tight text-midnight group-hover:text-mint transition-colors duration-300 select-none"
+          style="letter-spacing: -0.02em">tommyy.fit</span>
+      </a>
+
+      <ul class="hidden md:flex space-x-8">
+        <li><a href="index.html#about"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">About</a></li>
+        <li><a href="index.html#resources"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Resources</a></li>
+        <li><a href="index.html#projects"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Projects</a></li>
+        <li><a href="index.html#contact"
+            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Contact</a></li>
+      </ul>
+
+      <button id="mobile-btn" aria-expanded="false" aria-label="Toggle mobile menu"
+        class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-mint rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-slate-800" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-xl z-50 md:hidden p-6 transform translate-x-full transition-transform duration-300 ease-in-out"
+      aria-hidden="true">
+      <button id="close-menu" class="absolute top-4 right-4 p-2" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="mt-16 flex flex-col space-y-6">
+        <a href="index.html#about"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">About</a>
+        <a href="index.html#resources"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Resources</a>
+        <a href="index.html#projects"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Projects</a>
+        <a href="index.html#contact"
+          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="terms-hero" class="relative min-h-80 flex items-center justify-center overflow-hidden pt-16">
+      <div class="absolute inset-0 bg-midnight z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-midnight/80 to-midnight/95 z-10"></div>
+        <div class="absolute inset-0 z-20 animate-heroGradient"></div>
+
+        <!-- Animated gradient background -->
+        <div class="absolute inset-0 hero-gradient"></div>
+      </div>
+
+      <div class="relative z-30 flex flex-col items-center justify-center w-full text-center px-6 py-16">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-white mb-6">
+          Terms of <span class="text-gradient">Service</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-slate-200 max-w-2xl mx-auto">
+          Web Development Services Agreement & Policies
+        </p>
+      </div>
+    </section>
+
+    <!-- TERMS CONTENT -->
+    <section class="py-20 bg-white section-reveal">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="prose prose-lg max-w-none">
+          <div class="mb-12">
+            <p class="text-slate-600 mb-6">
+              Last updated: <span class="font-semibold">January 1, 2025</span>
+            </p>
+            <p class="text-slate-600">
+              These Terms of Service govern your use of the web development services provided by 
+              <span class="font-semibold text-slate-800">tommyy.fit</span>. By engaging our services, 
+              you agree to these terms in full.
+            </p>
+          </div>
+
+          <div class="space-y-12">
+            <!-- Services Overview -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">1. Services Overview</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  tommyy.fit provides web development services including but not limited to:
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                  <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                    <h3 class="font-semibold text-slate-800 mb-2">Frontend Development</h3>
+                    <ul class="list-disc list-inside text-slate-600 text-sm space-y-1">
+                      <li>Responsive Web Design</li>
+                      <li>HTML/CSS/JavaScript</li>
+                      <li>Tailwind CSS Integration</li>
+                      <li>UI/UX Implementation</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                    <h3 class="font-semibold text-slate-800 mb-2">Portfolio Websites</h3>
+                    <ul class="list-disc list-inside text-slate-600 text-sm space-y-1">
+                      <li>Personal Branding Sites</li>
+                      <li>Showcase Portfolios</li>
+                      <li>Service Landing Pages</li>
+                      <li>Contact Forms & Integration</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Process -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">2. Project Process</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  Our web development projects typically follow this process:
+                </p>
+                
+                <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+                  <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 rounded-full bg-mint text-white flex items-center justify-center font-semibold mr-3">1</div>
+                      <span class="font-medium text-slate-800">Discovery & Planning</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 rounded-full bg-sky text-white flex items-center justify-center font-semibold mr-3">2</div>
+                      <span class="font-medium text-slate-800">Design & Development</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center font-semibold mr-3">3</div>
+                      <span class="font-medium text-slate-800">Testing & Review</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-8 h-8 rounded-full bg-mint text-white flex items-center justify-center font-semibold mr-3">4</div>
+                      <span class="font-medium text-slate-800">Delivery & Launch</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <p class="text-slate-600 text-sm mt-4">
+                  Each phase requires client approval before proceeding to the next stage. Timely feedback is essential 
+                  for meeting project deadlines.
+                </p>
+              </div>
+            </div>
+
+            <!-- Payment Terms -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">3. Payment Terms</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  Payment for web development services is structured as follows:
+                </p>
+                
+                <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                      <div class="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center mx-auto mb-3">
+                        <span class="text-mint font-bold">50%</span>
+                      </div>
+                      <p class="text-sm font-medium text-slate-800">Initial Deposit</p>
+                      <p class="text-xs text-slate-600 mt-1">Required to begin project work</p>
+                    </div>
+                    
+                    <div class="text-center">
+                      <div class="w-12 h-12 rounded-full bg-sky/10 flex items-center justify-center mx-auto mb-3">
+                        <span class="text-sky font-bold">40%</span>
+                      </div>
+                      <p class="text-sm font-medium text-slate-800">Mid-Project</p>
+                      <p class="text-xs text-slate-600 mt-1">After design approval</p>
+                    </div>
+                    
+                    <div class="text-center">
+                      <div class="w-12 h-12 rounded-full bg-mint/10 flex items-center justify-center mx-auto mb-3">
+                        <span class="text-mint font-bold">10%</span>
+                      </div>
+                      <p class="text-sm font-medium text-slate-800">Final Payment</p>
+                      <p class="text-xs text-slate-600 mt-1">Upon project completion</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <p class="text-slate-600 text-sm">
+                  All payments are due within 14 days of invoice. Late payments may result in project delays.
+                </p>
+              </div>
+            </div>
+
+            <!-- Intellectual Property -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">4. Intellectual Property</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  Upon full payment, clients receive:
+                </p>
+                
+                <ul class="list-disc list-inside text-slate-600 space-y-2">
+                  <li>Full ownership of the custom-developed website code</li>
+                  <li>All design assets created specifically for the project</li>
+                  <li>License to use the completed website for its intended purpose</li>
+                </ul>
+                
+                <p class="text-slate-600">
+                  tommyy.fit retains the right to:
+                </p>
+                
+                <ul class="list-disc list-inside text-slate-600 space-y-2">
+                  <li>Display the completed project in our portfolio</li>
+                  <li>Use project screenshots for marketing purposes</li>
+                  <li>Reuse generic code patterns and libraries in other projects</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Client Responsibilities -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">5. Client Responsibilities</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  Clients are responsible for:
+                </p>
+                
+                <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 rounded-full bg-mint/20 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                        <div class="w-2 h-2 rounded-full bg-mint"></div>
+                      </div>
+                      <p class="text-sm text-slate-700">Providing all necessary content (text, images, etc.) in a timely manner</p>
+                    </div>
+                    
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 rounded-full bg-mint/20 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                        <div class="w-2 h-2 rounded-full bg-mint"></div>
+                      </div>
+                      <p class="text-sm text-slate-700">Providing feedback and approvals within agreed timeframes</p>
+                    </div>
+                    
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 rounded-full bg-mint/20 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                        <div class="w-2 h-2 rounded-full bg-mint"></div>
+                      </div>
+                      <p class="text-sm text-slate-700">Securing domain name and hosting services</p>
+                    </div>
+                    
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 rounded-full bg-mint/20 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                        <div class="w-2 h-2 rounded-full bg-mint"></div>
+                      </div>
+                      <p class="text-sm text-slate-700">Ensuring they have rights to all provided materials</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Revisions & Changes -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">6. Revisions & Changes</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  Our web development packages include:
+                </p>
+                
+                <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+                  <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-center mb-4 md:mb-0">
+                      <div class="text-2xl font-bold text-mint mb-1">2</div>
+                      <p class="text-sm font-medium text-slate-800">Rounds of Revisions</p>
+                      <p class="text-xs text-slate-600">Included in base price</p>
+                    </div>
+                    
+                    <div class="text-center mb-4 md:mb-0">
+                      <div class="text-2xl font-bold text-sky mb-1">30</div>
+                      <p class="text-sm font-medium text-slate-800">Days Post-Launch</p>
+                      <p class="text-xs text-slate-600">Bug fixes included</p>
+                    </div>
+                    
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-accent mb-1">$75/hr</div>
+                      <p class="text-sm font-medium text-slate-800">Additional Work</p>
+                      <p class="text-xs text-slate-600">After included revisions</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <p class="text-slate-600 text-sm">
+                  Significant changes to the project scope after approval may require additional fees and timeline adjustments.
+                </p>
+              </div>
+            </div>
+
+            <!-- Termination -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">7. Termination</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  Either party may terminate a project with written notice. In case of termination:
+                </p>
+                
+                <ul class="list-disc list-inside text-slate-600 space-y-2">
+                  <li>Client will pay for all work completed up to the termination date</li>
+                  <li>All delivered work will be transferred to the client</li>
+                  <li>Any deposits are non-refundable once work has commenced</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Limitation of Liability -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">8. Limitation of Liability</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  tommyy.fit's total liability for any claim arising from our services shall not exceed 
+                  the total amount paid by the client for those specific services.
+                </p>
+                
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                  <p class="text-yellow-800 text-sm">
+                    <strong>Note:</strong> We are not responsible for issues arising from third-party services, 
+                    client-provided content, or factors outside our direct control.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Governing Law -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">9. Governing Law</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  These Terms shall be governed by and construed in accordance with the laws of 
+                  the jurisdiction where tommyy.fit is based, without regard to its conflict of law provisions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Changes to Terms -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">10. Changes to Terms</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  We reserve the right to modify these terms at any time. Continued use of our services 
+                  after changes constitutes acceptance of the new terms.
+                </p>
+              </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="section-reveal">
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-midnight mb-6">11. Contact Information</h2>
+              <div class="space-y-4">
+                <p class="text-slate-600">
+                  For questions about these Terms, please contact us:
+                </p>
+                
+                <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+                  <div class="flex flex-col md:flex-row justify-between">
+                    <div>
+                      <p class="font-medium text-slate-800">Email</p>
+                      <a href="mailto:tommyy.fitt@gmail.com" class="text-sky hover:text-mint transition-colors">
+                        tommyy.fitt@gmail.com
+                      </a>
+                    </div>
+                    
+                    <div class="mt-4 md:mt-0">
+                      <p class="font-medium text-slate-800">Website</p>
+                      <a href="index.html#contact" class="text-sky hover:text-mint transition-colors">
+                        Contact Page
+                      </a>
+                    </div>
+                    
+                    <div class="mt-4 md:mt-0">
+                      <p class="font-medium text-slate-800">Social Media</p>
+                      <a href="https://beacons.ai/tommyy.fit" class="text-sky hover:text-mint transition-colors">
+                        Beacons.ai
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-midnight text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <span class="text-xl font-display font-bold">tommyy.fit</span>
+          <p class="text-slate-400 mt-2">Building stronger bodies & minds using my knowledge.</p>
+        </div>
+
+        <div class="flex space-x-6">
+          <a href="mailto:tommyy.fitt@gmail.com" class="text-slate-400 hover:text-white transition-colors"
+            aria-label="Email">
+            <span class="sr-only">Email</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+
+          <a href="https://github.com/tommyyfit" class="text-slate-400 hover:text-white transition-colors"
+            aria-label="GitHub">
+            <span class="sr-only">GitHub</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </a>
+
+          <a href="https://beacons.ai/tommyy.fit" class="text-slate-400 hover:text-white transition-colors"
+            aria-label="Beacons">
+            <span class="sr-only">Beacons</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-slate-500 text-sm">© 2025 tommyy.fit. All rights reserved.</p>
+        <div class="mt-4 md:mt-0 flex space-x-4">
+          <a href="privacy.html" class="text-slate-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
+          <a href="terms.html" class="text-slate-500 hover:text-white text-sm transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Action Button -->
+  <button id="fab"
+    class="fixed bottom-8 right-8 z-40 bg-gradient-to-r from-sky to-mint text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center text-xl hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-mint focus:ring-offset-2 opacity-0 invisible transition-all duration-300"
+    aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>

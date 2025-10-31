@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindPlan - 30-Day Wellbeing Challenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #5b7db1;
+            --primary-light: #7d9bc1;
+            --primary-dark: #3c5c8f;
+            --secondary: #6bb5a3;
+            --accent: #ff9a76;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --background: #f9f9f9;
+            --surface: #ffffff;
+            --error: #d32f2f;
+            --success: #388e3c;
+            --warning: #f57c00;
+            --border: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --radius: 16px;
+            --transition: all 0.3s ease;
+            --header-height: 80px;
+        }
+
+        [data-theme="dark"] {
+            --primary: #7d9bc1;
+            --primary-light: #9db5d6;
+            --primary-dark: #5b7db1;
+            --text: #f5f5f5;
+            --text-light: #b0b0b0;
+            --background: #1a1a1a;
+            --surface: #2d2d2d;
+            --border: #444;
+            --shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            transition: var(--transition);
+            padding-bottom: 100px;
+        }
+
+        header {
+            background-color: var(--surface);
+            box-shadow: var(--shadow);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: bold;
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a, nav button {
+            text-decoration: none;
+            color: var(--text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav button:hover, nav a.active {
+            background-color: var(--primary-light);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background-color: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .card {
+            background-color: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        button.secondary {
+            background-color: var(--secondary);
+        }
+
+        button.secondary:hover {
+            background-color: #5a9e8c;
+        }
+
+        button.accent {
+            background-color: var(--accent);
+            color: #333;
+        }
+
+        button.accent:hover {
+            background-color: #ff8a5c;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.875rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--surface);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(91, 125, 177, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: bold;
+            color: var(--text);
+        }
+
+        .progress-bar {
+            height: 16px;
+            background-color: var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+            border-radius: 8px;
+            transition: width 0.5s ease;
+            width: 0%;
+            box-shadow: 0 0 10px rgba(91, 125, 177, 0.3);
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+            border-radius: var(--radius);
+            margin-bottom: 0.75rem;
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .task-item:hover {
+            background-color: rgba(107, 181, 163, 0.1);
+            transform: translateX(5px);
+        }
+
+        .task-checkbox {
+            margin-right: 1.25rem;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            accent-color: var(--secondary);
+        }
+
+        .task-content {
+            flex-grow: 1;
+        }
+
+        .task-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .task-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-button:hover {
+            background-color: var(--border);
+            color: var(--text);
+            transform: rotate(15deg);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background-color: var(--surface);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: modalFade 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: 0.25rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background-color: var(--border);
+            color: var(--text);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        footer {
+            background-color: var(--surface);
+            padding: 1.5rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .help-section {
+            background-color: rgba(255, 154, 118, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: var(--radius);
+        }
+
+        .score-display {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--primary);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .trend-up {
+            color: var(--success);
+        }
+
+        .trend-down {
+            color: var(--error);
+        }
+
+        .trend-neutral {
+            color: var(--text-light);
+        }
+
+        .sparkline {
+            height: 50px;
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            margin: 1.5rem 0;
+            padding: 0.5rem;
+            background: rgba(0,0,0,0.03);
+            border-radius: var(--radius);
+        }
+
+        .sparkline-bar {
+            background: linear-gradient(to top, var(--primary), var(--primary-light));
+            flex: 1;
+            border-radius: 3px 3px 0 0;
+            transition: height 0.5s ease;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            background-color: var(--primary-light);
+            color: white;
+            font-weight: 500;
+        }
+
+        .completed-count {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: rgba(107, 181, 163, 0.1);
+            border-radius: var(--radius);
+            font-weight: 500;
+        }
+
+        .completed-count i {
+            color: var(--success);
+            font-size: 1.5rem;
+        }
+
+        .day-card {
+            cursor: pointer;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-completion {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .day-completion.completed {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .slider-container {
+            margin: 1.75rem 0;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: var(--border);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .slider:hover {
+            opacity: 0.9;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin: 1.25rem 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .checkbox-item:hover {
+            background-color: rgba(91, 125, 177, 0.1);
+        }
+
+        .checkbox-item input {
+            width: auto;
+            margin: 0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-group button {
+            flex: 1;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                height: auto;
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            main {
+                margin: 1rem auto;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn-group button {
+                width: 100%;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 1rem 1.5rem;
+            background-color: var(--surface);
+            color: var(--text);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1001;
+            animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
+            max-width: 350px;
+        }
+
+        @keyframes toastIn {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes toastOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100px); opacity: 0; }
+        }
+
+        .toast.success {
+            border-left: 4px solid var(--success);
+        }
+
+        .toast.error {
+            border-left: 4px solid var(--error);
+        }
+
+        .toast.info {
+            border-left: 4px solid var(--primary);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--border);
+        }
+
+        /* Animation for task completion */
+        @keyframes taskComplete {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .task-complete {
+            animation: taskComplete 0.5s ease;
+        }
+
+        /* Stats cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .stat-card p {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <div class="logo">
+            <i class="fas fa-brain"></i>
+            <span>MindPlan</span>
+        </div>
+        <nav aria-label="Primary">
+            <a href="#dashboard" class="active" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#plan" data-section="plan"><i class="fas fa-calendar-alt"></i> Plan</a>
+            <a href="#checkins" data-section="checkins"><i class="fas fa-chart-line"></i> Check-ins</a>
+            <a href="#profile" data-section="profile"><i class="fas fa-user"></i> Profile</a>
+            <a href="#data" data-section="data"><i class="fas fa-database"></i> Data</a>
+            <button id="themeToggle" aria-pressed="false"><i class="fas fa-moon"></i> Theme</button>
+        </nav>
+    </header>
+
+    <main id="app" role="main">
+        <section id="dashboard">
+            <h2><i class="fas fa-home"></i> Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-heart"></i>
+                    <h3 id="currentScore">--</h3>
+                    <p>Wellbeing Score</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3 id="completedTasksCount">0</h3>
+                    <p>Completed Tasks</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <h3 id="streakCount">0</h3>
+                    <p>Day Streak</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Your Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="scoreProgress"></div>
+                </div>
+                <div id="scoreExplanation" class="help-section"></div>
+                <div class="sparkline" id="sparkline" role="img" aria-label="Score trend"></div>
+            </div>
+            
+            <div class="card">
+                <h3>Today's Tasks</h3>
+                <div class="completed-count">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="completedCount">0</span> of <span id="totalTasks">0</span> tasks completed today
+                </div>
+                <div id="todayTasks"></div>
+            </div>
+        </section>
+
+        <section id="plan" class="hidden">
+            <div class="flex" style="justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2><i class="fas fa-calendar-alt"></i> Your 30-Day Plan</h2>
+                <button id="addCustomTask" class="secondary"><i class="fas fa-plus"></i> Add Custom Task</button>
+            </div>
+            <div class="grid" id="planGrid"></div>
+        </section>
+
+        <section id="checkins" class="hidden">
+            <h2><i class="fas fa-chart-line"></i> Weekly Check-ins</h2>
+            <div id="checkinHistory"></div>
+        </section>
+
+        <section id="profile" class="hidden">
+            <h2><i class="fas fa-user"></i> Profile & Preferences</h2>
+            <form id="profileForm" novalidate></form>
+            <div class="btn-group">
+                <button id="saveProfile"><i class="fas fa-save"></i> Save Changes</button>
+                <button id="regeneratePlan" class="accent"><i class="fas fa-sync"></i> Regenerate Plan</button>
+            </div>
+        </section>
+
+        <section id="data" class="hidden">
+            <h2><i class="fas fa-database"></i> Data & Privacy</h2>
+            <div class="card">
+                <p>This app stores your data only in your browser (localStorage). It never sends your information to any server.</p>
+                <div class="btn-group">
+                    <button id="exportBtn"><i class="fas fa-download"></i> Export data</button>
+                    <div>
+                        <input type="file" id="importFile" accept="application/json" style="display: none;" />
+                        <button id="importBtn"><i class="fas fa-upload"></i> Import data</button>
+                    </div>
+                    <button id="clearBtn" class="accent"><i class="fas fa-trash"></i> Clear all data</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p><strong>This app offers general wellbeing support and is not a substitute for professional care.</strong></p>
+    </footer>
+
+    <div id="modalRoot" aria-live="assertive"></div>
+
+    <script>
+        // State management
+        const STATE_KEY = 'mindplan.v2';
+        
+        // Enhanced task library with 50+ tasks across categories
+        const taskLibrary = [
+            // Sleep tasks
+            { id: 'sleep-1', category: 'sleep', title: 'Consistent wake time', description: 'Wake up at the same time today, even on weekends', durationMin: 0, difficulty: 1 },
+            { id: 'sleep-2', category: 'sleep', title: 'Screen-free before bed', description: 'Avoid screens for 30 minutes before bedtime', durationMin: 0, difficulty: 2 },
+            { id: 'sleep-3', category: 'sleep', title: 'Relaxing bedtime routine', description: 'Create a calming 15-minute pre-sleep routine', durationMin: 15, difficulty: 2 },
+            { id: 'sleep-4', category: 'sleep', title: 'Sleep environment check', description: 'Make your bedroom darker, quieter, and cooler', durationMin: 5, difficulty: 1 },
+            { id: 'sleep-5', category: 'sleep', title: 'Limit caffeine', description: 'Avoid caffeine after 2 PM today', durationMin: 0, difficulty: 2 },
+            
+            // Movement tasks
+            { id: 'movement-1', category: 'movement', title: '5-minute walk', description: 'Take a short walk outside or around your home', durationMin: 5, difficulty: 1 },
+            { id: 'movement-2', category: 'movement', title: 'Gentle stretching', description: 'Do 10 minutes of gentle stretching', durationMin: 10, difficulty: 2 },
+            { id: 'movement-3', category: 'movement', title: 'Desk exercises', description: 'Perform 5 minutes of simple exercises while at your desk', durationMin: 5, difficulty: 1 },
+            { id: 'movement-4', category: 'movement', title: 'Posture check', description: 'Practice good posture for 15 minutes', durationMin: 15, difficulty: 1 },
+            { id: 'movement-5', category: 'movement', title: 'Take the stairs', description: 'Choose stairs over elevator whenever possible today', durationMin: 2, difficulty: 1 },
+            
+            // Mindfulness tasks
+            { id: 'mindfulness-1', category: 'mindfulness', title: 'Deep breathing', description: 'Practice deep breathing for 3 minutes', durationMin: 3, difficulty: 1 },
+            { id: 'mindfulness-2', category: 'mindfulness', title: 'Body scan', description: 'Do a quick body scan meditation', durationMin: 5, difficulty: 2 },
+            { id: 'mindfulness-3', category: 'mindfulness', title: 'Sensory awareness', description: 'Spend 2 minutes noticing your senses', durationMin: 2, difficulty: 1 },
+            { id: 'mindfulness-4', category: 'mindfulness', title: 'Gratitude moment', description: 'Write down three things you\'re grateful for', durationMin: 3, difficulty: 1 },
+            { id: 'mindfulness-5', category: 'mindfulness', title: 'Mindful eating', description: 'Eat one meal today without distractions', durationMin: 15, difficulty: 2 },
+            
+            // Connection tasks
+            { id: 'connection-1', category: 'connection', title: 'Reach out', description: 'Send a message to a friend or family member', durationMin: 5, difficulty: 1 },
+            { id: 'connection-2', category: 'connection', title: 'Gratitude sharing', description: 'Share something you\'re grateful for with someone', durationMin: 5, difficulty: 2 },
+            { id: 'connection-3', category: 'connection', title: 'Compliment someone', description: 'Give a genuine compliment to someone today', durationMin: 2, difficulty: 1 },
+            { id: 'connection-4', category: 'connection', title: 'Digital detox', description: 'Have a 30-minute conversation without phones', durationMin: 30, difficulty: 3 },
+            { id: 'connection-5', category: 'connection', title: 'Check on someone', description: 'Check in on someone you haven\'t spoken to recently', durationMin: 10, difficulty: 2 },
+            
+            // Self-care tasks
+            { id: 'selfCare-1', category: 'selfCare', title: 'Hydration reminder', description: 'Drink two glasses of water before noon', durationMin: 2, difficulty: 1 },
+            { id: 'selfCare-2', category: 'selfCare', title: 'Enjoyable activity', description: 'Do one thing you genuinely enjoy today', durationMin: 15, difficulty: 2 },
+            { id: 'selfCare-3', category: 'selfCare', title: 'Digital break', description: 'Take a 30-minute break from all digital devices', durationMin: 30, difficulty: 2 },
+            { id: 'selfCare-4', category: 'selfCare', title: 'Tidy space', description: 'Spend 10 minutes tidying your immediate space', durationMin: 10, difficulty: 1 },
+            { id: 'selfCare-5', category: 'selfCare', title: 'Positive affirmation', description: 'Repeat a positive affirmation to yourself', durationMin: 2, difficulty: 1 },
+            
+            // Productivity tasks
+            { id: 'productivity-1', category: 'productivity', title: '2-minute tidy-up', description: 'Quickly tidy up your workspace', durationMin: 2, difficulty: 1 },
+            { id: 'productivity-2', category: 'productivity', title: 'Priority list', description: 'Write down your top 3 priorities for the day', durationMin: 3, difficulty: 1 },
+            { id: 'productivity-3', category: 'productivity', title: 'Pomodoro technique', description: 'Work in focused 25-minute intervals', durationMin: 25, difficulty: 2 },
+            { id: 'productivity-4', category: 'productivity', title: 'Digital organization', description: 'Organize your computer desktop or phone home screen', durationMin: 5, difficulty: 1 },
+            { id: 'productivity-5', category: 'productivity', title: 'Break tasks down', description: 'Break a large task into smaller, manageable steps', durationMin: 5, difficulty: 2 }
+        ];
+
+        const defaultState = {
+            profile: {
+                name: '',
+                ageRange: '25-39',
+                sleepHours: 7,
+                activityLevel: 'moderate',
+                stressLevel: 3,
+                socialSupport: 3,
+                focusAreas: ['sleep', 'stress'],
+                constraints: {
+                    timePerDay: '10',
+                    preferredTimes: 'flex'
+                }
+            },
+            plan: null,
+            score: {
+                currentScore: 0,
+                history: [],
+                lastCheckInDate: null,
+                nextCheckInDate: null
+            },
+            settings: {
+                theme: 'system',
+                reduceMotion: false
+            },
+            appMeta: {
+                version: 2,
+                firstVisit: new Date().toISOString(),
+                lastVisit: new Date().toISOString(),
+                streak: 0
+            }
+        };
+
+        // Load state from localStorage
+        function loadState() {
+            try {
+                const stored = localStorage.getItem(STATE_KEY);
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    // Handle version updates
+                    if (parsed.appMeta && parsed.appMeta.version === 1) {
+                        parsed.appMeta.version = 2;
+                        parsed.appMeta.lastVisit = new Date().toISOString();
+                        parsed.appMeta.streak = 0;
+                    }
+                    return {...defaultState, ...parsed};
+                }
+            } catch (e) {
+                console.error('Error loading state:', e);
+            }
+            return {...defaultState};
+        }
+
+        // Save state to localStorage
+        function saveState(state) {
+            try {
+                state.appMeta.lastVisit = new Date().toISOString();
+                localStorage.setItem(STATE_KEY, JSON.stringify(state));
+                return true;
+            } catch (e) {
+                console.error('Error saving state:', e);
+                showToast('Error saving data', 'error');
+                return false;
+            }
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'info') {
+            // Remove existing toasts
+            const existingToasts = document.querySelectorAll('.toast');
+            existingToasts.forEach(toast => toast.remove());
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = 'fas fa-info-circle';
+            if (type === 'success') icon = 'fas fa-check-circle';
+            if (type === 'error') icon = 'fas fa-exclamation-circle';
+            
+            toast.innerHTML = `
+                <i class="${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Remove toast after animation
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 3000);
+        }
+
+        // Initialize app state
+        let appState = loadState();
+
+        // DOM ready handler
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        function initializeApp() {
+            setupNavigation();
+            setupEventListeners();
+            applyTheme(appState.settings.theme);
+            checkStreak();
+            
+            // Check if we need to show onboarding
+            if (!appState.profile.name) {
+                showOnboarding();
+            } else {
+                showSection('dashboard');
+                updateUI();
+            }
+            
+            // Check if a weekly check-in is due
+            setTimeout(checkForWeeklyCheckin, 1000);
+        }
+
+        // Check and update streak
+        function checkStreak() {
+            const lastVisit = new Date(appState.appMeta.lastVisit);
+            const today = new Date();
+            const yesterday = new Date(today);
+            yesterday.setDate(yesterday.getDate() - 1);
+            
+            // Reset time parts for accurate comparison
+            lastVisit.setHours(0, 0, 0, 0);
+            today.setHours(0, 0, 0, 0);
+            yesterday.setHours(0, 0, 0, 0);
+            
+            // If last visit was yesterday, increment streak
+            if (lastVisit.getTime() === yesterday.getTime()) {
+                appState.appMeta.streak += 1;
+            } 
+            // If last visit was before yesterday, reset streak
+            else if (lastVisit.getTime() < yesterday.getTime()) {
+                appState.appMeta.streak = 1;
+            }
+            // If already visited today, keep the streak
+            else if (lastVisit.getTime() === today.getTime()) {
+                // Streak remains the same
+            }
+            // First time visit
+            else {
+                appState.appMeta.streak = 1;
+            }
+            
+            saveState(appState);
+        }
+
+        // Navigation
+        function setupNavigation() {
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    showSection(sectionId);
+                });
+            });
+            
+            // Theme toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        }
+
+        function showSection(sectionId) {
+            // Update active nav link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === sectionId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Show selected section
+            document.querySelectorAll('main section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Special handling for certain sections
+            if (sectionId === 'plan') {
+                renderPlanView();
+            } else if (sectionId === 'checkins') {
+                renderCheckinHistory();
+            } else if (sectionId === 'profile') {
+                renderProfileForm();
+            }
+            
+            // Store current section for later use
+            window.currentSection = sectionId;
+        }
+
+        function toggleTheme() {
+            const currentTheme = appState.settings.theme;
+            let newTheme;
+            
+            if (currentTheme === 'system') {
+                // If system, toggle to light
+                newTheme = 'light';
+            } else if (currentTheme === 'light') {
+                newTheme = 'dark';
+            } else {
+                newTheme = 'system';
+            }
+            
+            appState.settings.theme = newTheme;
+            saveState(appState);
+            applyTheme(newTheme);
+            updateThemeButtonText(newTheme);
+            showToast(`Theme changed to ${newTheme}`);
+        }
+
+        function applyTheme(theme) {
+            if (theme === 'system') {
+                // Check system preference
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+            } else {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+        }
+        
+        function updateThemeButtonText(theme) {
+            const themeButton = document.getElementById('themeToggle');
+            if (theme === 'dark') {
+                themeButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                themeButton.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
+        }
+
+        function setupEventListeners() {
+            // Export button
+            document.getElementById('exportBtn').addEventListener('click', exportData);
+            
+            // Import button
+            document.getElementById('importBtn').addEventListener('click', () => {
+                document.getElementById('importFile').click();
+            });
+            document.getElementById('importFile').addEventListener('change', importData);
+            
+            // Clear data button
+            document.getElementById('clearBtn').addEventListener('click', confirmClearData);
+            
+            // Profile form buttons
+            document.getElementById('saveProfile').addEventListener('click', saveProfile);
+            document.getElementById('regeneratePlan').addEventListener('click', confirmRegeneratePlan);
+            
+            // Add custom task button
+            document.getElementById('addCustomTask').addEventListener('click', showAddTaskModal);
+        }
+
+        // Update UI with current state
+        function updateUI() {
+            updateScoreDisplay();
+            updateTodayTasks();
+            updateSparkline();
+            updateStats();
+        }
+        
+        // Update stats cards
+        function updateStats() {
+            document.getElementById('currentScore').textContent = appState.score.currentScore;
+            document.getElementById('streakCount').textContent = appState.appMeta.streak;
+            
+            // Calculate total completed tasks
+            let completedTasks = 0;
+            if (appState.plan && appState.plan.days) {
+                appState.plan.days.forEach(day => {
+                    day.tasks.forEach(task => {
+                        if (task.completed) completedTasks++;
+                    });
+                });
+            }
+            document.getElementById('completedTasksCount').textContent = completedTasks;
+        }
+
+        // Update score display
+        function updateScoreDisplay() {
+            const score = appState.score.currentScore;
+            document.getElementById('currentScore').textContent = score;
+            document.getElementById('scoreProgress').style.width = `${score}%`;
+            
+            // Generate score explanation
+            const reasons = computeScoreReasons(appState.profile);
+            document.getElementById('scoreExplanation').textContent = 
+                `Your current score reflects ${reasons.join(', ')}. Improving sleep or reducing stress will lift it.`;
+        }
+
+        // Compute score reasons for display
+        function computeScoreReasons(profile) {
+            const reasons = [];
+            
+            if (profile.sleepHours < 7) reasons.push('sleep quality');
+            if (profile.stressLevel >= 4) reasons.push('stress levels');
+            if (profile.activityLevel === 'low') reasons.push('activity level');
+            if (profile.socialSupport <= 2) reasons.push('social support');
+            
+            return reasons.length > 0 ? reasons : ['balanced lifestyle factors'];
+        }
+
+        // Update today's tasks
+        function updateTodayTasks() {
+            const today = new Date().toISOString().split('T')[0];
+            const todayPlan = appState.plan?.days.find(day => day.date.startsWith(today));
+            const todayTasks = todayPlan?.tasks || [];
+            
+            const container = document.getElementById('todayTasks');
+            container.innerHTML = '';
+            
+            if (todayTasks.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>No tasks scheduled for today</h3>
+                        <p>Enjoy your day off or add some tasks to your plan!</p>
+                    </div>
+                `;
+                document.getElementById('completedCount').textContent = '0';
+                document.getElementById('totalTasks').textContent = '0';
+                return;
+            }
+            
+            // Update completed count
+            const completedCount = todayTasks.filter(task => task.completed).length;
+            document.getElementById('completedCount').textContent = completedCount;
+            document.getElementById('totalTasks').textContent = todayTasks.length;
+            
+            // Render tasks
+            todayTasks.forEach(task => {
+                const taskEl = document.createElement('div');
+                taskEl.className = 'task-item';
+                taskEl.innerHTML = `
+                    <input type="checkbox" class="task-checkbox" id="task-${task.id}" ${task.completed ? 'checked' : ''}>
+                    <div class="task-content">
+                        <div class="task-title">${task.title}</div>
+                        <div class="task-description">${task.description}</div>
+                        <div class="task-meta">
+                            <span><i class="fas fa-clock"></i> ${task.durationMin} min</span>
+                            <span><i class="fas fa-signal"></i> ${['Easy', 'Moderate', 'Challenging'][task.difficulty - 1]}</span>
+                            <span class="category-tag">${task.category}</span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="icon-button" aria-label="Rate task">
+                            <i class="fas fa-star"></i>
+                        </button>
+                    </div>
+                `;
+                
+                // Add event listener for checkbox
+                const checkbox = taskEl.querySelector('.task-checkbox');
+                checkbox.addEventListener('change', () => {
+                    task.completed = checkbox.checked;
+                    saveState(appState);
+                    updateTodayTasks();
+                    updateSparkline();
+                    updateStats();
+                    
+                    if (checkbox.checked) {
+                        taskEl.classList.add('task-complete');
+                        setTimeout(() => {
+                            taskEl.classList.remove('task-complete');
+                        }, 500);
+                        showToast('Task completed! Great job!', 'success');
+                    }
+                });
+                
+                container.appendChild(taskEl);
+            });
+        }
+
+        // Update sparkline chart
+        function updateSparkline() {
+            const history = appState.score.history;
+            if (history.length < 2) {
+                document.getElementById('sparkline').innerHTML = '<div class="empty-state">Not enough data yet</div>';
+                return;
+            }
+            
+            const container = document.getElementById('sparkline');
+            container.innerHTML = '';
+            
+            const scores = history.map(entry => entry.score);
+            const maxScore = Math.max(...scores);
+            const minScore = Math.min(...scores);
+            const range = maxScore - minScore || 1; // Avoid division by zero
+            
+            scores.forEach(score => {
+                const bar = document.createElement('div');
+                bar.className = 'sparkline-bar';
+                bar.style.height = `${10 + ((score - minScore) / range) * 30}px`;
+                container.appendChild(bar);
+            });
+        }
+
+        // Show onboarding
+        function showOnboarding() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="modal-close" onclick="document.body.removeChild(this.parentNode.parentNode);">&times;</button>
+                    <h2>Welcome to MindPlan</h2>
+                    <p>Let's create your personalized 30-day wellbeing plan.</p>
+                    <form id="onboardingForm">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
+                        
+                        <label for="ageRange">Age Range</label>
+                        <select id="ageRange" required>
+                            <option value="under18">Under 18</option>
+                            <option value="18-24">18-24</option>
+                            <option value="25-39" selected>25-39</option>
+                            <option value="40-59">40-59</option>
+                            <option value="60plus">60+</option>
+                        </select>
+                        
+                        <label for="sleepHours">Average Hours of Sleep per Night</label>
+                        <input type="number" id="sleepHours" min="0" max="12" value="7" required>
+                        
+                        <label for="activityLevel">Activity Level</label>
+                        <select id="activityLevel" required>
+                            <option value="low">Low</option>
+                            <option value="moderate" selected>Moderate</option>
+                            <option value="high">High</option>
+                        </select>
+                        
+                        <div class="slider-container">
+                            <label for="stressLevel">Stress Level (1=Low, 5=High)</label>
+                            <input type="range" min="1" max="5" value="3" class="slider" id="stressLevel">
+                            <div class="slider-labels">
+                                <span>Low</span>
+                                <span id="stressValue">3</span>
+                                <span>High</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="socialSupport">Social Support (1=Low, 5=High)</label>
+                            <input type="range" min="1" max="5" value="3" class="slider" id="socialSupport">
+                            <div class="slider-labels">
+                                <span>Low</span>
+                                <span id="socialValue">3</span>
+                                <span>High</span>
+                            </div>
+                        </div>
+                        
+                        <label>Focus Areas (select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="focusSleep" value="sleep" checked> 
+                                <label for="focusSleep">Sleep</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="focusStress" value="stress" checked> 
+                                <label for="focusStress">Stress</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="focusMood" value="mood"> 
+                                <label for="focusMood">Mood</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="focusRoutine" value="routine"> 
+                                <label for="focusRoutine">Routine</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="focusConnection" value="connection"> 
+                                <label for="focusConnection">Connection</label>
+                            </div>
+                        </div>
+                        
+                        <label for="timePerDay">Time Available Daily (minutes)</label>
+                        <select id="timePerDay" required>
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                        </select>
+                        
+                        <label for="preferredTimes">Preferred Time of Day</label>
+                        <select id="preferredTimes" required>
+                            <option value="morning">Morning</option>
+                            <option value="midday">Midday</option>
+                            <option value="evening">Evening</option>
+                            <option value="flex" selected>Flexible</option>
+                        </select>
+                    </form>
+                    <button id="startPlan" style="width: 100%; margin-top: 1.5rem;">
+                        <i class="fas fa-rocket"></i> Create My Plan
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add event listeners for sliders
+            document.getElementById('stressLevel').addEventListener('input', (e) => {
+                document.getElementById('stressValue').textContent = e.target.value;
+            });
+            
+            document.getElementById('socialSupport').addEventListener('input', (e) => {
+                document.getElementById('socialValue').textContent = e.target.value;
+            });
+            
+            document.getElementById('startPlan').addEventListener('click', () => {
+                // Collect form data
+                const profile = {
+                    name: document.getElementById('name').value,
+                    ageRange: document.getElementById('ageRange').value,
+                    sleepHours: parseInt(document.getElementById('sleepHours').value),
+                    activityLevel: document.getElementById('activityLevel').value,
+                    stressLevel: parseInt(document.getElementById('stressLevel').value),
+                    socialSupport: parseInt(document.getElementById('socialSupport').value),
+                    focusAreas: [],
+                    constraints: {
+                        timePerDay: document.getElementById('timePerDay').value,
+                        preferredTimes: document.getElementById('preferredTimes').value
+                    }
+                };
+                
+                // Validate name
+                if (!profile.name.trim()) {
+                    showToast('Please enter your name', 'error');
+                    return;
+                }
+                
+                // Get focus areas
+                ['focusSleep', 'focusStress', 'focusMood', 'focusRoutine', 'focusConnection'].forEach(id => {
+                    if (document.getElementById(id).checked) {
+                        profile.focusAreas.push(document.getElementById(id).value);
+                    }
+                });
+                
+                // Update app state
+                appState.profile = profile;
+                
+                // Compute initial score
+                const scoreResult = computeInitialScore(profile);
+                appState.score.currentScore = scoreResult.score;
+                appState.score.history.push({
+                    date: new Date().toISOString(),
+                    score: scoreResult.score,
+                    reason: 'Initial assessment'
+                });
+                
+                // Generate plan
+                appState.plan = generatePlan(profile, new Date().toISOString());
+                
+                // Set next check-in date (7 days from now)
+                const nextCheckIn = new Date();
+                nextCheckIn.setDate(nextCheckIn.getDate() + 7);
+                appState.score.nextCheckInDate = nextCheckIn.toISOString();
+                
+                // Save state and update UI
+                if (saveState(appState)) {
+                    document.body.removeChild(modal);
+                    showSection('dashboard');
+                    updateUI();
+                    showToast('Your personalized plan has been created!', 'success');
+                }
+            });
+        }
+
+        // Compute initial score
+        function computeInitialScore(profile) {
+            // Normalize 0-100
+            const sleep = Math.min(Math.max((profile.sleepHours / 8) * 100, 0), 100); // target ~8
+            const stress = 100 - ((profile.stressLevel - 1) / 4) * 100;  // 1 good, 5 tough
+            const activityMap = { low: 30, moderate: 65, high: 85 };
+            const activity = activityMap[profile.activityLevel] || 50;
+            const social = ((profile.socialSupport - 1) / 4) * 100;
+            const routineMap = { "5": 30, "10": 50, "20": 70, "30": 85 };
+            const routine = routineMap[profile.constraints.timePerDay] || 50;
+
+            const score = Math.round(
+                0.25 * sleep +
+                0.25 * stress +
+                0.20 * activity +
+                0.20 * social +
+                0.10 * routine
+            );
+            
+            const reasons = [
+                `Sleep contributes ${Math.round(0.25 * sleep)} points`,
+                `Stress contributes ${Math.round(0.25 * stress)} points`,
+                `Activity contributes ${Math.round(0.20 * activity)} points`,
+                `Social contributes ${Math.round(0.20 * social)} points`,
+                `Routine capacity contributes ${Math.round(0.10 * routine)} points`
+            ];
+            
+            return { score: Math.min(Math.max(score, 0), 100), reasons };
+        }
+
+        // Generate a 30-day plan
+        function generatePlan(profile, startDate) {
+            const plan = {
+                startDate: startDate,
+                days: [],
+                version: 1
+            };
+            
+            // Generate 30 days of tasks
+            const start = new Date(startDate);
+            const timePerDay = parseInt(profile.constraints.timePerDay);
+            
+            for (let i = 0; i < 30; i++) {
+                const date = new Date(start);
+                date.setDate(start.getDate() + i);
+                
+                const day = {
+                    date: date.toISOString(),
+                    tasks: [],
+                    completed: false
+                };
+                
+                // Select tasks based on focus areas and time constraints
+                let remainingTime = timePerDay;
+                const selectedTasks = [];
+                
+                // Prioritize tasks from focus areas
+                const focusTasks = taskLibrary.filter(task => 
+                    profile.focusAreas.includes(task.category)
+                );
+                
+                // Add other tasks if there's time
+                const otherTasks = taskLibrary.filter(task => 
+                    !profile.focusAreas.includes(task.category)
+                );
+                
+                // Try to add at least one focus task
+                if (focusTasks.length > 0 && remainingTime > 0) {
+                    const task = focusTasks[Math.floor(Math.random() * focusTasks.length)];
+                    if (task.durationMin <= remainingTime) {
+                        selectedTasks.push({...task, completed: false, helpfulness: null});
+                        remainingTime -= task.durationMin;
+                    }
+                }
+                
+                // Add other tasks until time is filled
+                let safetyCounter = 0; // Prevent infinite loops
+                while (remainingTime > 0 && otherTasks.length > 0 && safetyCounter < 20) {
+                    safetyCounter++;
+                    const task = otherTasks[Math.floor(Math.random() * otherTasks.length)];
+                    if (task.durationMin <= remainingTime) {
+                        selectedTasks.push({...task, completed: false, helpfulness: null});
+                        remainingTime -= task.durationMin;
+                    } else {
+                        // Try to find a smaller task
+                        const smallerTask = otherTasks.find(t => t.durationMin <= remainingTime);
+                        if (smallerTask) {
+                            selectedTasks.push({...smallerTask, completed: false, helpfulness: null});
+                            remainingTime -= smallerTask.durationMin;
+                        } else {
+                            break; // No suitable tasks found
+                        }
+                    }
+                }
+                
+                day.tasks = selectedTasks;
+                plan.days.push(day);
+            }
+            
+            return plan;
+        }
+
+        // Render plan view
+        function renderPlanView() {
+            const container = document.getElementById('planGrid');
+            container.innerHTML = '';
+            
+            if (!appState.plan) {
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-calendar-plus"></i><h3>No plan generated yet</h3><p>Complete the onboarding first</p></div>';
+                return;
+            }
+            
+            appState.plan.days.forEach(day => {
+                const date = new Date(day.date);
+                const dayCard = document.createElement('div');
+                dayCard.className = 'card day-card';
+                
+                // Calculate completion percentage
+                const totalTasks = day.tasks.length;
+                const completedTasks = day.tasks.filter(task => task.completed).length;
+                const completionPercent = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+                
+                dayCard.innerHTML = `
+                    <div class="day-header">
+                        <h3>Day ${appState.plan.days.indexOf(day) + 1}</h3>
+                        <div class="day-completion ${completionPercent === 100 ? 'completed' : ''}">
+                            ${completionPercent === 100 ? '<i class="fas fa-check"></i>' : completionPercent + '%'}
+                        </div>
+                    </div>
+                    <p><i class="fas fa-calendar"></i> ${date.toLocaleDateString()}</p>
+                    <p><i class="fas fa-tasks"></i> <strong>${day.tasks.length}</strong> tasks scheduled</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${completionPercent}%"></div>
+                    </div>
+                `;
+                
+                dayCard.addEventListener('click', () => {
+                    showDayDetail(day);
+                });
+                
+                container.appendChild(dayCard);
+            });
+        }
+
+        // Show day detail modal
+        function showDayDetail(day) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="modal-close" onclick="document.body.removeChild(this.parentNode.parentNode);">&times;</button>
+                    <h2>Day Tasks</h2>
+                    <p>${new Date(day.date).toLocaleDateString()}</p>
+                    <div id="dayTasksDetail"></div>
+                    <button style="width: 100%; margin-top: 1.5rem;" onclick="document.body.removeChild(this.parentNode.parentNode);">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            const container = modal.querySelector('#dayTasksDetail');
+            if (day.tasks.length === 0) {
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-inbox"></i><p>No tasks scheduled for this day</p></div>';
+                return;
+            }
+            
+            day.tasks.forEach(task => {
+                const taskEl = document.createElement('div');
+                taskEl.className = 'task-item';
+                taskEl.innerHTML = `
+                    <input type="checkbox" class="task-checkbox" id="detail-task-${task.id}" ${task.completed ? 'checked' : ''}>
+                    <div class="task-content">
+                        <div class="task-title">${task.title}</div>
+                        <div class="task-description">${task.description}</div>
+                        <div class="task-meta">
+                            <span><i class="fas fa-clock"></i> ${task.durationMin} min</span>
+                            <span><i class="fas fa-signal"></i> ${['Easy', 'Moderate', 'Challenging'][task.difficulty - 1]}</span>
+                            <span class="category-tag">${task.category}</span>
+                        </div>
+                    </div>
+                `;
+                
+                // Add event listener for checkbox
+                const checkbox = taskEl.querySelector('.task-checkbox');
+                checkbox.addEventListener('change', () => {
+                    task.completed = checkbox.checked;
+                    saveState(appState);
+                    renderPlanView();
+                    updateTodayTasks();
+                    updateSparkline();
+                    updateStats();
+                    
+                    if (checkbox.checked) {
+                        taskEl.classList.add('task-complete');
+                        setTimeout(() => {
+                            taskEl.classList.remove('task-complete');
+                        }, 500);
+                        showToast('Task completed!', 'success');
+                    }
+                });
+                
+                container.appendChild(taskEl);
+            });
+        }
+
+        // Show add custom task modal
+        function showAddTaskModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="modal-close" onclick="document.body.removeChild(this.parentNode.parentNode);">&times;</button>
+                    <h2>Add Custom Task</h2>
+                    <form id="customTaskForm">
+                        <label for="taskTitle">Task Title</label>
+                        <input type="text" id="taskTitle" required>
+                        
+                        <label for="taskDescription">Description</label>
+                        <textarea id="taskDescription" rows="3" required></textarea>
+                        
+                        <label for="taskCategory">Category</label>
+                        <select id="taskCategory" required>
+                            <option value="sleep">Sleep</option>
+                            <option value="movement">Movement</option>
+                            <option value="mindfulness">Mindfulness</option>
+                            <option value="connection">Connection</option>
+                            <option value="selfCare">Self Care</option>
+                            <option value="productivity">Productivity</option>
+                        </select>
+                        
+                        <label for="taskDuration">Duration (minutes)</label>
+                        <input type="number" id="taskDuration" min="1" max="120" value="5" required>
+                        
+                        <label for="taskDifficulty">Difficulty</label>
+                        <select id="taskDifficulty" required>
+                            <option value="1">Easy</option>
+                            <option value="2">Moderate</option>
+                            <option value="3">Challenging</option>
+                        </select>
+                    </form>
+                    <button id="saveCustomTask" style="width: 100%; margin-top: 1.5rem;">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            document.getElementById('saveCustomTask').addEventListener('click', () => {
+                const task = {
+                    id: 'custom-' + Date.now(),
+                    title: document.getElementById('taskTitle').value,
+                    description: document.getElementById('taskDescription').value,
+                    category: document.getElementById('taskCategory').value,
+                    durationMin: parseInt(document.getElementById('taskDuration').value),
+                    difficulty: parseInt(document.getElementById('taskDifficulty').value),
+                    custom: true
+                };
+                
+                if (!task.title || !task.description) {
+                    showToast('Please fill in all fields', 'error');
+                    return;
+                }
+                
+                // Add to today's tasks
+                const today = new Date().toISOString().split('T')[0];
+                const todayPlan = appState.plan.days.find(day => day.date.startsWith(today));
+                
+                if (todayPlan) {
+                    todayPlan.tasks.push({...task, completed: false, helpfulness: null});
+                    saveState(appState);
+                    document.body.removeChild(modal);
+                    showToast('Custom task added!', 'success');
+                    updateTodayTasks();
+                } else {
+                    showToast('Could not find today\'s plan', 'error');
+                }
+            });
+        }
+
+        // Render profile form
+        function renderProfileForm() {
+            const form = document.getElementById('profileForm');
+            form.innerHTML = '';
+            
+            const profile = appState.profile;
+            
+            form.innerHTML = `
+                <label for="editName">Your Name</label>
+                <input type="text" id="editName" value="${profile.name}" required>
+                
+                <label for="editAgeRange">Age Range</label>
+                <select id="editAgeRange" required>
+                    <option value="under18" ${profile.ageRange === 'under18' ? 'selected' : ''}>Under 18</option>
+                    <option value="18-24" ${profile.ageRange === '18-24' ? 'selected' : ''}>18-24</option>
+                    <option value="25-39" ${profile.ageRange === '25-39' ? 'selected' : ''}>25-39</option>
+                    <option value="40-59" ${profile.ageRange === '40-59' ? 'selected' : ''}>40-59</option>
+                    <option value="60plus" ${profile.ageRange === '60plus' ? 'selected' : ''}>60+</option>
+                </select>
+                
+                <label for="editSleepHours">Average Hours of Sleep per Night</label>
+                <input type="number" id="editSleepHours" min="0" max="12" value="${profile.sleepHours}" required>
+                
+                <label for="editActivityLevel">Activity Level</label>
+                <select id="editActivityLevel" required>
+                    <option value="low" ${profile.activityLevel === 'low' ? 'selected' : ''}>Low</option>
+                    <option value="moderate" ${profile.activityLevel === 'moderate' ? 'selected' : ''}>Moderate</option>
+                    <option value="high" ${profile.activityLevel === 'high' ? 'selected' : ''}>High</option>
+                </select>
+                
+                <div class="slider-container">
+                    <label for="editStressLevel">Stress Level (1=Low, 5=High)</label>
+                    <input type="range" min="1" max="5" value="${profile.stressLevel}" class="slider" id="editStressLevel">
+                    <div class="slider-labels">
+                        <span>Low</span>
+                        <span id="editStressValue">${profile.stressLevel}</span>
+                        <span>High</span>
+                    </div>
+                </div>
+                
+                <div class="slider-container">
+                    <label for="editSocialSupport">Social Support (1=Low, 5=High)</label>
+                    <input type="range" min="1" max="5" value="${profile.socialSupport}" class="slider" id="editSocialSupport">
+                    <div class="slider-labels">
+                        <span>Low</span>
+                        <span id="editSocialValue">${profile.socialSupport}</span>
+                        <span>High</span>
+                    </div>
+                </div>
+                
+                <label>Focus Areas (select all that apply)</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="editFocusSleep" value="sleep" ${profile.focusAreas.includes('sleep') ? 'checked' : ''}> 
+                        <label for="editFocusSleep">Sleep</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="editFocusStress" value="stress" ${profile.focusAreas.includes('stress') ? 'checked' : ''}> 
+                        <label for="editFocusStress">Stress</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="editFocusMood" value="mood" ${profile.focusAreas.includes('mood') ? 'checked' : ''}> 
+                        <label for="editFocusMood">Mood</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="editFocusRoutine" value="routine" ${profile.focusAreas.includes('routine') ? 'checked' : ''}> 
+                        <label for="editFocusRoutine">Routine</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="editFocusConnection" value="connection" ${profile.focusAreas.includes('connection') ? 'checked' : ''}> 
+                        <label for="editFocusConnection">Connection</label>
+                    </div>
+                </div>
+                
+                <label for="editTimePerDay">Time Available Daily (minutes)</label>
+                <select id="editTimePerDay" required>
+                    <option value="5" ${profile.constraints.timePerDay === '5' ? 'selected' : ''}>5</option>
+                    <option value="10" ${profile.constraints.timePerDay === '10' ? 'selected' : ''}>10</option>
+                    <option value="20" ${profile.constraints.timePerDay === '20' ? 'selected' : ''}>20</option>
+                    <option value="30" ${profile.constraints.timePerDay === '30' ? 'selected' : ''}>30</option>
+                </select>
+                
+                <label for="editPreferredTimes">Preferred Time of Day</label>
+                <select id="editPreferredTimes" required>
+                    <option value="morning" ${profile.constraints.preferredTimes === 'morning' ? 'selected' : ''}>Morning</option>
+                    <option value="midday" ${profile.constraints.preferredTimes === 'midday' ? 'selected' : ''}>Midday</option>
+                    <option value="evening" ${profile.constraints.preferredTimes === 'evening' ? 'selected' : ''}>Evening</option>
+                    <option value="flex" ${profile.constraints.preferredTimes === 'flex' ? 'selected' : ''}>Flexible</option>
+                </select>
+            `;
+            
+            // Add event listeners for sliders
+            document.getElementById('editStressLevel').addEventListener('input', (e) => {
+                document.getElementById('editStressValue').textContent = e.target.value;
+            });
+            
+            document.getElementById('editSocialSupport').addEventListener('input', (e) => {
+                document.getElementById('editSocialValue').textContent = e.target.value;
+            });
+        }
+
+        // Save profile changes
+        function saveProfile() {
+            const profile = {
+                name: document.getElementById('editName').value,
+                ageRange: document.getElementById('editAgeRange').value,
+                sleepHours: parseInt(document.getElementById('editSleepHours').value),
+                activityLevel: document.getElementById('editActivityLevel').value,
+                stressLevel: parseInt(document.getElementById('editStressLevel').value),
+                socialSupport: parseInt(document.getElementById('editSocialSupport').value),
+                focusAreas: [],
+                constraints: {
+                    timePerDay: document.getElementById('editTimePerDay').value,
+                    preferredTimes: document.getElementById('editPreferredTimes').value
+                }
+            };
+            
+            // Get focus areas
+            ['editFocusSleep', 'editFocusStress', 'editFocusMood', 'editFocusRoutine', 'editFocusConnection'].forEach(id => {
+                if (document.getElementById(id).checked) {
+                    profile.focusAreas.push(document.getElementById(id).value);
+                }
+            });
+            
+            // Update app state
+            appState.profile = profile;
+            
+            // Recalculate score
+            const scoreResult = computeInitialScore(profile);
+            appState.score.currentScore = scoreResult.score;
+            
+            if (saveState(appState)) {
+                showToast('Profile updated successfully', 'success');
+                updateUI();
+            }
+        }
+
+        // Confirm plan regeneration
+        function confirmRegeneratePlan() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="modal-close" onclick="document.body.removeChild(this.parentNode.parentNode);">&times;</button>
+                    <h2>Regenerate Plan</h2>
+                    <p>Are you sure you want to regenerate your plan? This will create a new 30-day plan based on your current profile.</p>
+                    <p>Your current progress will be preserved where possible.</p>
+                    <div class="btn-group">
+                        <button class="secondary" onclick="document.body.removeChild(this.parentNode.parentNode);">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button onclick="regeneratePlan(); document.body.removeChild(this.parentNode.parentNode);">
+                            <i class="fas fa-sync"></i> Regenerate
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        // Regenerate plan
+        function regeneratePlan() {
+            appState.plan = generatePlan(appState.profile, new Date().toISOString());
+            if (saveState(appState)) {
+                showToast('Plan regenerated successfully', 'success');
+                renderPlanView();
+            }
+        }
+
+        // Render check-in history
+        function renderCheckinHistory() {
+            const container = document.getElementById('checkinHistory');
+            container.innerHTML = '';
+            
+            if (appState.score.history.length === 0) {
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-chart-line"></i><p>No check-in history yet</p><p>Complete your first weekly check-in to see data here</p></div>';
+                return;
+            }
+            
+            appState.score.history.slice().reverse().forEach(entry => {
+                const entryEl = document.createElement('div');
+                entryEl.className = 'card';
+                
+                const date = new Date(entry.date);
+                const previousScore = appState.score.history[appState.score.history.indexOf(entry) - 1]?.score || entry.score;
+                const scoreChange = entry.score - previousScore;
+                let trend = 'trend-neutral';
+                let trendIcon = 'fas fa-minus';
+                
+                if (scoreChange > 0) {
+                    trend = 'trend-up';
+                    trendIcon = 'fas fa-arrow-up';
+                } else if (scoreChange < 0) {
+                    trend = 'trend-down';
+                    trendIcon = 'fas fa-arrow-down';
+                }
+                
+                entryEl.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>${date.toLocaleDateString()}</h3>
+                        <div class="score-display ${trend}" style="font-size: 1.5rem;">
+                            ${entry.score} <i class="${trendIcon}"></i>
+                        </div>
+                    </div>
+                    <p>${entry.reason}</p>
+                    ${scoreChange !== 0 ? `<p>Change: ${scoreChange > 0 ? '+' : ''}${scoreChange} points</p>` : ''}
+                `;
+                
+                container.appendChild(entryEl);
+            });
+        }
+
+        // Check if a weekly check-in is due
+        function checkForWeeklyCheckin() {
+            if (!appState.score.nextCheckInDate) return;
+            
+            const today = new Date();
+            const nextCheckIn = new Date(appState.score.nextCheckInDate);
+            
+            if (today >= nextCheckIn) {
+                showCheckInModal();
+            }
+        }
+
+        // Show weekly check-in modal
+        function showCheckInModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="modal-close" onclick="document.body.removeChild(this.parentNode.parentNode);">&times;</button>
+                    <h2>Weekly Check-in</h2>
+                    <p>How have you been feeling this past week?</p>
+                    <form id="checkinForm">
+                        <div class="slider-container">
+                            <label for="checkinStress">Perceived stress this week (1=Low, 5=High)</label>
+                            <input type="range" min="1" max="5" value="3" class="slider" id="checkinStress">
+                            <div class="slider-labels">
+                                <span>Low</span>
+                                <span id="checkinStressValue">3</span>
+                                <span>High</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="checkinSleep">Sleep quality (1=Poor, 5=Excellent)</label>
+                            <input type="range" min="1" max="5" value="3" class="slider" id="checkinSleep">
+                            <div class="slider-labels">
+                                <span>Poor</span>
+                                <span id="checkinSleepValue">3</span>
+                                <span>Excellent</span>
+                            </div>
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="checkinMood">Average mood (1=Poor, 5=Excellent)</label>
+                            <input type="range" min="1" max="5" value="3" class="slider" id="checkinMood">
+                            <div class="slider-labels">
+                                <span>Poor</span>
+                                <span id="checkinMoodValue">3</span>
+                                <span>Excellent</span>
+                            </div>
+                        </div>
+                        
+                        <label for="checkinCompletion">Task completion rate</label>
+                        <select id="checkinCompletion" required>
+                            <option value="0">0%</option>
+                            <option value="25">25%</option>
+                            <option value="50" selected>50%</option>
+                            <option value="75">75%</option>
+                            <option value="100">100%</option>
+                        </select>
+                        
+                        <label for="checkinSocial">Did you feel socially connected this week?</label>
+                        <select id="checkinSocial" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        
+                        <label for="checkinNotes">Additional notes (optional)</label>
+                        <textarea id="checkinNotes" rows="3"></textarea>
+                    </form>
+                    <button id="submitCheckin" style="width: 100%; margin-top: 1.5rem;">
+                        <i class="fas fa-check"></i> Submit Check-in
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add event listeners for sliders
+            document.getElementById('checkinStress').addEventListener('input', (e) => {
+                document.getElementById('checkinStressValue').textContent = e.target.value;
+            });
+            
+            document.getElementById('checkinSleep').addEventListener('input', (e) => {
+                document.getElementById('checkinSleepValue').textContent = e.target.value;
+            });
+            
+            document.getElementById('checkinMood').addEventListener('input', (e) => {
+                document.getElementById('checkinMoodValue').textContent = e.target.value;
+            });
+            
+            document.getElementById('submitCheckin').addEventListener('click', () => {
+                const answers = {
+                    stress: parseInt(document.getElementById('checkinStress').value),
+                    sleep: parseInt(document.getElementById('checkinSleep').value),
+                    mood: parseInt(document.getElementById('checkinMood').value),
+                    completion: parseInt(document.getElementById('checkinCompletion').value),
+                    social: document.getElementById('checkinSocial').value === 'yes',
+                    note: document.getElementById('checkinNotes').value
+                };
+                
+                // Update score based on check-in
+                const scoreUpdate = updateWeeklyScore(appState, answers);
+                
+                // Set next check-in date
+                const nextCheckIn = new Date();
+                nextCheckIn.setDate(nextCheckIn.getDate() + 7);
+                appState.score.nextCheckInDate = nextCheckIn.toISOString();
+                
+                if (saveState(appState)) {
+                    document.body.removeChild(modal);
+                    updateUI();
+                    showToast(`Check-in completed! Your score ${scoreUpdate.delta >= 0 ? 'increased' : 'decreased'} by ${Math.abs(scoreUpdate.delta)} points.`, 'success');
+                }
+            });
+        }
+
+        // Update weekly score
+        function updateWeeklyScore(state, answers) {
+            let delta = 0;
+            
+            // Calculate delta based on answers
+            delta += (answers.completion / 100) * 4; // 0 to 4 points based on completion
+            delta += (5 - answers.stress) * 1.2; // 4.8 to -4.8 points based on stress
+            delta += (answers.sleep - 3) * 1.2; // -2.4 to 2.4 points based on sleep
+            delta += (answers.mood - 3) * 1.2; // -2.4 to 2.4 points based on mood
+            delta += answers.social ? 2 : -1; // 2 points for social connection, -1 for lack thereof
+            
+            // Cap the delta to ±12 points
+            delta = Math.max(-12, Math.min(12, delta));
+            
+            const newScore = Math.max(0, Math.min(100, Math.round(state.score.currentScore + delta)));
+            const reason = `Weekly check-in: stress ${answers.stress}/5, sleep ${answers.sleep}/5, mood ${answers.mood}/5, completion ${answers.completion}%, social ${answers.social ? 'good' : 'low'}.`;
+            
+            state.score.currentScore = newScore;
+            state.score.history.push({
+                date: new Date().toISOString(),
+                score: newScore,
+                reason: reason
+            });
+            state.score.lastCheckInDate = new Date().toISOString();
+            
+            return {
+                newScore: newScore,
+                delta: Math.round(delta),
+                reason: reason
+            };
+        }
+
+        // Export data
+        function exportData() {
+            const dataStr = JSON.stringify(appState, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `mindplan-data-${new Date().toISOString().slice(0,10)}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showToast('Data exported successfully', 'success');
+        }
+
+        // Import data
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedState = JSON.parse(e.target.result);
+                    
+                    // Validate the imported state
+                    if (!importedState.profile || !importedState.plan || !importedState.score) {
+                        throw new Error('Invalid data format');
+                    }
+                    
+                    // Confirm import
+                    const modal = document.createElement('div');
+                    modal.className = 'modal';
+                    modal.innerHTML = `
+                        <div class="modal-content">
+                            <button class="modal-close" onclick="document.body.removeChild(this.parentNode.parentNode);">&times;</button>
+                            <h2>Import Data</h2>
+                            <p>This will replace your current data. Are you sure?</p>
+                            <div class="btn-group">
+                                <button class="secondary" onclick="document.body.removeChild(this.parentNode.parentNode);">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                                <button onclick="confirmImport(); document.body.removeChild(this.parentNode.parentNode);">
+                                    <i class="fas fa-check"></i> Import
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    
+                    window.confirmImport = function() {
+                        appState = importedState;
+                        if (saveState(appState)) {
+                            showToast('Data imported successfully', 'success');
+                            updateUI();
+                            if (window.currentSection) {
+                                showSection(window.currentSection);
+                            }
+                        }
+                    };
+                    
+                } catch (e) {
+                    showToast('Error importing data: Invalid file format', 'error');
+                }
+            };
+            reader.readAsText(file);
+            
+            // Reset the file input
+            event.target.value = '';
+        }
+
+        // Confirm clear data
+        function confirmClearData() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="modal-close" onclick="document.body.removeChild(this.parentNode.parentNode);">&times;</button>
+                    <h2>Clear All Data</h2>
+                    <p>Are you sure you want to clear all your data? This cannot be undone.</p>
+                    <div class="btn-group">
+                        <button class="secondary" onclick="document.body.removeChild(this.parentNode.parentNode);">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button class="accent" onclick="clearAllData(); document.body.removeChild(this.parentNode.parentNode);">
+                            <i class="fas fa-trash"></i> Clear All Data
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        // Clear all data
+        function clearAllData() {
+            localStorage.removeItem(STATE_KEY);
+            appState = {...defaultState};
+            showOnboarding();
+            showToast('All data has been cleared', 'info');
+        }
+
+        // Make functions available globally for HTML onclick handlers
+        window.showSection = showSection;
+        window.confirmImport = function() {
+            // This function is set dynamically during import
+        };
+    </script>
+</body>
+</html>
