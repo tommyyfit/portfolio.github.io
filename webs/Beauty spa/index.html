@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anet Spa | Luxusní Kráska & Wellness | Frýdek-Místek</title>
+  <meta name="description"
+    content="Anet Spa — luxusní beauty salon a wellness studio ve Frýdku-Místku. Masáže, ošetření pleti, manikúra a celková péče o tělo. Rezervujte svůj čas relaxace dnes." />
+  <meta name="keywords"
+    content="spa Frýdek-Místek, beauty salon, masáže, ošetření pleti, manikúra, wellness, relaxace" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ivory: #FAF6F0;
+      --cream: #F2EBE0;
+      --rose: #C8A098;
+      --rose-dk: #A6756A;
+      --gold: #C9A84C;
+      --gold-lt: #E8D5A3;
+      --dark: #2E2220;
+      --mid: #6B4F4A;
+      --white: #FFFFFF;
+      --ff-head: 'Cormorant Garamond', serif;
+      --ff-body: 'Jost', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--dark);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─────────────────────────────── */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--rose);
+      border-radius: 10px;
+    }
+
+    /* ─── NAV ───────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 6vw;
+      background: transparent;
+      transition: background .4s, padding .4s, box-shadow .4s;
+    }
+
+    nav.scrolled {
+      background: rgba(250, 246, 240, .95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(200, 160, 152, .12);
+      padding: 14px 6vw;
+    }
+
+    .nav-logo {
+      font-family: var(--ff-head);
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: .08em;
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    nav.scrolled .nav-logo {
+      color: var(--dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .85);
+      text-decoration: none;
+      transition: color .3s;
+      font-weight: 400;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--mid);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      background: var(--rose);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .3s, transform .2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--rose-dk);
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 1.5px;
+      background: var(--white);
+      transition: .3s;
+    }
+
+    nav.scrolled .hamburger span {
+      background: var(--dark);
+    }
+
+    /* ─── HERO ──────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1629196913681-4e8bc7c07f8f?w=1800&auto=format&fit=crop&q=80') center/cover no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(46, 34, 32, .68) 0%, rgba(166, 117, 106, .35) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 5vw;
+      max-width: 820px;
+    }
+
+    .hero-eyebrow {
+      font-size: .7rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp .8s .3s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--ff-head);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: .02em;
+      opacity: 0;
+      animation: fadeUp .8s .5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+
+    .hero-sub {
+      font-size: clamp(.95rem, 2vw, 1.1rem);
+      color: rgba(255, 255, 255, .8);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp .8s .7s forwards;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .8s .9s forwards;
+    }
+
+    .btn-primary {
+      background: var(--rose);
+      color: var(--white);
+      padding: 15px 36px;
+      border-radius: 40px;
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .3s, transform .2s, box-shadow .3s;
+      box-shadow: 0 8px 30px rgba(200, 160, 152, .4);
+    }
+
+    .btn-primary:hover {
+      background: var(--rose-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(200, 160, 152, .5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 15px 36px;
+      border-radius: 40px;
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, .5);
+      transition: background .3s, border-color .3s, transform .2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, .1);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+
+    .scroll-hint span {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, .4), transparent);
+      animation: scrollPulse 2s 2s infinite;
+    }
+
+    /* ─── SECTIONS SHARED ───────────────────────── */
+    section {
+      padding: 7rem 6vw;
+    }
+
+    .section-label {
+      font-size: .65rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: .8rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--dark);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--rose-dk);
+    }
+
+    .gold-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.8rem auto;
+      display: block;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── STRIP BANNER ──────────────────────────── */
+    .strip {
+      background: var(--rose);
+      color: var(--white);
+      padding: 1rem 6vw;
+      display: flex;
+      gap: 3rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .strip-inner {
+      display: flex;
+      gap: 4rem;
+      white-space: nowrap;
+      animation: ticker 22s linear infinite;
+    }
+
+    .strip span {
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .strip span::before {
+      content: '✦';
+      margin-right: 1rem;
+      opacity: .6;
+    }
+
+    /* ─── SERVICES ──────────────────────────────── */
+    #services {
+      background: var(--cream);
+      padding: 6rem 0;
+    }
+
+    /* Header */
+    .services-header {
+      max-width: 850px;
+      margin: 0 auto 4rem;
+      text-align: center;
+      padding: 0 1.2rem;
+    }
+
+    .services-intro {
+      margin-top: 1.4rem;
+      color: var(--mid);
+      line-height: 1.9;
+      max-width: 65ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 0 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Card */
+    .service-card {
+      background: var(--ivory);
+      padding: 2.6rem 2.3rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+
+      position: relative;
+      overflow: hidden;
+
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 3px;
+      background: var(--rose);
+
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .service-card:hover {
+      background: var(--white);
+      transform: translateY(-6px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Text */
+    .service-num {
+      font-family: var(--ff-head);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--gold-lt);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-name {
+      font-family: var(--ff-head);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .service-desc {
+      font-size: 0.92rem;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 1.6rem;
+    }
+
+    /* Price */
+    .service-price {
+      font-family: var(--ff-head);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--rose-dk);
+
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
+      padding-top: 1rem;
+    }
+
+    .service-duration {
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      color: var(--rose);
+      margin-left: 0.5rem;
+      opacity: 0.85;
+    }
+
+    /* CTA button */
+    .services-cta {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 520px) {
+      .service-card {
+        padding: 2.2rem 1.8rem;
+      }
+
+      .service-num {
+        font-size: 2.4rem;
+      }
+    }
+
+    /* ─── ABOUT ─────────────────────────────────── */
+    #about {
+      background: var(--ivory);
+      padding: 7rem 0;
+    }
+
+    .about-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 6vw;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Accent image */
+    .about-accent {
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+
+      width: 55%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+
+      background: url("https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&auto=format&fit=crop&q=80") center/cover no-repeat;
+
+      border: 6px solid var(--ivory);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Badge */
+    .about-badge {
+      position: absolute;
+      top: 1.8rem;
+      left: 1.8rem;
+
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+
+      background: var(--rose);
+      color: var(--white);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+      font-family: var(--ff-head);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-badge strong {
+      font-size: 1.9rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .about-badge span {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    /* Text */
+    .about-text {
+      padding: 1rem 0;
+    }
+
+    .about-quote {
+      font-family: var(--ff-head);
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-style: italic;
+      color: var(--rose-dk);
+
+      line-height: 1.65;
+      margin: 1.6rem 0 2rem;
+
+      padding-left: 1.4rem;
+      border-left: 2px solid var(--gold);
+    }
+
+    .about-body {
+      color: var(--mid);
+      line-height: 1.9;
+      font-size: 0.95rem;
+      margin-bottom: 1.3rem;
+    }
+
+    /* Stats */
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--ff-head);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-top: 0.4rem;
+    }
+
+    /* Responsive About */
+    @media (max-width: 950px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-text {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .about-quote {
+        border-left: none;
+        border-top: 2px solid var(--gold);
+        padding-left: 0;
+        padding-top: 1.2rem;
+      }
+
+      .about-accent {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .about-badge {
+        width: 95px;
+        height: 95px;
+      }
+
+      .about-badge strong {
+        font-size: 1.6rem;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── TIMELINE ──────────────────────────────── */
+    #timeline {
+      background: var(--dark);
+      padding: 7rem 0;
+    }
+
+    #timeline .timeline-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 6vw;
+    }
+
+    #timeline .section-label {
+      color: var(--gold);
+    }
+
+    #timeline .section-title {
+      color: var(--white);
+    }
+
+    #timeline .section-title em {
+      color: var(--gold-lt);
+    }
+
+    .timeline-track {
+      position: relative;
+      margin-top: 4rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-track::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 3.5rem 3rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 8px;
+
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(201, 168, 76, 0.18);
+    }
+
+    .timeline-year {
+      font-family: var(--ff-head);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-title {
+      font-family: var(--ff-head);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* Responsive Timeline */
+    @media (max-width: 600px) {
+      .timeline-track {
+        padding-left: 1.5rem;
+      }
+
+      .timeline-item {
+        padding-left: 2.2rem;
+      }
+
+      .timeline-year {
+        font-size: 2rem;
+      }
+    }
+
+    /* ─── GALLERY ───────────────────────────────── */
+    #gallery {
+      background: var(--cream);
+      padding: 7rem 0;
+    }
+
+    #gallery .gallery-header {
+      max-width: 1100px;
+      margin: 0 auto 3.5rem;
+      padding: 0 6vw;
+    }
+
+    .gallery-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 6vw;
+
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 280px;
+      gap: 10px;
+    }
+
+    .g-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    .g-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .g-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Layout */
+    .g-item:nth-child(1) {
+      grid-column: span 5;
+    }
+
+    .g-item:nth-child(2) {
+      grid-column: span 3;
+    }
+
+    .g-item:nth-child(3) {
+      grid-column: span 4;
+    }
+
+    .g-item:nth-child(4) {
+      grid-column: span 3;
+    }
+
+    .g-item:nth-child(5) {
+      grid-column: span 5;
+    }
+
+    .g-item:nth-child(6) {
+      grid-column: span 4;
+    }
+
+    /* Overlay */
+    .g-overlay {
+      position: absolute;
+      inset: 0;
+
+      background: rgba(46, 34, 32, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: background 0.35s ease;
+    }
+
+    .g-item:hover .g-overlay {
+      background: rgba(46, 34, 32, 0.35);
+    }
+
+    .g-icon {
+      opacity: 0;
+      color: var(--white);
+      font-size: 1.6rem;
+      transform: translateY(10px);
+
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .g-item:hover .g-icon {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Gallery */
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 240px;
+      }
+
+      .g-item:nth-child(1),
+      .g-item:nth-child(2),
+      .g-item:nth-child(3),
+      .g-item:nth-child(4),
+      .g-item:nth-child(5),
+      .g-item:nth-child(6) {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+      }
+    }
+
+    /* ─── TESTIMONIALS ──────────────────────────── */
+    #testimonials {
+      background: var(--ivory);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-bottom: 3px solid var(--rose);
+    }
+
+    .t-stars {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: .2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .t-text {
+      font-family: var(--ff-head);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .t-author {
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    /* ─── CONTACT ───────────────────────────────── */
+    #contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 6vw;
+      align-items: start;
+    }
+
+    .contact-info-block {}
+
+    .contact-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .contact-label {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: .3rem;
+    }
+
+    .contact-value {
+      font-size: .95rem;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .contact-value a {
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .contact-value a:hover {
+      color: var(--rose);
+    }
+
+    .map-wrap {
+      border-radius: 0;
+      overflow: hidden;
+      height: 380px;
+      position: relative;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: sepia(.3) saturate(.8);
+    }
+
+    .booking-form {
+      background: var(--ivory);
+      padding: 3rem;
+      border-top: 4px solid var(--rose);
+    }
+
+    .booking-form h3 {
+      font-family: var(--ff-head);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 1.8rem;
+      color: var(--dark);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--white);
+      border: 1px solid var(--cream);
+      padding: 12px 16px;
+      font-family: var(--ff-body);
+      font-size: .9rem;
+      color: var(--dark);
+      outline: none;
+      transition: border-color .3s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      background: var(--rose);
+      color: var(--white);
+      border: none;
+      padding: 15px 36px;
+      font-family: var(--ff-body);
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .3s, transform .2s;
+      width: 100%;
+    }
+
+    .form-submit:hover {
+      background: var(--rose-dk);
+      transform: translateY(-1px);
+    }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255, 255, 255, .4);
+      padding: 4rem 6vw 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      font-family: var(--ff-head);
+      font-size: 1.8rem;
+      color: var(--white);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .footer-desc {
+      font-size: .83rem;
+      line-height: 1.9;
+    }
+
+    .footer-col h4 {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: .7rem;
+    }
+
+    .footer-col a {
+      font-size: .83rem;
+      color: rgba(255, 255, 255, .4);
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    .footer-col a:hover {
+      color: var(--rose);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      font-size: .75rem;
+    }
+
+    .footer-bottom a {
+      color: var(--rose);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .4);
+      text-decoration: none;
+      transition: border-color .3s, color .3s;
+    }
+
+    .social-link:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+    }
+
+    /* ─── STICKY CTA ────────────────────────────── */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--rose);
+      color: var(--white);
+      padding: 14px 40px;
+      border-radius: 40px;
+      z-index: 90;
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 10px 40px rgba(200, 160, 152, .5);
+      transition: background .3s, box-shadow .3s;
+      white-space: nowrap;
+    }
+
+    .sticky-cta:hover {
+      background: var(--rose-dk);
+      box-shadow: 0 14px 50px rgba(200, 160, 152, .6);
+    }
+
+    /* ─── ANIMATIONS ────────────────────────────── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: .4;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 900px) {
+      .services-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-img-wrap {
+        display: none;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .g-item {
+        grid-column: span 1 !important;
+        aspect-ratio: 1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .sticky-cta {
+        display: block;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .about-stats {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 5rem 5vw;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--ivory);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: var(--ff-head);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Anet Spa</a>
+    <ul class="nav-links">
+      <li><a href="#services">Služby</a></li>
+      <li><a href="#about">O nás</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#testimonials">Recenze</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Rezervovat</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="#services" onclick="closeMobile()">Služby</a>
+    <a href="#about" onclick="closeMobile()">O nás</a>
+    <a href="#gallery" onclick="closeMobile()">Galerie</a>
+    <a href="#testimonials" onclick="closeMobile()">Recenze</a>
+    <a href="#contact" onclick="closeMobile()">Kontakt</a>
+    <a href="#contact" class="btn-primary" onclick="closeMobile()">Rezervovat termín</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Luxusní Beauty & Wellness · Frýdek-Místek</p>
+      <h1 class="hero-title">Péče, která<br><em>promění váš den</em></h1>
+      <p class="hero-sub">Vítejte ve světě luxusní relaxace a profesionální péče o krásu. Každý váš okamžik v Anet Spa
+        je výjimečný zážitek.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Rezervovat termín</a>
+        <a href="#services" class="btn-secondary">Naše služby</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scrollujte</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip-inner">
+      <span>Masáže &amp; Relaxace</span>
+      <span>Ošetření Pleti</span>
+      <span>Manikúra &amp; Pedikúra</span>
+      <span>Depilace</span>
+      <span>Řasy &amp; Obočí</span>
+      <span>Aromaterapie</span>
+      <span>Masáže &amp; Relaxace</span>
+      <span>Ošetření Pleti</span>
+      <span>Manikúra &amp; Pedikúra</span>
+      <span>Depilace</span>
+      <span>Řasy &amp; Obočí</span>
+      <span>Aromaterapie</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-header reveal">
+      <p class="section-label">Naše služby</p>
+
+      <h2 class="section-title">
+        Vyberte si svůj<br><em>okamžik pohody</em>
+      </h2>
+
+      <span class="gold-divider"></span>
+
+      <p class="services-intro">
+        Každá procedura je navržena tak, aby vám přinesla maximální komfort i viditelné výsledky.
+        Pracujeme výhradně s prémiovou kosmetikou a moderními technikami.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <div class="service-num">01</div>
+        <h3 class="service-name">Klasická masáž</h3>
+        <p class="service-desc">
+          Celotělová relaxační masáž s aromatickými oleji. Uvolňuje napětí, zklidňuje mysl a navrací tělu energii.
+          Ideální po náročném dni.
+        </p>
+        <div class="service-price">
+          od 650 Kč <span class="service-duration">· 60 min</span>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3 class="service-name">Luxusní ošetření pleti</h3>
+        <p class="service-desc">
+          Hloubkové čištění, hydratace a výživa pleti s prémiovou kosmetikou. Pleť je jemnější, rozzářená
+          a svěží už po prvním ošetření.
+        </p>
+        <div class="service-price">
+          od 890 Kč <span class="service-duration">· 75 min</span>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3 class="service-name">Gelová manikúra</h3>
+        <p class="service-desc">
+          Profesionální úprava nehtů s dlouhotrvajícím gelem. Výběr z desítek odstínů, precizní tvarování
+          a dokonalý vzhled na dlouhé týdny.
+        </p>
+        <div class="service-price">
+          od 480 Kč <span class="service-duration">· 60 min</span>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3 class="service-name">Wellness pedikúra</h3>
+        <p class="service-desc">
+          Kompletní péče o nohy včetně relaxační koupele, peelingu a výživného zábalu.
+          Vaše nohy budou hladké, odpočaté a krásně upravené.
+        </p>
+        <div class="service-price">
+          od 520 Kč <span class="service-duration">· 75 min</span>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">05</div>
+        <h3 class="service-name">Laminace řas</h3>
+        <p class="service-desc">
+          Přirozené zvýraznění řas bez umělých vláken. Řasy jsou opticky delší, natočené a výraznější.
+          Efekt vydrží 6–8 týdnů.
+        </p>
+        <div class="service-price">
+          od 750 Kč <span class="service-duration">· 90 min</span>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">06</div>
+        <h3 class="service-name">Depilace voskem</h3>
+        <p class="service-desc">
+          Šetrná depilace horkým nebo studeným voskem. Hladká pokožka na týdny dopředu
+          s minimálním podrážděním.
+        </p>
+        <div class="service-price">
+          od 290 Kč <span class="service-duration">· 30–60 min</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="services-cta">
+      <a href="#contact" class="btn-primary">Rezervovat proceduru</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-grid">
+
+        <div class="about-img-wrap reveal">
+          <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=900&auto=format&fit=crop&q=80"
+            alt="Anet Spa interiér" class="about-img" />
+
+          <div class="about-accent"></div>
+
+          <div class="about-badge">
+            <strong>8+</strong>
+            <span>Let zkušeností</span>
+          </div>
+        </div>
+
+        <div class="about-text reveal">
+          <p class="section-label">Náš příběh</p>
+
+          <h2 class="section-title">
+            Vášeň pro krásu<br><em>a péči o vás</em>
+          </h2>
+
+          <span class="gold-divider"></span>
+
+          <blockquote class="about-quote">
+            „Věřím, že skutečná krása začíná pocitem pohody zevnitř.“
+          </blockquote>
+
+          <p class="about-body">
+            Anet Spa vzniklo z lásky ke kráse a péči o druhé. Za více než 8 let jsme se stali
+            důvěryhodným místem pro stovky spokojených klientů ve Frýdku-Místku a okolí.
+          </p>
+
+          <p class="about-body">
+            Každá klientka je pro nás jedinečná, a proto procedury přizpůsobujeme přesně jejím potřebám.
+            Používáme pouze certifikovanou prémiovou kosmetiku a neustále se vzděláváme v nejnovějších trendech oboru.
+          </p>
+
+          <p class="about-body">
+            Naším cílem není jen krása, ale i celkový pocit spokojenosti, relaxace a sebedůvěry,
+            se kterým od nás odejdete.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-num">1 200+</div>
+              <div class="stat-label">Spokojených klientek</div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-num">98%</div>
+              <div class="stat-label">Míra spokojenosti</div>
+            </div>
+
+            <div class="stat-item">
+              <div class="stat-num">6</div>
+              <div class="stat-label">Specializací</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="timeline-container">
+
+      <div class="timeline-header reveal">
+        <p class="section-label">Naše historie</p>
+
+        <h2 class="section-title">
+          Cesta ke<br><em>špičkové péči</em>
+        </h2>
+
+        <span class="gold-divider timeline-divider"></span>
+      </div>
+
+      <div class="timeline-track">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-title">Zrození Anet Spa</div>
+          <p class="timeline-desc">
+            Otevření prvního studia ve Frýdku-Místku s vizí nabídnout luxusní péči dostupnou každé ženě.
+            Začínali jsme se třemi službami a jednou certifikovanou specialistkou.
+          </p>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2018</div>
+          <div class="timeline-title">Rozšíření nabídky a nové prostory</div>
+          <p class="timeline-desc">
+            Přestěhování do větších prostor, rozšíření týmu o dvě odbornice a zavedení prémiových ošetření pleti
+            s profesionální kosmetikou.
+          </p>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-title">Certifikace a ocenění</div>
+          <p class="timeline-desc">
+            Získání certifikace v laminaci řas a pokročilé kosmetologii. Ocenění regionálním magazínem
+            jako nejlépe hodnocený beauty salon.
+          </p>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-title">Kompletní wellness experience</div>
+          <p class="timeline-desc">
+            Zavedení wellness programů a holistických rituálů. Více než 1 000 spokojených klientek
+            a neustále rostoucí komunita.
+          </p>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-title">Digitální rezervační systém</div>
+          <p class="timeline-desc">
+            Spuštění online rezervací a věrnostního programu pro naše klientky. Vaše pohodlí je naší prioritou.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="gallery-container">
+      <div class="gallery-header reveal">
+        <p class="section-label">Galerie</p>
+        <h2 class="section-title">Atmosféra<br><em>Anet Spa</em></h2>
+        <span class="gold-divider"></span>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="g-item reveal">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&auto=format&fit=crop&q=80"
+            alt="Spa relaxace" loading="lazy" />
+          <div class="g-overlay">
+            <div class="g-icon">✦</div>
+          </div>
+        </div>
+
+        <div class="g-item reveal">
+          <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&auto=format&fit=crop&q=80"
+            alt="Masáž" loading="lazy" />
+          <div class="g-overlay">
+            <div class="g-icon">✦</div>
+          </div>
+        </div>
+
+        <div class="g-item reveal">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&auto=format&fit=crop&q=80"
+            alt="Manikúra" loading="lazy" />
+          <div class="g-overlay">
+            <div class="g-icon">✦</div>
+          </div>
+        </div>
+
+        <div class="g-item reveal">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&auto=format&fit=crop&q=80"
+            alt="Péče o vlasy" loading="lazy" />
+          <div class="g-overlay">
+            <div class="g-icon">✦</div>
+          </div>
+        </div>
+
+        <div class="g-item reveal">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80"
+            alt="Ošetření pleti" loading="lazy" />
+          <div class="g-overlay">
+            <div class="g-icon">✦</div>
+          </div>
+        </div>
+
+        <div class="g-item reveal">
+          <img src="https://images.pexels.com/photos/7795662/pexels-photo-7795662.jpeg?w=800&auto=format&fit=crop&q=80"
+            alt="Spa produkty" loading="lazy" />
+          <div class="g-overlay">
+            <div class="g-icon">✦</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="testimonials-container">
+      <div class="testimonials-header reveal">
+        <p class="section-label">Recenze klientek</p>
+        <h2 class="section-title">Co říkají<br><em>naše klientky</em></h2>
+        <span class="gold-divider"></span>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            „Navštěvuji Anet Spa pravidelně každý měsíc. Odcházím vždy zregenerovaná a se skvělým pocitem.
+            Profesionalita a přívětivé prostředí je nadstandardní.“
+          </p>
+          <div class="t-author">Martina K. · Frýdek-Místek</div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            „Laminace řas je prostě dokonalá. Vydrží déle, než jsem čekala, a výsledek je přirozený a krásný.
+            Vřele doporučuji všem!“
+          </p>
+          <div class="t-author">Lucie V. · Ostrava</div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            „Ošetření pleti bylo naprosto úžasné. Pleť svítí, je hydratovaná a problémy s pórami se viditelně zlepšily.
+            Děkuji celému týmu!“
+          </p>
+          <div class="t-author">Petra N. · Frýdlant nad Ostravicí</div>
+        </div>
+
+        <!-- NEW REVIEW -->
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            „Nejlepší masáž, jakou jsem kdy měla. Krásné prostředí, příjemná atmosféra a opravdu profesionální přístup.
+            Určitě se budu vracet.“
+          </p>
+          <div class="t-author">Veronika S. · Havířov</div>
+        </div>
+
+        <!-- NEW REVIEW -->
+        <div class="testimonial-card reveal">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            „Manikúra perfektní do detailu. Nehty vydržely bez chyby skoro měsíc. Navíc jsem se cítila opravdu hýčkaná.
+            Moc doporučuji.“
+          </p>
+          <div class="t-author">Jana M. · Frýdek-Místek</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div style="text-align:center; margin-bottom:4rem;" class="reveal">
+      <p class="section-label">Kontakt & Rezervace</p>
+      <h2 class="section-title">Rezervujte si svůj<br><em>termín relaxace</em></h2>
+      <span class="gold-divider" style="margin: 1.8rem auto;"></span>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item reveal">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Adresa</div>
+            <div class="contact-value">Náměstí Svobody 12<br>738 01 Frýdek-Místek</div>
+          </div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Telefon</div>
+            <div class="contact-value"><a href="tel:+420777123456">+420 777 123 456</a></div>
+          </div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">E-mail</div>
+            <div class="contact-value"><a href="mailto:info@anetspa.cz">info@anetspa.cz</a></div>
+          </div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Otevírací doba</div>
+            <div class="contact-value">Po–Pá: 9:00 – 19:00<br>So: 9:00 – 16:00<br>Ne: zavřeno</div>
+          </div>
+        </div>
+        <div class="map-wrap reveal">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=18.35,49.68,18.40,49.71&layer=mapnik&marker=49.6896,18.3744"
+            title="Mapa Anet Spa - Frýdek-Místek" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      <div class="booking-form reveal">
+        <h3>Rezervujte online</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Jméno a příjmení</label>
+            <input type="text" placeholder="Jana Nováková" />
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" placeholder="+420 777 000 000" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" placeholder="vase@email.cz" />
+        </div>
+        <div class="form-group">
+          <label>Vyberte službu</label>
+          <select>
+            <option value="">— Vyberte proceduru —</option>
+            <option>Klasická Masáž (od 650 Kč)</option>
+            <option>Luxusní Ošetření Pleti (od 890 Kč)</option>
+            <option>Gel Manikúra (od 480 Kč)</option>
+            <option>Wellness Pedikúra (od 520 Kč)</option>
+            <option>Laminace Řas (od 750 Kč)</option>
+            <option>Depilace Voskem (od 290 Kč)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferovaný termín</label>
+          <input type="datetime-local" />
+        </div>
+        <div class="form-group">
+          <label>Poznámka (nepovinné)</label>
+          <textarea placeholder="Máte speciální přání nebo zdravotní omezení?"></textarea>
+        </div>
+        <button class="form-submit">Odeslat rezervaci →</button>
+        <p style="font-size:.75rem; color:var(--mid); margin-top:1rem; line-height:1.7;">Po odeslání vás kontaktujeme do
+          2 hodin s potvrzením termínu. Těšíme se na vás! 🌸</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Anet Spa</div>
+        <p class="footer-desc">Luxusní beauty salon a wellness studio ve Frýdku-Místku. Péče, která promění váš den.</p>
+        <div class="social-links" style="margin-top:1.5rem;">
+          <a href="#" class="social-link" aria-label="Instagram">ig</a>
+          <a href="#" class="social-link" aria-label="Facebook">fb</a>
+          <a href="#" class="social-link" aria-label="TikTok">tt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigace</h4>
+        <ul>
+          <li><a href="#services">Naše služby</a></li>
+          <li><a href="#about">O nás</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#testimonials">Recenze</a></li>
+          <li><a href="#contact">Rezervace</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+420777123456">+420 777 123 456</a></li>
+          <li><a href="mailto:info@anetspa.cz">info@anetspa.cz</a></li>
+          <li style="font-size:.83rem; color:rgba(255,255,255,.4); line-height:1.8;">Náměstí Svobody 12<br>738 01
+            Frýdek-Místek</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Anet Spa · Všechna práva vyhrazena</span>
+      <span>Vytvořeno s ♥ — <a href="https://beacons.ai/tommyy.fit" target="_blank" rel="noopener">tommyy.fit</a></span>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <a href="#contact" class="sticky-cta">🌸 Rezervovat termín</a>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('open');
+    });
+    document.getElementById('mobileClose').addEventListener('click', closeMobile);
+    function closeMobile() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Stagger service cards
+    document.querySelectorAll('.service-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.08}s`;
+    });
+
+    // Form submit
+    document.querySelector('.form-submit').addEventListener('click', function (e) {
+      this.textContent = '✓ Rezervace odeslána!';
+      this.style.background = 'var(--gold)';
+      setTimeout(() => {
+        this.textContent = 'Odeslat rezervaci →';
+        this.style.background = '';
+      }, 3000);
+    });
+  </script>
+</body>
+
+</html>

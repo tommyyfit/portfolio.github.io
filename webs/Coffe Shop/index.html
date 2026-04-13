@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAVÁRNA NO. 1 | Brno Specialty Coffee</title>
+    <meta name="description"
+        content="Nejlepší specialita káva v Brně. Lokálně pražená zrna, poctivé pečivo a skvělá atmosféra.">
+
+    <!-- 1. FONTS: Playfair Display (Elegant) & Lato (Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- 2. TAILWIND CSS (Modern Styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 3. ICONS (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.0/dist/index.min.js"></script>
+
+    <!-- CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1a1a1a',
+                        'brand-cream': '#f4f1ea',
+                        'brand-gold': '#c69c6d',
+                        'brand-green': '#2c3e36',
+                        'brand-gray': '#888888',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        // High-res, reliable Unsplash Image ID
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --brand-cream: #f4f1ea;
+            --brand-gold: #c69c6d;
+            --brand-dark: #1a1a1a;
+            --brand-muted: rgba(26, 26, 26, 0.08);
+        }
+
+        /* Base */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--brand-cream);
+            color: var(--brand-dark);
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Better selection */
+        ::selection {
+            background: var(--brand-gold);
+            color: #fff;
+        }
+
+        /* Smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--brand-cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--brand-gold);
+            border-radius: 999px;
+            border: 2px solid var(--brand-cream);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b88759;
+        }
+
+        /* Glass navigation */
+        .glass-nav {
+            background: rgba(244, 241, 234, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Menu item separators */
+        .menu-item {
+            padding: 0.35rem 0;
+        }
+
+        .menu-dots {
+            flex: 1;
+            border-bottom: 1px dotted var(--brand-gold);
+            margin: 0 14px 6px;
+            opacity: 0.45;
+            transition: opacity 0.25s ease, transform 0.25s ease, border-bottom-style 0.25s ease;
+        }
+
+        .menu-item:hover .menu-dots {
+            opacity: 1;
+            transform: translateY(-1px);
+            border-bottom-style: solid;
+        }
+
+        /* Image containers */
+        .img-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-zoom {
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
+            will-change: transform;
+        }
+
+        .img-container:hover .img-zoom {
+            transform: scale(1.06);
+        }
+
+        /* Subtle card lift */
+        .card-lift {
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .card-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Better focus states */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--brand-gold);
+            outline-offset: 3px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- NAVIGATION -->
+    <nav id="navbar"
+        class="fixed w-full z-50 transition-all duration-300 py-6 px-6 md:px-12 flex justify-between items-center text-brand-dark glass-nav">
+        <a href="#" class="text-2xl font-serif font-bold tracking-tight">
+            KAVÁRNA<span class="text-brand-gold">.</span>NO1
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-12 text-sm font-bold uppercase tracking-widest">
+            <a href="#about" class="hover:text-brand-gold transition-colors duration-300">O nás</a>
+            <a href="#menu" class="hover:text-brand-gold transition-colors duration-300">Lístek</a>
+            <a href="#gallery" class="hover:text-brand-gold transition-colors duration-300">Galerie</a>
+            <a href="#contact" class="hover:text-brand-gold transition-colors duration-300">Kontakt</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden z-50 focus:outline-none">
+            <i class="ph ph-list text-3xl"></i>
+        </button>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-brand-cream flex flex-col justify-center items-center space-y-8 transform translate-x-full transition-transform duration-300 md:hidden">
+            <a href="#about" class="mobile-link text-2xl font-serif font-bold text-brand-dark hover:text-brand-gold">O
+                nás</a>
+            <a href="#menu"
+                class="mobile-link text-2xl font-serif font-bold text-brand-dark hover:text-brand-gold">Lístek</a>
+            <a href="#gallery"
+                class="mobile-link text-2xl font-serif font-bold text-brand-dark hover:text-brand-gold">Galerie</a>
+            <a href="#contact"
+                class="mobile-link text-2xl font-serif font-bold text-brand-dark hover:text-brand-gold">Kontakt</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed"></div>
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span
+                class="inline-block py-1 px-3 border border-white/50 rounded-full text-xs font-bold tracking-[0.2em] text-white mb-6 uppercase backdrop-blur-sm">
+                Brno • Since 2023
+            </span>
+            <h1 class="text-6xl md:text-8xl font-serif font-bold text-white mb-8 leading-tight drop-shadow-lg">
+                KÁVA JAKO<br>
+                <span class="italic font-light text-brand-gold">UMĚNÍ</span>
+            </h1>
+            <p
+                class="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+                Objevte chuť pravé speciality kávy v srdci Moravy.
+                Lokálně pražená zrna, domácí pečivo a atmosféra, která vás nechá dýchat.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#menu"
+                    class="px-8 py-4 bg-brand-gold text-white font-bold uppercase tracking-widest hover:bg-white hover:text-brand-dark transition duration-300 shadow-lg">
+                    Prohlédnout lístek
+                </a>
+                <a href="#contact"
+                    class="px-8 py-4 border border-white text-white font-bold uppercase tracking-widest hover:bg-white hover:text-brand-dark transition duration-300 backdrop-blur-sm">
+                    Najít nás
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70">
+            <i class="ph ph-arrow-down text-3xl"></i>
+        </div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-brand-cream">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+            <!-- Image -->
+            <div data-aos="fade-right" class="relative">
+                <div class="relative overflow-hidden rounded-sm shadow-2xl img-container">
+                    <img src="https://images.pexels.com/photos/34400300/pexels-photo-34400300.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop"
+                        alt="Barista připravující kávu"
+                        class="w-full h-[500px] object-cover img-zoom transition-transform duration-700 ease-out"
+                        loading="lazy" />
+
+                    <!-- Arabica badge -->
+                    <div
+                        class="absolute top-6 left-6 bg-brand-dark/90 text-white px-5 py-4 shadow-xl max-w-[220px] backdrop-blur-sm border border-white/10">
+                        <p class="font-serif font-bold text-xl leading-none mb-2">100% Arabica</p>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Pečlivě vybíraná zrna z udržitelných farem s důrazem na kvalitu a chuť.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div data-aos="fade-left">
+                <p class="text-brand-gold font-bold uppercase tracking-[0.25em] text-sm mb-4">
+                    Náš příběh
+                </p>
+
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">
+                    Víc než jen<br />
+                    kavárna.
+                </h2>
+
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    Jsme v srdci Brna, jen pár kroků od <span class="font-semibold text-brand-gold">Zelného trhu</span>.
+                    Věříme v pomalou kávu, poctivé řemeslo a pečlivou přípravu každého espressa.
+                </p>
+
+                <p class="text-gray-600 text-lg leading-relaxed mb-10">
+                    Neprodáváme jen kofein. Vytváříme prostor pro klid, soustředění i příjemné chvíle během dne.
+                    Ať už si přijdete pro ranní energii, nebo odpolední pauzu s knihou, u nás se budete cítit dobře.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border-l-2 border-brand-gold pl-4">
+                        <span class="block text-3xl font-bold text-brand-dark">15+</span>
+                        <span class="text-sm text-gray-500 uppercase tracking-wide">Druhů zrn</span>
+                    </div>
+
+                    <div class="border-l-2 border-brand-gold pl-4">
+                        <span class="block text-3xl font-bold text-brand-dark">100%</span>
+                        <span class="text-sm text-gray-500 uppercase tracking-wide">Bio mléko</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="relative overflow-hidden bg-white py-28 px-6 md:px-12">
+
+        <!-- Background Word -->
+        <span
+            class="pointer-events-none absolute top-6 right-0 select-none text-[140px] md:text-[220px] font-serif font-bold text-gray-50 opacity-60 leading-none tracking-tight">
+            MENU
+        </span>
+
+        <div class="relative z-10 max-w-6xl mx-auto">
+
+            <!-- Header -->
+            <div class="text-center mb-20">
+                <span class="text-brand-gold font-bold uppercase tracking-[0.35em] text-xs block mb-4">
+                    Nabídka
+                </span>
+
+                <h2 class="text-5xl md:text-6xl font-serif font-bold text-brand-dark leading-tight">
+                    Vyberte si svůj moment
+                </h2>
+
+                <p class="mt-4 text-gray-500 max-w-xl mx-auto text-lg leading-relaxed">
+                    Každá položka je připravena s důrazem na chuť, kvalitu a klidný zážitek.
+                </p>
+
+                <div class="w-28 h-[2px] bg-brand-gold mx-auto mt-8"></div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- COFFEE -->
+                <article
+                    class="rounded-3xl bg-brand-cream/40 border border-gray-100 shadow-sm p-10 md:p-12 hover:shadow-md transition">
+
+                    <div class="flex items-center gap-3 mb-10">
+                        <i class="ph ph-coffee-bean text-3xl text-brand-gold"></i>
+                        <h3 class="text-2xl font-serif font-bold text-brand-dark">
+                            Espresso Bar
+                        </h3>
+                    </div>
+
+                    <div class="space-y-6">
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Espresso
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">55 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Double Espresso
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">65 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Cappuccino
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">75 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Flat White
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">80 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Latte Macchiato
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">85 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Filter Coffee
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">90 Kč</span>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- FOOD -->
+                <article
+                    class="rounded-3xl bg-brand-cream/40 border border-gray-100 shadow-sm p-10 md:p-12 hover:shadow-md transition">
+
+                    <div class="flex items-center gap-3 mb-10">
+                        <i class="ph ph-croissant text-3xl text-brand-gold"></i>
+                        <h3 class="text-2xl font-serif font-bold text-brand-dark">
+                            Pečivo & Brunch
+                        </h3>
+                    </div>
+
+                    <div class="space-y-6">
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Domácí Croissant
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">65 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Pistáciový Croissant
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">85 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Banánový Chlebíček
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">70 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Avocado Toast
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">145 Kč</span>
+                        </div>
+
+                        <div class="flex items-end gap-4 group">
+                            <span class="text-lg font-semibold text-brand-dark group-hover:text-brand-gold transition">
+                                Granola Bowl
+                            </span>
+                            <span class="flex-1 border-b border-dotted border-gray-300 translate-y-[-6px]"></span>
+                            <span class="font-mono text-brand-gold font-bold">110 Kč</span>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Footer Note -->
+            <div class="mt-20 text-center">
+                <p class="text-xs tracking-[0.2em] uppercase text-gray-400 italic">
+                    * Ceny jsou včetně DPH • Používáme lokální a sezónní suroviny
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-24 px-6 md:px-12 bg-brand-cream">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14 md:mb-16">
+                <span class="text-brand-gold font-bold uppercase tracking-[0.3em] text-xs block mb-3">
+                    Galerie
+                </span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark">
+                    Atmosféra
+                </h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Nahlédněte do prostoru, kde se potkává klid, káva a poctivý detail.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <!-- Image 1 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Interiér kavárny"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="lazy" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-500"></div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80 md:translate-y-10">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Latte art"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="lazy" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-500"></div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Kávová zrna"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="lazy" />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer id="contact" class="bg-brand-dark text-brand-cream pt-24 pb-10 px-6 md:px-12 border-t border-white/10">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+
+    <!-- Brand -->
+    <div>
+      <h4 class="text-2xl font-serif font-bold mb-6 text-white">
+        KAVÁRNA<span class="text-brand-gold">.</span>NO1
+      </h4>
+
+      <p class="text-gray-400 leading-relaxed text-sm mb-6">
+        Místo, kde se zastaví čas. Přijďte si posedět, pracovat nebo si jen užít šálek výběrové kávy v Brně.
+      </p>
+
+      <div class="flex space-x-4">
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram"
+           class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center
+                  hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2z"/>
+          </svg>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+           class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center
+                  hover:bg-brand-gold hover:border-brand-gold hover:text-brand-dark transition duration-300">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.2-1.6 1.7-1.6h1.8V4a24 24 0 0 0-2.7-.1c-2.7 0-4.5 1.7-4.5 4.8v1.9H7v3.2h2.8V22z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div>
+      <h4 class="text-sm font-bold uppercase tracking-[0.3em] mb-6 text-brand-gold">
+        Kde nás najdete
+      </h4>
+
+      <address class="not-italic text-gray-300 space-y-4 text-sm">
+        <div class="flex items-start">
+          <svg class="w-5 h-5 text-brand-gold mr-3 mt-1 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/>
+          </svg>
+          <div>
+            <p class="text-lg font-bold text-white">Veveří 12</p>
+            <p>602 00 Brno</p>
+            <p class="mt-2 text-xs text-gray-500 uppercase tracking-wide">
+              Zastávka tram: Moravské náměstí
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center pt-2">
+          <svg class="w-5 h-5 text-brand-gold mr-3 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.5 11.5 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A18 18 0 0 1 2 4a1 1 0 0 1 1-1h2.4a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"/>
+          </svg>
+          <a href="tel:+420123456789" class="hover:text-white transition">
+            +420 123 456 789
+          </a>
+        </div>
+
+        <div class="flex items-center">
+          <svg class="w-5 h-5 text-brand-gold mr-3 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 3.2v10.8h16V7.2L12 12.8 4 7.2zm.8-1.2 7.2 5 7.2-5z"/>
+          </svg>
+          <a href="mailto:hello@kavarnano1.cz" class="hover:text-white transition">
+            hello@kavarnano1.cz
+          </a>
+        </div>
+      </address>
+    </div>
+
+    <!-- Hours -->
+    <div>
+      <h4 class="text-sm font-bold uppercase tracking-[0.3em] mb-6 text-brand-gold">
+        Otevírací doba
+      </h4>
+
+      <ul class="space-y-3 text-gray-300 text-sm">
+        <li class="flex justify-between border-b border-gray-800 pb-2">
+          <span>Pondělí – Pátek</span>
+          <span class="font-mono text-white">07:30 – 18:00</span>
+        </li>
+        <li class="flex justify-between border-b border-gray-800 pb-2">
+          <span>Sobota</span>
+          <span class="font-mono text-white">09:00 – 17:00</span>
+        </li>
+        <li class="flex justify-between border-b border-gray-800 pb-2">
+          <span>Neděle</span>
+          <span class="font-mono text-white">10:00 – 16:00</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Copyright bar -->
+  <div class="max-w-7xl mx-auto pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+    <p>&copy; 2026 Kavárna No. 1 Brno. Všechna práva vyhrazena.</p>
+    <p class="mt-2 md:mt-0 flex items-center gap-2">
+      Designed with
+      <svg class="w-4 h-4 text-brand-gold inline-block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 21s-7-4.4-9.5-8.8C.5 8.2 2.4 5 5.9 5c2 0 3.3 1 4.1 2.2C10.8 6 12 5 14 5c3.5 0 5.4 3.2 3.4 7.2C19 16.6 12 21 12 21z"/>
+      </svg>
+      in Brno.
+    </p>
+  </div>
+</footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('translate-x-full');
+            if (menu.classList.contains('translate-x-full')) {
+                icon.classList.replace('ph-x', 'ph-list');
+            } else {
+                icon.classList.replace('ph-list', 'ph-x');
+            }
+        });
+
+        // Close mobile menu on link click
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('translate-x-full');
+                icon.classList.replace('ph-x', 'ph-list');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('shadow-md', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+    </script>
+</body>
+
+</html>

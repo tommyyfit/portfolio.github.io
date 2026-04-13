@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eva Hairstyling | Kadeřnictví Brno – Střihy, Barvení, Balayage</title>
+  <meta name="description" content="Eva Hairstyling – prémiové kadeřnictví v Brně. Specializujeme se na střihy, barvení, balayage a styling. Objednejte se online ještě dnes!" />
+  <meta name="keywords" content="kadeřnictví Brno, kadeřník Brno, střih vlasů Brno, balayage Brno, barvení vlasů Brno, dámský střih, Eva Hairstyling" />
+  <meta name="author" content="Eva Hairstyling" />
+  <meta property="og:title" content="Eva Hairstyling | Prémiové kadeřnictví Brno" />
+  <meta property="og:description" content="Luxusní kadeřnické služby v srdci Brna. Střihy, barvení, balayage a styling od profesionálky s vášní." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Cinzel:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #C9A96E;
+      --gold-light: #E8D5B0;
+      --gold-dark: #A07840;
+      --ivory: #FAF6F0;
+      --cream: #F2EBE0;
+      --charcoal: #1A1614;
+      --dark: #0E0C0B;
+      --mid: #3D3530;
+      --soft: #7A6E67;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--ivory);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    a { color: inherit; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    section { position: relative; }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 0 0 30px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--charcoal);
+    }
+    .section-title em { font-style: italic; color: var(--gold-dark); }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      transition: all 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(14, 12, 11, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 0.9rem 4rem;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      background: var(--gold);
+      padding: 0.6rem 1.6rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 1.5px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--dark);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--ivory);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* HERO */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transform: scale(1.08);
+      transition: transform 8s ease;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(14,12,11,0.72) 0%,
+        rgba(14,12,11,0.45) 50%,
+        rgba(61,53,48,0.55) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease 0.4s;
+    }
+    .hero-content.visible { opacity: 1; transform: translateY(0); }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 300;
+      line-height: 1;
+      color: #fff;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 3rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary,
+    .btn-outline {
+      display: inline-block;
+      text-decoration: none;
+      transition: all 0.35s ease;
+    }
+    .btn-primary {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,169,110,0.35);
+    }
+    .btn-outline {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollDown 2s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* MARQUEE */
+    #intro {
+      background: var(--dark);
+      padding: 1.8rem 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
+      width: max-content;
+    }
+    .marquee-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-shrink: 0;
+    }
+    .marquee-item::after {
+      content: '◆';
+      font-size: 0.5rem;
+      color: var(--gold-dark);
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* SERVICES */
+    #services { padding: 8rem 0; background: var(--ivory); }
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 5rem;
+    }
+    .services-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--soft);
+      max-width: 380px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid rgba(201,169,110,0.2);
+    }
+    .service-card {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(201,169,110,0.2);
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+      cursor: pointer;
+      transition: background 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+    }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(n+4) { border-bottom: none; }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+    .service-card:hover { background: var(--cream); }
+    .service-card:hover::before { height: 100%; }
+    .service-icon { font-size: 1.5rem; margin-bottom: 1.2rem; display: block; }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+    .service-price {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--soft);
+      margin-bottom: 1.2rem;
+    }
+    .service-detail {
+      display: none;
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--mid);
+      padding-top: 1rem;
+      border-top: 1px solid rgba(201,169,110,0.3);
+    }
+    .service-detail.open { display: block; }
+    .service-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0;
+      transition: gap 0.3s;
+    }
+    .service-toggle:hover { gap: 0.9rem; }
+
+    /* ABOUT */
+    #about {
+      padding: 8rem 0;
+      background: var(--dark);
+      overflow: visible;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7rem;
+      align-items: center;
+    }
+    .about-image-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      justify-self: start;
+      overflow: visible;
+      isolation: isolate;
+    }
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      position: relative;
+      z-index: 2;
+      border-radius: 2px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    }
+    .about-badge {
+      position: absolute;
+      top: 2rem;
+      left: -2.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 1.2rem 1rem;
+      text-align: center;
+      width: 110px;
+      z-index: 4;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+    }
+    .about-badge strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .about-badge span {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .about-content .section-title { color: #fff; }
+    .about-content .section-label { margin-bottom: 1.2rem; }
+    .about-text {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.6);
+      margin: 2rem 0;
+    }
+    .about-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat-item strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-item span {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+    }
+
+    /* TIMELINE */
+    #timeline { padding: 8rem 0; background: var(--cream); }
+    .timeline-header { text-align: center; margin-bottom: 6rem; }
+    .timeline-header .section-label {
+      justify-content: center;
+    }
+    .timeline-header .section-label::after { display: none; }
+    .timeline-header .section-label::before {
+      content: '';
+      flex: 0 0 30px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .timeline-intro {
+      margin-top: 1rem;
+      color: var(--soft);
+      font-weight: 300;
+    }
+    .timeline-wrap { position: relative; padding: 0 0 2rem; }
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold) 5%, var(--gold) 95%, transparent);
+      opacity: 0.4;
+    }
+    .timeline-items {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s ease;
+    }
+    .timeline-item.visible { opacity: 1; transform: translateY(0); }
+    .timeline-item:nth-child(even) .timeline-text { order: 3; }
+    .timeline-item:nth-child(even) .timeline-dot { order: 2; }
+    .timeline-item:nth-child(even) .timeline-empty { order: 1; }
+    .timeline-item:nth-child(odd) .timeline-text { text-align: right; }
+    .timeline-text { padding: 0 2.5rem; }
+    .timeline-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .timeline-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--soft);
+    }
+    .timeline-dot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+    .timeline-dot-inner {
+      width: 16px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(201,169,110,0.15);
+    }
+
+    /* GALLERY */
+    #gallery { padding: 8rem 0; background: var(--charcoal); }
+    .gallery-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      gap: 2rem;
+    }
+    .gallery-header .section-title { color: #fff; }
+    .gallery-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    .gallery-link:hover { color: var(--gold-light); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      border: none;
+      background: transparent;
+      padding: 0;
+      text-align: inherit;
+      outline: none;
+    }
+    .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 4; }
+    .gallery-item:nth-child(3) { grid-column: span 3; }
+    .gallery-item:nth-child(4) { grid-column: span 4; }
+    .gallery-item:nth-child(5) { grid-column: span 3; }
+    .gallery-item:nth-child(6) { grid-column: span 7; }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 220px;
+      transition: transform 0.7s ease;
+      display: block;
+    }
+    .gallery-item:hover .gallery-img { transform: scale(1.06); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(14,12,11,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.4s ease;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(14,12,11,0.35); }
+    .gallery-plus {
+      color: #fff;
+      font-size: 1.5rem;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.4s ease;
+    }
+    .gallery-item:hover .gallery-plus { opacity: 1; transform: scale(1); }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(14,12,11,0.95);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* CONTACT */
+    #contact { padding: 8rem 0; background: var(--ivory); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-details {
+      margin: 3rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .contact-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(201,169,110,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-item-text strong {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .contact-item-text span,
+    .contact-item-text a {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--mid);
+      text-decoration: none;
+      line-height: 1.5;
+    }
+    .contact-item-text a:hover { color: var(--gold); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1rem;
+      margin-top: 0.5rem;
+    }
+    .hours-day { font-size: 0.82rem; font-weight: 300; color: var(--soft); }
+    .hours-time { font-size: 0.82rem; font-weight: 400; color: var(--mid); }
+
+    .contact-map-wrap {
+      border: 1px solid rgba(201,169,110,0.2);
+      overflow: hidden;
+    }
+    .map-header {
+      background: var(--dark);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .map-header span {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .map-header::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.5rem;
+    }
+    .contact-map-wrap iframe {
+      width: 100%;
+      height: 380px;
+      display: block;
+      border: none;
+      filter: grayscale(0.3) contrast(1.05);
+    }
+    .contact-cta { margin-top: 3rem; }
+
+    /* STICKY */
+    .sticky-book {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 90;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(201,169,110,0.4);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .sticky-book:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(201,169,110,0.5);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(201,169,110,0.15);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 2rem;
+    }
+    .footer-brand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer-tagline {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.35);
+      max-width: 260px;
+    }
+    .footer-col-title {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .footer-links a {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+      letter-spacing: 0.03em;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy,
+    .footer-credit {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      font-weight: 300;
+    }
+    .footer-credit a {
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .footer-credit a:hover { opacity: 1; }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    @media (max-width: 1024px) {
+      nav, nav.scrolled { padding-left: 2rem; padding-right: 2rem; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .services-header,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-card:nth-child(3n) { border-right: 1px solid rgba(201,169,110,0.2); }
+      .service-card:nth-child(2n) { border-right: none; }
+
+      .about-image-wrap { max-width: 100%; }
+      .about-badge { left: 1rem; }
+
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+
+      .gallery-item:nth-child(1) { grid-column: span 12; grid-row: span 1; }
+      .gallery-item:nth-child(2),
+      .gallery-item:nth-child(3),
+      .gallery-item:nth-child(4),
+      .gallery-item:nth-child(5) { grid-column: span 6; }
+      .gallery-item:nth-child(6) { grid-column: span 12; }
+    }
+
+    @media (max-width: 640px) {
+      .section-inner { padding: 0 1.2rem; }
+      #services, #about, #timeline, #gallery, #contact { padding: 5rem 0; }
+
+      .hero-btns { flex-direction: column; align-items: center; }
+      .hero-title { line-height: 0.95; }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        border: none;
+      }
+      .service-card {
+        border: 1px solid rgba(201,169,110,0.2);
+        margin-bottom: 0.5rem;
+      }
+      .service-card:nth-child(3n),
+      .service-card:nth-child(2n) {
+        border-right: 1px solid rgba(201,169,110,0.2);
+      }
+
+      .timeline-line {
+        left: 24px;
+        transform: none;
+      }
+      .timeline-item {
+        grid-template-columns: 48px 1fr;
+      }
+      .timeline-item:nth-child(even) .timeline-text,
+      .timeline-item:nth-child(even) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-empty {
+        order: unset;
+      }
+      .timeline-item .timeline-empty { display: none; }
+      .timeline-item:nth-child(odd) .timeline-text { text-align: left; }
+      .timeline-dot { justify-content: flex-start; }
+
+      .gallery-item:nth-child(n) { grid-column: span 12; }
+      .gallery-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-badge {
+        left: 0;
+        top: 1rem;
+      }
+      .about-stats { gap: 2rem; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sticky-book {
+        bottom: 1.2rem;
+        right: 1.2rem;
+        padding: 0.8rem 1.2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Eva Hairstyling</a>
+
+  <ul class="nav-links">
+    <li><a href="#services">Služby</a></li>
+    <li><a href="#about">O nás</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+
+  <a href="tel:+420731234567" class="nav-cta">Objednat se</a>
+
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="#services" class="mobile-link">Služby</a>
+  <a href="#about" class="mobile-link">O nás</a>
+  <a href="#timeline" class="mobile-link">Příběh</a>
+  <a href="#gallery" class="mobile-link">Galerie</a>
+  <a href="#contact" class="mobile-link">Kontakt</a>
+</div>
+
+<section id="hero">
+  <img
+    class="hero-bg"
+    id="heroBg"
+    src="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+    alt="Luxusní kadeřnické prostředí"
+    loading="eager"
+    decoding="async"
+    data-fallbacks="https://images.pexels.com/photos/3993441/pexels-photo-3993441.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><rect width='100%25' height='100%25' fill='%230e0c0b'/><text x='50%25' y='50%25' fill='%23c9a96e' font-size='48' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>Eva Hairstyling</text></svg>"
+  />
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content" id="heroContent">
+    <p class="hero-eyebrow">Prémiové kadeřnictví · Brno</p>
+    <h1 class="hero-title">Eva<br><em>Hairstyling</em></h1>
+    <p class="hero-subtitle">Kde každý detail vypráví váš příběh</p>
+    <div class="hero-btns">
+      <a href="tel:+420731234567" class="btn-primary">Objednat se</a>
+      <a href="#services" class="btn-outline">Ceník služeb</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div id="intro">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item">Dámský střih</span>
+    <span class="marquee-item">Barvení vlasů</span>
+    <span class="marquee-item">Balayage</span>
+    <span class="marquee-item">Fénování</span>
+    <span class="marquee-item">Styling</span>
+    <span class="marquee-item">Keratin</span>
+    <span class="marquee-item">Melír</span>
+    <span class="marquee-item">Tónování</span>
+    <span class="marquee-item">Dámský střih</span>
+    <span class="marquee-item">Barvení vlasů</span>
+    <span class="marquee-item">Balayage</span>
+    <span class="marquee-item">Fénování</span>
+    <span class="marquee-item">Styling</span>
+    <span class="marquee-item">Keratin</span>
+    <span class="marquee-item">Melír</span>
+    <span class="marquee-item">Tónování</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="reveal">
+        <p class="section-label">Naše služby</p>
+        <h2 class="section-title">Péče, která<br><em>přesahuje očekávání</em></h2>
+      </div>
+
+      <p class="services-desc reveal" style="transition-delay:0.15s">
+        Každá návštěva je u nás osobní zážitek. Pracujeme s prémiovými produkty, precizní technikou a důrazem na to, aby vlasy působily zdravě, přirozeně a upraveně.
+      </p>
+    </div>
+
+    <div class="services-grid reveal" style="transition-delay:0.2s">
+      <div class="service-card">
+        <span class="service-icon">✂️</span>
+        <h3 class="service-name">Dámský střih</h3>
+        <p class="service-price">od 450 Kč</p>
+        <p class="service-desc">Precizní střih přizpůsobený tvaru obličeje, kvalitě vlasů i vašemu stylu.</p>
+        <div class="service-detail" id="detail-1">
+          Konzultace, mytí, kondicionér, střih, foukání a finální styling. Součástí je také doporučení péče pro domácí úpravu.
+        </div>
+        <button class="service-toggle" type="button" onclick="toggleDetail('detail-1', this)">Více ›</button>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <h3 class="service-name">Barvení</h3>
+        <p class="service-price">od 700 Kč</p>
+        <p class="service-desc">Sytý odstín, přirozený lesk a barva, která vydrží krásná co nejdéle.</p>
+        <div class="service-detail" id="detail-2">
+          Celoplošné barvení nebo tónování odrostů s ohledem na typ a stav vlasů. Pracujeme s kvalitními profesionálními barvami.
+        </div>
+        <button class="service-toggle" type="button" onclick="toggleDetail('detail-2', this)">Více ›</button>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🌿</span>
+        <h3 class="service-name">Balayage</h3>
+        <p class="service-price">od 1 800 Kč</p>
+        <p class="service-desc">Přirozené zesvětlení s jemným přechodem a sluncem políbeným efektem.</p>
+        <div class="service-detail" id="detail-3">
+          Ruční technika zesvětlení pro měkký, přirozený výsledek bez tvrdých linek. Ideální volba pro dlouhodobě krásný vzhled bez častého dobarvování.
+        </div>
+        <button class="service-toggle" type="button" onclick="toggleDetail('detail-3', this)">Více ›</button>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">💨</span>
+        <h3 class="service-name">Foukání</h3>
+        <p class="service-price">od 280 Kč</p>
+        <p class="service-desc">Profesionální foukání pro hladký, nadýchaný nebo elegantně upravený vzhled.</p>
+        <div class="service-detail" id="detail-4">
+          Mytí vlasů, péče podle typu vlasů a následné foukání do hladka, objemu nebo jemných vln. Skvělé pro každodenní i slavnostní styling.
+        </div>
+        <button class="service-toggle" type="button" onclick="toggleDetail('detail-4', this)">Více ›</button>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <h3 class="service-name">Účes & styling</h3>
+        <p class="service-price">od 550 Kč</p>
+        <p class="service-desc">Slavnostní a společenské účesy pro svatby, plesy i speciální příležitosti.</p>
+        <div class="service-detail" id="detail-5">
+          Drdoly, vlny, copánky i elegantní styling na míru. Doporučujeme krátkou konzultaci předem, aby výsledek přesně odpovídal příležitosti.
+        </div>
+        <button class="service-toggle" type="button" onclick="toggleDetail('detail-5', this)">Více ›</button>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">💎</span>
+        <h3 class="service-name">Melír & tónování</h3>
+        <p class="service-price">od 950 Kč</p>
+        <p class="service-desc">Jemné zvýraznění vlasů pro přirozený a rozjasněný efekt.</p>
+        <div class="service-detail" id="detail-6">
+          Klasický melír, tónování nebo oživení barvy pro větší hloubku a lesk. Skvělé jako samostatná služba i doplněk ke střihu.
+        </div>
+        <button class="service-toggle" type="button" onclick="toggleDetail('detail-6', this)">Více ›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal-left">
+        <img
+          class="about-img"
+          src="https://images.pexels.com/photos/3993441/pexels-photo-3993441.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1250&fit=crop"
+          alt="Kadeřnice v moderním salonu"
+          loading="lazy"
+          decoding="async"
+          data-fallbacks="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=1000&h=1250&fit=crop|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='1250'><rect width='100%25' height='100%25' fill='%231a1614'/><text x='50%25' y='50%25' fill='%23c9a96e' font-size='42' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>About image</text></svg>"
+        />
+
+        <div class="about-img-accent" aria-hidden="true"></div>
+
+        <div class="about-badge">
+          <strong>9+</strong>
+          <span>let praxe</span>
+        </div>
+      </div>
+
+      <div class="about-content reveal-right">
+        <p class="section-label">O nás</p>
+        <h2 class="section-title">Kadeřnictví<br><em>s duší i srdcem</em></h2>
+
+        <p class="about-text">
+          Jmenuji se Eva a kadeřnictví je moje vášeň už od devatenácti let. Po studiu na Střední škole kosmetiky a vlasové péče jsem absolvovala stáže ve Vídni i v Praze, kde jsem získala zkušenosti s moderními technikami střihu i barvení.
+        </p>
+
+        <p class="about-text">
+          V roce 2016 jsem otevřela vlastní salon v Brně s jasným cílem: aby každý klient odcházel spokojenější, sebevědomější a s účesem, který mu opravdu sedí. Věřím, že krásné vlasy nejsou luxus – jsou součástí toho, jak se cítíme každý den.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <strong>500+</strong>
+            <span>spokojených klientek</span>
+          </div>
+          <div class="stat-item">
+            <strong>9</strong>
+            <span>let zkušeností</span>
+          </div>
+          <div class="stat-item">
+            <strong>3</strong>
+            <span>odborné certifikace</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline" class="timeline-section">
+  <div class="section-inner">
+    <div class="timeline-header reveal">
+      <p class="section-label">Náš příběh</p>
+      <h2 class="section-title">Cesta za <em>dokonalostí</em></h2>
+      <p class="timeline-intro">Od prvního salonu až po dnešní podobu.</p>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-items">
+        <div class="timeline-item">
+          <div class="timeline-text">
+            <p class="timeline-year">2016</p>
+            <h3 class="timeline-title">Zrození snu</h3>
+            <p class="timeline-desc">Otevření prvního vlastního salonu v Brně. Malý prostor, velká vize: nabízet služby na vysoké úrovni a s osobním přístupem.</p>
+          </div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+          <div class="timeline-empty"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-empty"></div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+          <div class="timeline-text">
+            <p class="timeline-year">2018</p>
+            <h3 class="timeline-title">Balayage certifikace</h3>
+            <p class="timeline-desc">Rozšíření nabídky o balayage a ombré techniky po odborném školení v zahraničí.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-text">
+            <p class="timeline-year">2020</p>
+            <h3 class="timeline-title">Síla pokračovat</h3>
+            <p class="timeline-desc">Náročné období nás nezastavilo. Udrželi jsme provoz, rozšířili tým a zavedli online rezervace pro větší pohodlí klientek.</p>
+          </div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+          <div class="timeline-empty"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-empty"></div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+          <div class="timeline-text">
+            <p class="timeline-year">2023</p>
+            <h3 class="timeline-title">Renovace & rozkvět</h3>
+            <p class="timeline-desc">Kompletní rekonstrukce salonu do současné podoby a přechod na prémiové produkty šetrné k vlasům.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-text">
+            <p class="timeline-year">2026</p>
+            <h3 class="timeline-title">Dnes</h3>
+            <p class="timeline-desc">Více než 500 pravidelných klientek, rozrostlý tým a neustálé vzdělávání v nejnovějších trendech. Příběh pokračuje dál.</p>
+          </div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+          <div class="timeline-empty"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" aria-labelledby="gallery-title">
+  <div class="section-inner">
+    <div class="gallery-header reveal">
+      <div>
+        <p class="section-label">Galerie</p>
+        <h2 id="gallery-title" class="section-title">Naše <em>práce</em></h2>
+      </div>
+      <a href="#contact" class="gallery-link">Objednat se →</a>
+    </div>
+
+    <div class="gallery-grid reveal" style="transition-delay:0.15s">
+      <button type="button" class="gallery-item" onclick="openLightbox('https://images.pexels.com/photos/3992876/pexels-photo-3992876.jpeg?auto=compress&cs=tinysrgb&w=1600')" aria-label="Otevřít ukázku luxusního účesu">
+        <img class="gallery-img" src="https://images.pexels.com/photos/3992876/pexels-photo-3992876.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Elegantní luxusní účes" loading="lazy" decoding="async" data-fallbacks="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=900|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='700'><rect width='100%25' height='100%25' fill='%231a1614'/></svg>" />
+        <span class="gallery-overlay" aria-hidden="true"><span class="gallery-plus">+</span></span>
+      </button>
+
+      <button type="button" class="gallery-item" onclick="openLightbox('https://images.pexels.com/photos/3993335/pexels-photo-3993335.jpeg?auto=compress&cs=tinysrgb&w=1600')" aria-label="Otevřít ukázku balayage">
+        <img class="gallery-img" src="https://images.pexels.com/photos/3993335/pexels-photo-3993335.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Balayage s přirozeným přechodem barev" loading="lazy" decoding="async" data-fallbacks="https://images.pexels.com/photos/3993441/pexels-photo-3993441.jpeg?auto=compress&cs=tinysrgb&w=900|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='700'><rect width='100%25' height='100%25' fill='%231a1614'/></svg>" />
+        <span class="gallery-overlay" aria-hidden="true"><span class="gallery-plus">+</span></span>
+      </button>
+
+      <button type="button" class="gallery-item" onclick="openLightbox('https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=1600')" aria-label="Otevřít ukázku barvení vlasů">
+        <img class="gallery-img" src="https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Profesionální barvení vlasů v salonu" loading="lazy" decoding="async" data-fallbacks="https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=900|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='700'><rect width='100%25' height='100%25' fill='%231a1614'/></svg>" />
+        <span class="gallery-overlay" aria-hidden="true"><span class="gallery-plus">+</span></span>
+      </button>
+
+      <button type="button" class="gallery-item" onclick="openLightbox('https://images.pexels.com/photos/2336287/pexels-photo-2336287.jpeg?auto=compress&cs=tinysrgb&w=1600')" aria-label="Otevřít ukázku dámského střihu">
+        <img class="gallery-img" src="https://images.pexels.com/photos/2336287/pexels-photo-2336287.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Stylový dámský střih" loading="lazy" decoding="async" data-fallbacks="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=900|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='700'><rect width='100%25' height='100%25' fill='%231a1614'/></svg>" />
+        <span class="gallery-overlay" aria-hidden="true"><span class="gallery-plus">+</span></span>
+      </button>
+
+      <button type="button" class="gallery-item" onclick="openLightbox('https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1600')" aria-label="Otevřít ukázku stylingu vlasů">
+        <img class="gallery-img" src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Elegantní styling vlasů" loading="lazy" decoding="async" data-fallbacks="https://images.pexels.com/photos/2336287/pexels-photo-2336287.jpeg?auto=compress&cs=tinysrgb&w=900|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='700'><rect width='100%25' height='100%25' fill='%231a1614'/></svg>" />
+        <span class="gallery-overlay" aria-hidden="true"><span class="gallery-plus">+</span></span>
+      </button>
+
+      <button type="button" class="gallery-item" onclick="openLightbox('https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=1600')" aria-label="Otevřít ukázku prostředí salonu">
+        <img class="gallery-img" src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Moderní kadeřnický salon" loading="lazy" decoding="async" data-fallbacks="https://images.pexels.com/photos/3993441/pexels-photo-3993441.jpeg?auto=compress&cs=tinysrgb&w=900|data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='700'><rect width='100%25' height='100%25' fill='%231a1614'/></svg>" />
+        <span class="gallery-overlay" aria-hidden="true"><span class="gallery-plus">+</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Zavřít galerii">×</button>
+  <img id="lightbox-img" src="" alt="Galerie Eva Hairstyling" />
+</div>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label reveal">Kontakt</p>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">Přijďte nás <em>navštívit</em></h2>
+
+        <div class="contact-details">
+          <div class="contact-item reveal" style="transition-delay:0.15s">
+            <div class="contact-icon" aria-hidden="true">📞</div>
+            <div class="contact-item-text">
+              <strong>Telefon</strong>
+              <a href="tel:+420731234567">+420 731 234 567</a>
+            </div>
+          </div>
+
+          <div class="contact-item reveal" style="transition-delay:0.2s">
+            <div class="contact-icon" aria-hidden="true">✉️</div>
+            <div class="contact-item-text">
+              <strong>E-mail</strong>
+              <a href="mailto:info@evahairstyling.cz">info@evahairstyling.cz</a>
+            </div>
+          </div>
+
+          <div class="contact-item reveal" style="transition-delay:0.25s">
+            <div class="contact-icon" aria-hidden="true">📍</div>
+            <div class="contact-item-text">
+              <strong>Adresa</strong>
+              <span>Česká 15, 602 00 Brno-střed</span>
+            </div>
+          </div>
+
+          <div class="contact-item reveal" style="transition-delay:0.3s">
+            <div class="contact-icon" aria-hidden="true">🕐</div>
+            <div class="contact-item-text">
+              <strong>Otevírací doba</strong>
+              <div class="hours-grid">
+                <span class="hours-day">Po – Pá</span><span class="hours-time">9:00 – 19:00</span>
+                <span class="hours-day">Sobota</span><span class="hours-time">9:00 – 16:00</span>
+                <span class="hours-day">Neděle</span><span class="hours-time">Zavřeno</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-cta reveal" style="transition-delay:0.35s">
+          <a href="tel:+420731234567" class="btn-primary">Rezervovat termín</a>
+        </div>
+      </div>
+
+      <div class="reveal-right" style="transition-delay:0.2s">
+        <div class="contact-map-wrap">
+          <div class="map-header">
+            <span>Eva Hairstyling · Brno</span>
+          </div>
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=16.5970%2C49.1910%2C16.6170%2C49.2010&layer=mapnik&marker=49.1960%2C16.6070"
+            title="Mapa – Eva Hairstyling, Brno"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <p class="footer-brand-name">Eva Hairstyling</p>
+        <p class="footer-tagline">
+          Prémiové kadeřnické služby v srdci Brna. Protože vaše vlasy si zaslouží to nejlepší.
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Navigace</p>
+        <ul class="footer-links">
+          <li><a href="#services">Služby & ceník</a></li>
+          <li><a href="#about">O Eva</a></li>
+          <li><a href="#timeline">Náš příběh</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Služby</p>
+        <ul class="footer-links">
+          <li><a href="#services">Dámský střih</a></li>
+          <li><a href="#services">Barvení vlasů</a></li>
+          <li><a href="#services">Balayage</a></li>
+          <li><a href="#services">Fénování</a></li>
+          <li><a href="#services">Styling & účesy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Kontakt</p>
+        <ul class="footer-links">
+          <li><a href="tel:+420731234567">+420 731 234 567</a></li>
+          <li><a href="mailto:info@evahairstyling.cz">info@evahairstyling.cz</a></li>
+          <li><a href="#contact">Česká 15, Brno</a></li>
+          <li><a href="#contact">Po–Pá: 9–19 hod.</a></li>
+          <li><a href="#contact">So: 9–16 hod.</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Eva Hairstyling. Všechna práva vyhrazena.</p>
+      <p class="footer-credit">
+        Created by <a href="https://beacons.ai/tommyy.fit" target="_blank" rel="noopener">tommyy.fit</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const PLACEHOLDER_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900"><rect width="100%" height="100%" fill="%231a1614"/><text x="50%" y="50%" fill="%23c9a96e" font-size="44" text-anchor="middle" dominant-baseline="middle" font-family="Arial">Eva Hairstyling</text></svg>`;
+
+  function initImageFallbacks() {
+    document.querySelectorAll('img[data-fallbacks]').forEach((img) => {
+      const fallbacks = (img.dataset.fallbacks || '')
+        .split('|')
+        .map(s => s.trim())
+        .filter(Boolean);
+
+      let index = 0;
+
+      img.addEventListener('error', function handleError() {
+        if (index < fallbacks.length) {
+          const next = fallbacks[index++];
+          if (next.startsWith('data:image')) {
+            img.src = next;
+            img.removeEventListener('error', handleError);
+            return;
+          }
+          img.src = next;
+          return;
+        }
+        img.src = PLACEHOLDER_SVG;
+        img.removeEventListener('error', handleError);
+      });
+    });
+  }
+
+  window.addEventListener('load', () => {
+    const heroBg = document.getElementById('heroBg');
+    const heroContent = document.getElementById('heroContent');
+
+    if (heroBg) {
+      heroBg.classList.add('loaded');
+      heroBg.addEventListener('error', () => {
+        heroBg.src = PLACEHOLDER_SVG;
+      }, { once: true });
+    }
+
+    setTimeout(() => {
+      heroContent?.classList.add('visible');
+    }, 300);
+
+    initImageFallbacks();
+  });
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger?.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('open');
+      mobileMenu?.classList.remove('open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      mobileMenu?.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  function toggleDetail(id, btn) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const isOpen = el.classList.toggle('open');
+    btn.textContent = isOpen ? 'Méně ‹' : 'Více ›';
+  }
+
+  function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (!lightbox || !lightboxImg) return;
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightboxClose')?.addEventListener('click', closeLightbox);
+  document.getElementById('lightbox')?.addEventListener('click', function (e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .timeline-item');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  const stickyBook = document.getElementById('stickyBook');
+  const footerEl = document.querySelector('footer');
+  if (stickyBook && footerEl) {
+    const stickyObserver = new IntersectionObserver(([entry]) => {
+      stickyBook.style.opacity = entry.isIntersecting ? '0' : '1';
+      stickyBook.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+    }, { threshold: 0.1 });
+
+    stickyObserver.observe(footerEl);
+  }
+</script>
+</body>
+</html>

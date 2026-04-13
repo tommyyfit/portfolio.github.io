@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mambo Tattoo Brno | Moderní tetovací studio v centru Brna</title>
+    <meta name="description"
+        content="Mambo Tattoo Brno. Moderní tetovací studio s důrazem na originalitu, hygienu a individuální přístup. Rezervujte si konzultaci." />
+    <link rel="canonical" href="https://mambotattoo.cz" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mambo Tattoo Brno | Moderní tetovací studio" />
+    <meta property="og:description"
+        content="Originální návrhy, sterilní prostředí a profesionální přístup v centru Brna." />
+    <meta property="og:image"
+        content="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1600" />
+
+    <meta name="theme-color" content="#0b0b0d" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0b0b0d;
+            --bg-2: #121216;
+            --surface: #17171c;
+            --surface-2: #1e1e25;
+            --text: #f7f7f4;
+            --muted: #b8b8c2;
+            --line: rgba(255, 255, 255, .10);
+            --accent: #ff4d4d;
+            --accent-2: #ff7a59;
+            --shadow: 0 24px 60px rgba(0, 0, 0, .35);
+            --radius: 22px;
+            --radius-sm: 16px;
+            --font-heading: "Archivo Black", sans-serif;
+            --font-body: "Inter", sans-serif;
+            --ease: cubic-bezier(.22, 1, .36, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(255, 77, 77, .10), transparent 28%),
+                radial-gradient(circle at top right, rgba(255, 122, 89, .08), transparent 26%),
+                var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 32px));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 92px 0;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: .28em;
+            font-size: .75rem;
+            font-weight: 800;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background: currentColor;
+            opacity: .9;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            line-height: .98;
+            letter-spacing: -.03em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 6.2rem);
+        }
+
+        h2 {
+            font-size: clamp(2.1rem, 6vw, 4rem);
+        }
+
+        h3 {
+            font-size: 1.35rem;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 1.35rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .02em;
+            font-size: .86rem;
+            transition: transform .28s var(--ease), background .28s var(--ease), border-color .28s var(--ease), box-shadow .28s var(--ease);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white;
+            box-shadow: 0 18px 36px rgba(255, 77, 77, .18);
+        }
+
+        .btn-outline {
+            border-color: rgba(255, 255, 255, .16);
+            background: rgba(255, 255, 255, .03);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, .07);
+            border-color: rgba(255, 255, 255, .25);
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            box-shadow: var(--shadow);
+        }
+
+        .lift {
+            transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+        }
+
+        .lift:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, .18);
+            box-shadow: 0 32px 76px rgba(0, 0, 0, .45);
+        }
+
+        .media {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: #101015;
+        }
+
+        .media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .9s var(--ease), filter .9s var(--ease);
+        }
+
+        .media:hover img {
+            transform: scale(1.05);
+            filter: saturate(1.05);
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            backdrop-filter: blur(18px);
+            background: rgba(11, 11, 13, .82);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-size: 1.18rem;
+            letter-spacing: -.04em;
+            white-space: nowrap;
+        }
+
+        .brand-mark {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            box-shadow: 0 0 0 4px rgba(255, 77, 77, .12);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .nav-links a {
+            color: rgba(247, 247, 244, .82);
+            font-weight: 700;
+            font-size: .95rem;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .menu-btn {
+            display: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background: white;
+            transition: .25s var(--ease);
+        }
+
+        .mobile-panel {
+            display: none;
+            padding: 14px 0 22px;
+            border-top: 1px solid var(--line);
+        }
+
+        .mobile-panel.open {
+            display: grid;
+            gap: 10px;
+        }
+
+        .mobile-panel a {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            font-weight: 700;
+            color: rgba(247, 247, 244, .92);
+        }
+
+        .hero {
+            padding: 72px 0 30px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 34px;
+            align-items: center;
+        }
+
+        .hero-copy {
+            display: grid;
+            gap: 20px;
+        }
+
+        .hero-copy p {
+            max-width: 620px;
+            font-size: 1.05rem;
+            color: #c4c4ce;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .trust-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .trust {
+            padding: 18px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+        }
+
+        .trust strong {
+            display: block;
+            margin-bottom: 6px;
+            font-family: var(--font-heading);
+            font-size: 1.45rem;
+            color: white;
+        }
+
+        .trust span {
+            color: var(--muted);
+            font-size: .83rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+
+        .hero-visual {
+            position: relative;
+            padding: 12px;
+        }
+
+        .hero-visual .media {
+            min-height: 620px;
+            border-radius: 28px;
+        }
+
+        .floating-badge {
+            position: absolute;
+            left: 24px;
+            bottom: 24px;
+            max-width: 250px;
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(11, 11, 13, .78);
+            border: 1px solid rgba(255, 255, 255, .12);
+            backdrop-filter: blur(12px);
+        }
+
+        .floating-badge strong {
+            display: block;
+            margin-bottom: 4px;
+            color: white;
+            font-family: var(--font-heading);
+            letter-spacing: -.03em;
+        }
+
+        .section-head {
+            display: grid;
+            gap: 14px;
+            margin-bottom: 34px;
+        }
+
+        .section-head p {
+            max-width: 760px;
+            font-size: 1.05rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service,
+        .feature,
+        .contact-card {
+            padding: 28px;
+        }
+
+        .price {
+            display: inline-flex;
+            margin-bottom: 12px;
+            font-family: var(--font-heading);
+            color: var(--accent);
+        }
+
+        .service p,
+        .feature p {
+            margin-top: 10px;
+            line-height: 1.75;
+        }
+
+        .feature-band {
+            background:
+                linear-gradient(135deg, rgba(255, 77, 77, .09), rgba(255, 122, 89, .06)),
+                var(--bg-2);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .feature svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .95fr 1.05fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-copy {
+            display: grid;
+            gap: 16px;
+        }
+
+        .about-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .about-item {
+            display: flex;
+            gap: 14px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+        }
+
+        .about-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+            flex: 0 0 auto;
+            margin-top: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr 1fr;
+            gap: 18px;
+        }
+
+        .gallery-grid .media {
+            min-height: 320px;
+        }
+
+        .gallery-grid .media:nth-child(2) {
+            min-height: 430px;
+            transform: translateY(40px);
+        }
+
+        .faq {
+            max-width: 860px;
+            margin: 0 auto;
+            display: grid;
+            gap: 14px;
+        }
+
+        .faq-item {
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+        }
+
+        .faq-q {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 22px;
+            background: transparent;
+            border: 0;
+            color: white;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq-q span {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .faq-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            display: grid;
+            place-items: center;
+            flex: 0 0 auto;
+            transition: transform .28s var(--ease), background .28s var(--ease);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s var(--ease), padding .45s var(--ease);
+            padding: 0 22px;
+            color: var(--muted);
+        }
+
+        .faq-item[open] .faq-a {
+            max-height: 240px;
+            padding: 0 22px 20px;
+        }
+
+        .faq-item[open] .faq-icon {
+            transform: rotate(45deg);
+            background: rgba(255, 255, 255, .06);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: .95fr 1.05fr;
+            gap: 20px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contact-row:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-row svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+            margin-top: 2px;
+            flex: 0 0 auto;
+        }
+
+        .contact-row strong {
+            display: block;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .social {
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .03);
+            transition: transform .28s var(--ease), background .28s var(--ease), border-color .28s var(--ease);
+        }
+
+        .social:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, .08);
+            border-color: rgba(255, 255, 255, .18);
+        }
+
+        form {
+            display: grid;
+            gap: 14px;
+        }
+
+        .field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .field label {
+            font-size: .82rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(247, 247, 244, .74);
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+            color: white;
+            padding: 15px 16px;
+            outline: none;
+            transition: border-color .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(247, 247, 244, .45);
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: rgba(255, 77, 77, .65);
+            background: rgba(255, 255, 255, .05);
+            box-shadow: 0 0 0 4px rgba(255, 77, 77, .10);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .footer {
+            border-top: 1px solid var(--line);
+            background: #08080a;
+            padding: 28px 0 24px;
+        }
+
+        .footer-top,
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-top {
+            padding-bottom: 18px;
+        }
+
+        .footer-bottom {
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            color: rgba(247, 247, 244, .48);
+            font-size: .84rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .8s var(--ease), transform .8s var(--ease);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 12px;
+            z-index: 1000;
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: white;
+            font-weight: 800;
+        }
+
+        .skip-link:focus {
+            left: 12px;
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid .media:nth-child(2) {
+                transform: none;
+            }
+
+            .hero-visual .media {
+                min-height: 480px;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: inline-flex;
+            }
+
+            .grid-2,
+            .trust-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TattooParlor",
+    "name": "Mambo Tattoo",
+    "url": "https://mambotattoo.cz",
+    "telephone": "+420123456789",
+    "image": [
+      "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/412872/pexels-photo-412872.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Náměstí Svobody 1",
+      "addressLocality": "Brno",
+      "postalCode": "602 00",
+      "addressCountry": "CZ"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "11:00",
+        "closes": "18:00"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Přeskočit na obsah</a>
+
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="#top" aria-label="Mambo Tattoo">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span>Mambo <span style="color: var(--accent);">Tattoo</span></span>
+            </a>
+
+            <div class="nav-links" aria-label="Hlavní navigace">
+                <a href="#sluzby">Služby</a>
+                <a href="#o-nas">O nás</a>
+                <a href="#galerie">Galerie</a>
+                <a href="#faq">FAQ</a>
+                <a href="#kontakt">Kontakt</a>
+                <a class="btn btn-primary" href="tel:+420123456789">Zavolat studio</a>
+            </div>
+
+            <button class="menu-btn" id="menuToggle" aria-label="Otevřít menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="container mobile-panel" id="mobilePanel">
+            <a href="#sluzby">Služby</a>
+            <a href="#o-nas">O nás</a>
+            <a href="#galerie">Galerie</a>
+            <a href="#faq">FAQ</a>
+            <a href="#kontakt">Kontakt</a>
+            <a class="btn btn-primary" href="tel:+420123456789" style="width: fit-content;">Zavolat studio</a>
+        </div>
+    </nav>
+
+    <main id="main">
+        <header id="top" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy reveal">
+                    <span class="eyebrow">Tetovací studio v Brně</span>
+                    <h1>Umění, které zůstává.</h1>
+                    <p>
+                        Mambo Tattoo tvoří originální tetování s důrazem na detail, hygienu a osobní přístup.
+                        Od jemných motivů až po výrazné custom projekty navržené přesně pro tebe.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#kontakt" class="btn btn-primary">Rezervovat konzultaci</a>
+                        <a href="#galerie" class="btn btn-outline">Podívat se na práci</a>
+                    </div>
+
+                    <div class="trust-row">
+                        <div class="trust">
+                            <strong>10+</strong>
+                            <span>let zkušeností</span>
+                        </div>
+                        <div class="trust">
+                            <strong>100%</strong>
+                            <span>sterilní prostředí</span>
+                        </div>
+                        <div class="trust">
+                            <strong>Brno</strong>
+                            <span>centrum města</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="media">
+                        <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Tattoo artist working in a studio" loading="eager" fetchpriority="high"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/412871/pexels-photo-412871.jpeg?auto=compress&cs=tinysrgb&w=1600';" />
+                    </div>
+
+                    <div class="floating-badge">
+                        <strong>Custom návrhy</strong>
+                        <p>Každý motiv kreslíme na míru stylu, tělu i představě klienta.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="sluzby" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Služby</span>
+                    <h2>Od prvního náčrtu až po finální inkoust.</h2>
+                    <p>
+                        Navrhujeme malé i velké projekty s respektem k anatomii, stylu a tvému osobnímu příběhu.
+                    </p>
+                </div>
+
+                <div class="grid-2">
+                    <article class="card service lift reveal">
+                        <span class="price">Od 1 500 Kč</span>
+                        <h3>Mini & fine line</h3>
+                        <p>Jemné nápisy, minimalistické symboly a drobné motivy, které působí čistě a nadčasově.</p>
+                    </article>
+
+                    <article class="card service lift reveal">
+                        <span class="price">Od 4 000 Kč</span>
+                        <h3>Ruce, předloktí, ramena</h3>
+                        <p>Detailní práce pro výraznější plochy. Blackwork, realism nebo kombinace stylů podle zadání.
+                        </p>
+                    </article>
+
+                    <article class="card service lift reveal">
+                        <span class="price">Na dotaz</span>
+                        <h3>Záda & hrudník</h3>
+                        <p>Velké kompozice připravujeme po konzultaci. Každý návrh řešíme tak, aby seděl přesně na tělo.
+                        </p>
+                    </article>
+
+                    <article class="card service lift reveal">
+                        <span class="price">Konzultace zdarma</span>
+                        <h3>Cover-up & úpravy</h3>
+                        <p>Pomůžeme přetvořit staré tetování do nového konceptu tak, aby výsledek působil přirozeně a
+                            silně.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-band section">
+            <div class="container">
+                <div class="feature-grid">
+                    <article class="card feature lift reveal">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 2l8 4v6c0 5-3.5 9.4-8 10-4.5-.6-8-5-8-10V6l8-4z" stroke="currentColor"
+                                stroke-width="2" />
+                            <path d="M8.5 12l2.4 2.4L15.8 9.5" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <h3>Hygiena bez kompromisů</h3>
+                        <p>Pracujeme v důsledně sterilním prostředí a používáme jednorázové materiály i osvědčené
+                            postupy.</p>
+                    </article>
+
+                    <article class="card feature lift reveal">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 19V5h16v14H4z" stroke="currentColor" stroke-width="2" />
+                            <path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <h3>Vlastní návrhy</h3>
+                        <p>Nekopírujeme hotové šablony. Každý koncept stavíme od nuly podle stylu, místa a významu
+                            motivu.</p>
+                    </article>
+
+                    <article class="card feature lift reveal">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 3v18M6 7h12M7.5 17h9" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <path d="M8 7c0 4 8 4 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <h3>Péče po tetování</h3>
+                        <p>Dostaneš jasné instrukce, jak o tetování pečovat, aby hojení proběhlo co nejlépe.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="o-nas" class="section">
+            <div class="container about-grid">
+                <div class="media reveal" style="min-height: 520px;">
+                    <img src="https://images.pexels.com/photos/1454131/pexels-photo-1454131.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                        alt="Tattoo studio interior" loading="lazy"
+                        onerror="this.onerror=null;this.src='https://images.pexels.com/photos/1926768/pexels-photo-1926768.jpeg?auto=compress&cs=tinysrgb&w=1600';" />
+                </div>
+
+                <div class="about-copy reveal">
+                    <span class="eyebrow">O nás</span>
+                    <h2>Studio s energií, klidem a precizností.</h2>
+                    <p>
+                        Mambo Tattoo vzniklo jako prostor, kde se potkává moderní styl, přesná práce a příjemná
+                        atmosféra.
+                        Chceme, aby ses cítil dobře od první zprávy až po hotové tetování.
+                    </p>
+                    <p>
+                        Každý klient dostává individuální přístup, pečlivou konzultaci a návrh, který dává smysl
+                        esteticky i technicky.
+                    </p>
+
+                    <div class="about-list">
+                        <div class="about-item">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div>
+                                <strong style="color: white;">Individuální návrh</strong>
+                                <p>Žádné univerzální motivy bez souvislosti s tebou.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-item">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="currentColor" />
+                            </svg>
+                            <div>
+                                <strong style="color: white;">Brno centrum</strong>
+                                <p>Dobře dostupná lokalita s jednoduchou rezervací termínu.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-item">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                            <div>
+                                <strong style="color: white;">Domluva bez stresu</strong>
+                                <p>Rychlá komunikace, jasné ceny a férový postup.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions" style="margin-top: 8px;">
+                        <a href="#kontakt" class="btn btn-primary">Domluvit konzultaci</a>
+                        <a href="#faq" class="btn btn-outline">Časté dotazy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galerie" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Galerie</span>
+                    <h2>Ukázky atmosféry a stylu.</h2>
+                    <p>Vybrané vizuály pro lepší představu o prostředí, práci a náladě studia.</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="media reveal">
+                        <img src="https://images.pexels.com/photos/1449791/pexels-photo-1449791.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Tattoo tools and desk" loading="lazy"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/1926768/pexels-photo-1926768.jpeg?auto=compress&cs=tinysrgb&w=1600';" />
+                    </div>
+
+                    <div class="media reveal">
+                        <img src="https://images.pexels.com/photos/412871/pexels-photo-412871.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Tattoo artist at work" loading="lazy"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1600';" />
+                    </div>
+
+                    <div class="media reveal">
+                        <img src="https://images.pexels.com/photos/1926768/pexels-photo-1926768.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                            alt="Studio interior detail" loading="lazy"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/1454131/pexels-photo-1454131.jpeg?auto=compress&cs=tinysrgb&w=1600';" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-head reveal" style="text-align: center; justify-items: center;">
+                    <span class="eyebrow">FAQ</span>
+                    <h2>Nejčastější dotazy</h2>
+                    <p>Rychlé odpovědi na věci, které lidi řeší nejčastěji před první návštěvou studia.</p>
+                </div>
+
+                <div class="faq">
+                    <details class="faq-item reveal">
+                        <summary class="faq-q">
+                            <span>Jak se objednám?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="faq-a">
+                            Nejrychlejší je napsat přes formulář níže nebo zavolat. Ozveme se zpět, domluvíme konzultaci
+                            a vybereme vhodný termín.
+                        </div>
+                    </details>
+
+                    <details class="faq-item reveal">
+                        <summary class="faq-q">
+                            <span>Děláte i první tetování?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="faq-a">
+                            Ano. Pomůžeme s výběrem motivu, velikosti i umístění. První tetování řešíme klidně a bez
+                            zbytečného tlaku.
+                        </div>
+                    </details>
+
+                    <details class="faq-item reveal">
+                        <summary class="faq-q">
+                            <span>Kolik tetování stojí?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="faq-a">
+                            Cena závisí na velikosti, stylu a náročnosti. Po krátké konzultaci dostaneš jasný odhad
+                            ještě před rezervací.
+                        </div>
+                    </details>
+
+                    <details class="faq-item reveal">
+                        <summary class="faq-q">
+                            <span>Jak dlouho trvá hojení?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </summary>
+                        <div class="faq-a">
+                            Povrchové hojení trvá obvykle 2 až 3 týdny. Přesné instrukce dostaneš po tetování včetně
+                            péče podle typu motivu.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontakt" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Kontakt</span>
+                    <h2>Napiš nám a domluv si termín.</h2>
+                    <p>Krátká zpráva stačí. Napiš, co máš v hlavě, a společně z toho uděláme něco, co bude dávat smysl i
+                        po letech.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="card contact-card reveal">
+                        <h3>Studio</h3>
+
+                        <div class="contact-list">
+                            <div class="contact-row">
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"
+                                        stroke="currentColor" stroke-width="2" />
+                                    <path d="M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="currentColor" />
+                                </svg>
+                                <div>
+                                    <strong>Adresa</strong>
+                                    <p>Náměstí Svobody 1, 602 00 Brno</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-row">
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path
+                                        d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.5 11.5 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A18 18 0 0 1 2 4a1 1 0 0 1 1-1h2.4a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"
+                                        stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                                </svg>
+                                <div>
+                                    <strong>Telefon</strong>
+                                    <p><a href="tel:+420123456789">+420 123 456 789</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-row">
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" />
+                                    <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p><a href="mailto:ink@mambotattoo.cz">ink@mambotattoo.cz</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-row">
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+                                </svg>
+                                <div>
+                                    <strong>Otevírací doba</strong>
+                                    <p>Po–Pá: 10:00–20:00<br>So: 11:00–18:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="socials">
+                            <a class="social" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                                aria-label="Instagram">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.8 6.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2z" />
+                                </svg>
+                            </a>
+
+                            <a class="social" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                                aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.2-1.6 1.7-1.6h1.8V4a24 24 0 0 0-2.7-.1c-2.7 0-4.5 1.7-4.5 4.8v1.9H7v3.2h2.8V22z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card contact-card reveal">
+                        <h3>Poptávkový formulář</h3>
+
+                        <form id="leadForm">
+                            <div class="field">
+                                <label for="name">Jméno</label>
+                                <input id="name" name="name" type="text" placeholder="Tvoje jméno" required />
+                            </div>
+
+                            <div class="field">
+                                <label for="email">E-mail</label>
+                                <input id="email" name="email" type="email" placeholder="tvuj@email.cz" required />
+                            </div>
+
+                            <div class="field">
+                                <label for="type">Typ projektu</label>
+                                <select id="type" name="type" required>
+                                    <option value="" disabled selected>Vyber možnost</option>
+                                    <option value="small">Malé tetování</option>
+                                    <option value="linework">Fine line / nápis</option>
+                                    <option value="coverup">Cover-up</option>
+                                    <option value="large">Větší projekt</option>
+                                    <option value="consultation">Konzultace</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="message">Zpráva</label>
+                                <textarea id="message" name="message"
+                                    placeholder="Popiš styl, velikost, umístění nebo inspiraci..." required></textarea>
+                            </div>
+
+                            <button class="btn btn-primary" type="submit">Odeslat poptávku</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a class="brand" href="#top">
+                    <span class="brand-mark" aria-hidden="true"></span>
+                    <span>Mambo <span style="color: var(--accent);">Tattoo</span></span>
+                </a>
+
+                <a class="btn btn-outline" href="tel:+420123456789">+420 123 456 789</a>
+            </div>
+
+<div class="footer-bottom">
+    <div class="footer-copyright">
+        <p>&copy; 2026 <strong>Mambo Tattoo Brno</strong>. Všechna práva vyhrazena.</p>
+    </div>
+    <div class="footer-credits">
+        <p>
+            Design & Code by 
+            <a href="https://beacons.ai/tommyy.fit" target="_blank" rel="noopener" class="credit-link">
+                tommyy.fit
+            </a>
+        </p>
+    </div>
+</div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const mobilePanel = document.getElementById("mobilePanel");
+
+        menuToggle?.addEventListener("click", () => {
+            const isOpen = mobilePanel.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        document.querySelectorAll(".mobile-panel a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobilePanel.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+        document.getElementById("leadForm")?.addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Děkujeme! Ozveme se ti co nejdříve.");
+            e.target.reset();
+        });
+    </script>
+</body>
+
+</html>
