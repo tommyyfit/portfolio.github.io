@@ -1,111 +1,200 @@
+// ============================================
+// Enhanced Portfolio Script - Bug Free Version
+// ============================================
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Remove loader when page is loaded
-  setTimeout(function () {
-    const loader = document.getElementById("loader");
-    if (loader) {
+  'use strict';
+
+  // ============================================
+  // 1. PAGE LOADER
+  // ============================================
+  function removeLoader() {
+    setTimeout(function () {
+      const loader = document.getElementById("loader");
+      if (!loader) {
+        console.warn('⚠️ Loader element not found');
+        return;
+      }
+
       loader.style.opacity = "0";
-      setTimeout(() => loader.remove(), 700);
-    }
-  }, 1000);
-
-  // Initialize typing effect
-  // Initialize typing effect - ROBUST VERSION
-  function initializeTypingEffect() {
-    const typedSubtitle = document.getElementById("typed-subtitle");
-    if (!typedSubtitle) return;
-
-    const subtitle = "Fitness • Nutrition • Travel • Web Development";
-    let idx = 0;
-    let isTyping = true;
-
-    // Clear any existing content and classes
-    typedSubtitle.textContent = '';
-    typedSubtitle.classList.remove("cursor-blink");
-
-    function type() {
-      // Double safety check
-      if (idx < subtitle.length && isTyping) {
-        typedSubtitle.textContent += subtitle.charAt(idx);
-        idx++;
-        setTimeout(type, 60 + Math.random() * 30);
-      } else {
-        // Clean up when done
-        isTyping = false;
-        typedSubtitle.classList.add("cursor-blink");
-      }
-    }
-
-    // Start typing after a short delay
-    setTimeout(type, 1000);
-
-    // Optional: Add a timeout as ultimate safety (stops after 10 seconds max)
-    setTimeout(() => {
-      isTyping = false;
-      if (typedSubtitle.textContent !== subtitle) {
-        typedSubtitle.textContent = subtitle;
-        typedSubtitle.classList.add("cursor-blink");
-      }
-    }, 10000);
-  }
-
-  // Initialize scroll-triggered animations
-  function initScrollAnimations() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('section-visible');
-        }
-      });
-    }, observerOptions);
-
-    const elementObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-
-          // Add stagger animation to children if it's a stagger container
-          if (entry.target.classList.contains('stagger-container')) {
-            const children = entry.target.children;
-            Array.from(children).forEach((child, index) => {
-              setTimeout(() => {
-                child.classList.add('visible');
-              }, index * 100);
-            });
+      loader.style.transition = "opacity 0.7s ease-out";
+      setTimeout(() => {
+        try {
+          if (loader.parentNode) {
+            loader.remove();
           }
+        } catch (e) {
+          console.error('Error removing loader:', e);
         }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -20px 0px'
-    });
-
-    // Observe sections
-    document.querySelectorAll('.section-reveal').forEach(section => {
-      sectionObserver.observe(section);
-    });
-
-    // Observe individual elements
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      elementObserver.observe(el);
-    });
-
-    // Observe staggered containers
-    document.querySelectorAll('.stagger-container').forEach(container => {
-      elementObserver.observe(container);
-    });
+        document.body.classList.add('loaded');
+      }, 700);
+    }, 800);
   }
 
-  // Magnetic buttons effect
-  function initMagneticButtons() {
-    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+  // ============================================
+  // TRIPLE-A REVEAL & INTERACTIVE ENGINE
+  // ============================================
 
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
+  // 1. Intersection Observer for Scroll Reveals
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // FIX: prevent repeated triggers
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+
+  // 2. Header Scroll Logic (guarded)
+  const header = document.querySelector('header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      try {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      } catch (e) {
+        console.error('Error in header scroll listener:', e);
+      }
+    }, { passive: true });
+  }
+
+  // 3. Remove Loader after page load (SINGLE place)
+  window.addEventListener('load', removeLoader);
+
+// ============================================
+// 2. TYPING EFFECT - FIXED VERSION
+// ============================================
+function initializeTypingEffect() {
+  const typedSubtitle = document.getElementById("typed-subtitle");
+  if (!typedSubtitle) {
+    console.warn('⚠️ Typing subtitle element not found');
+    return;
+  }
+
+  const subtitle = "Web Development • Modern Design • Clean Code";
+  let idx = 0;
+  let isTyping = true;
+  let typingTimeout;
+
+  // Clear any existing content and classes
+  typedSubtitle.textContent = '';
+  typedSubtitle.classList.remove("cursor-blink");
+  if (typedSubtitle._typingTimeout) {
+    clearTimeout(typedSubtitle._typingTimeout);
+  }
+
+  function type() {
+    if (!isTyping || idx >= subtitle.length) {
+      isTyping = false;
+      typedSubtitle.classList.add("cursor-blink");
+      return;
+    }
+
+    typedSubtitle.textContent += subtitle.charAt(idx++);
+    typingTimeout = setTimeout(type, 60 + Math.random() * 40);
+    typedSubtitle._typingTimeout = typingTimeout;
+  }
+
+  setTimeout(() => {
+    if (isTyping) type();
+  }, 1200);
+
+  setTimeout(() => {
+    if (isTyping) {
+      isTyping = false;
+      if (typingTimeout) clearTimeout(typingTimeout);
+      typedSubtitle.textContent = subtitle;
+      typedSubtitle.classList.add("cursor-blink");
+    }
+  }, 10000);
+}
+
+ // ============================================
+// 3. SCROLL ANIMATIONS
+// ============================================
+function initScrollAnimations() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.section-reveal, .animate-on-scroll').forEach(el => {
+      el.classList.add('section-visible', 'visible');
+    });
+    return;
+  }
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-visible');
+        sectionObserver.unobserve(entry.target); // FIX
+      }
+    });
+  }, observerOptions);
+
+  const elementObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add('visible');
+
+      if (entry.target.classList.contains('stagger-container')) {
+        const children = Array.from(entry.target.children);
+        children.forEach((child, index) => {
+          setTimeout(() => {
+            child.classList.add('visible');
+          }, index * 100);
+        });
+      }
+
+      elementObserver.unobserve(entry.target); // FIX
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -20px 0px'
+  });
+
+  document.querySelectorAll('.section-reveal').forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    elementObserver.observe(el);
+  });
+
+  document.querySelectorAll('.stagger-container').forEach(container => {
+    elementObserver.observe(container);
+  });
+}
+
+ // ============================================
+// 4. MAGNETIC BUTTONS EFFECT
+// ============================================
+function initMagneticButtons() {
+  const magneticBtns = document.querySelectorAll('.magnetic-btn');
+
+  magneticBtns.forEach(btn => {
+    let ticking = false;
+
+    btn.addEventListener('mousemove', (e) => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -118,315 +207,319 @@ document.addEventListener("DOMContentLoaded", function () {
 
         btn.style.setProperty('--tx', `${angleY}px`);
         btn.style.setProperty('--ty', `${angleX}px`);
-        btn.style.transform = `scale(1.05) translateX(${angleY}px) translateY(${angleX}px)`;
-      });
+        btn.style.transform =
+          `scale(1.05) translateX(${angleY}px) translateY(${angleX}px)`;
 
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'scale(1) translateX(0) translateY(0)';
+        ticking = false;
       });
     });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'scale(1) translateX(0) translateY(0)';
+    });
+  });
+}
+
+ // ============================================
+// 5. PARTICLE SYSTEM (FIXED & STABLE)
+// ============================================
+let particlesCreated = false;
+
+function createParticles() {
+  if (particlesCreated) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const container = document.getElementById('particles-container');
+  if (!container) {
+    console.warn('⚠️ Particles container not found');
+    return;
   }
 
-  // Particle system for hero section
-  function createParticles() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  particlesCreated = true;
 
-    const container = document.getElementById('particles-container');
-    if (!container) return;
+  try {
+    // Ensure container can hold absolutely positioned particles
+    container.style.position = 'relative';
+    container.style.overflow = 'hidden';
 
-    const particleCount = 15;
+    const particleCount = window.innerWidth < 768 ? 10 : 20;
 
     for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
+      const particle = document.createElement('span');
       particle.className = 'particle';
 
       const size = Math.random() * 4 + 2;
-      const duration = Math.random() * 10 + 8;
-      const delay = Math.random() * 5;
+      const duration = Math.random() * 12 + 8;
+      const delay = Math.random() * 6;
 
-      particle.style.cssText = `
-        width: ${size}px;
-        height: ${size}px;
-        background: rgba(56, 189, 248, ${Math.random() * 0.4 + 0.2});
-        border-radius: 50%;
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        animation-duration: ${duration}s;
-        animation-delay: ${delay}s;
-      `;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.animationDelay = `${delay}s`;
+      particle.style.opacity = `${Math.random() * 0.5 + 0.2}`;
 
       container.appendChild(particle);
     }
+  } catch (e) {
+    console.error('Error creating particles:', e);
+    particlesCreated = false;
   }
+}
 
-  // Image loading with blur effect
-  function initImageLoading() {
-    const images = document.querySelectorAll('img[loading="lazy"]');
+// ============================================
+// 6. IMAGE LAZY LOADING
+// ============================================
+function initImageLoading() {
+  const images = document.querySelectorAll('img[loading="lazy"]');
 
-    images.forEach(img => {
-      if (img.complete) {
+  images.forEach(img => {
+    if (img.dataset.imgInit) return; // FIX: prevent double init
+    img.dataset.imgInit = 'true';
+
+    img.classList.add('blur-load');
+
+    if (img.complete) {
+      img.classList.add('loaded');
+      img.classList.remove('blur-load');
+    } else {
+      img.addEventListener('load', () => {
         img.classList.add('loaded');
-      } else {
-        img.addEventListener('load', () => {
-          img.classList.add('loaded');
-        });
+        img.classList.remove('blur-load');
+      }, { once: true });
 
-        // Fallback for images that might fail to load
-        img.addEventListener('error', () => {
-          console.warn('Image failed to load:', img.src);
-        });
-      }
-    });
+      img.addEventListener('error', () => {
+        console.warn('Image failed to load:', img.src);
+        img.classList.remove('blur-load');
+      }, { once: true });
+    }
+  });
+}
+
+ // ============================================
+// 7. SCROLL PROGRESS BAR
+// ============================================
+function initProgressBar() {
+  const progressBar = document.getElementById("progress");
+  if (!progressBar) {
+    console.warn('⚠️ Progress bar element not found');
+    return;
   }
 
-  // Scroll progress bar
-  function initProgressBar() {
-    window.addEventListener("scroll", function () {
+  let ticking = false;
+
+  function updateProgress() {
+    try {
       const winHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const trackLength = docHeight - winHeight;
+      const trackLength = Math.max(docHeight - winHeight, 1);
+
       const progress = Math.min((scrollTop / trackLength) * 100, 100);
-
-      const progressBar = document.getElementById("progress");
-      if (progressBar) {
-        progressBar.style.width = progress + "%";
-      }
-    });
-  }
-
-  // Mobile menu toggle
-  function initMobileMenu() {
-    const mobileBtn = document.getElementById("mobile-btn");
-    const closeMenu = document.getElementById("close-menu");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener("click", function () {
-        mobileMenu.classList.add("open");
-        document.body.style.overflow = "hidden";
-        mobileBtn.setAttribute("aria-expanded", "true");
-        mobileMenu.setAttribute("aria-hidden", "false");
-      });
+      progressBar.style.width = progress + "%";
+    } catch (e) {
+      console.error('Error updating progress bar:', e);
     }
 
-    if (closeMenu && mobileMenu) {
-      closeMenu.addEventListener("click", function () {
-        mobileMenu.classList.remove("open");
-        document.body.style.overflow = "auto";
-        mobileBtn.setAttribute("aria-expanded", "false");
-        mobileMenu.setAttribute("aria-hidden", "true");
-      });
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateProgress);
+      ticking = true;
     }
+  }, { passive: true });
 
-    // Close mobile menu when clicking on links
-    const mobileLinks = mobileMenu?.querySelectorAll('a');
-    mobileLinks?.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove("open");
-        document.body.style.overflow = "auto";
-        mobileBtn.setAttribute("aria-expanded", "false");
-        mobileMenu.setAttribute("aria-hidden", "true");
-      });
-    });
+  // FIX: set initial state
+  updateProgress();
+}
+
+// ============================================
+// 8. MOBILE MENU - IMPROVED
+// ============================================
+function initMobileMenu() {
+  const mobileBtn = document.getElementById("mobile-btn");
+  const closeMenu = document.getElementById("close-menu");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (!mobileBtn || !mobileMenu) return;
+  if (mobileMenu.dataset.menuInit) return; // FIX
+  mobileMenu.dataset.menuInit = 'true';
+
+  function openMenu() {
+    if (mobileMenu.classList.contains('open')) return; // FIX
+    mobileMenu.classList.add("open");
+    document.body.style.overflow = "hidden";
+    mobileBtn.setAttribute("aria-expanded", "true");
+    mobileMenu.setAttribute("aria-hidden", "false");
+    closeMenu?.focus();
   }
 
-  // Floating Action Button
-  function initFAB() {
-    const fab = document.getElementById("fab");
-    if (!fab) return;
-
-    fab.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Show/hide FAB based on scroll position
-    window.addEventListener("scroll", function () {
-      if (window.pageYOffset > 300) {
-        fab.style.opacity = "1";
-        fab.style.visibility = "visible";
-      } else {
-        fab.style.opacity = "0";
-        fab.style.visibility = "hidden";
-      }
-    });
+  function closeMenuFunc() {
+    if (!mobileMenu.classList.contains('open')) return; // FIX
+    mobileMenu.classList.remove("open");
+    document.body.style.overflow = "";
+    mobileBtn.setAttribute("aria-expanded", "false");
+    mobileMenu.setAttribute("aria-hidden", "true");
+    mobileBtn.focus();
   }
 
-  // Form validation and submission
-  function initContactForm() {
-    const contactForm = document.getElementById("contactForm");
-    if (!contactForm) return;
+  mobileBtn.addEventListener("click", openMenu);
+  closeMenu?.addEventListener("click", closeMenuFunc);
 
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      closeMenuFunc();
+    }
+  });
 
-      const name = document.getElementById("name");
-      const email = document.getElementById("email");
-      const message = document.getElementById("message");
-      const formMessage = document.getElementById("form-message");
-      const submitBtn = document.getElementById("submit-btn");
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenuFunc);
+  });
 
-      let isValid = true;
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      closeMenuFunc();
+    }
+  });
+}
 
-      // Reset errors
-      document.querySelectorAll(".error-message").forEach((el) => el.classList.add("hidden"));
-      document.querySelectorAll("input, textarea").forEach((el) => el.classList.remove("border-red-500"));
+// ============================================
+// 9. FLOATING ACTION BUTTON
+// ============================================
+function initFAB() {
+  const fab = document.getElementById("fab");
+  if (!fab) return;
 
-      // Validate name
-      if (!name.value.trim()) {
-        document.getElementById("name-error").classList.remove("hidden");
-        name.classList.add("border-red-500");
-        isValid = false;
-      }
+  fab.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
-      // Validate email
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email.value.trim() || !emailRegex.test(email.value)) {
-        document.getElementById("email-error").classList.remove("hidden");
-        email.classList.add("border-red-500");
-        isValid = false;
-      }
+  let ticking = false;
 
-      // Validate message
-      if (!message.value.trim()) {
-        document.getElementById("message-error").classList.remove("hidden");
-        message.classList.add("border-red-500");
-        isValid = false;
-      }
-
-      if (!isValid) {
-        formMessage.textContent = "Please fix the errors above.";
-        formMessage.className = "bg-red-100 text-red-700 p-4 rounded-lg mb-4 text-center";
-        formMessage.classList.remove("hidden");
-        formMessage.style.animation = "shake 0.5s ease-in-out";
-        return;
-      }
-
-      // If valid, submit form
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
-      contactForm.classList.add("form-loading");
-
-      // Using Formspree AJAX submission
-      const formData = new FormData(contactForm);
-      fetch(contactForm.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            formMessage.textContent = "Message sent successfully! I'll get back to you soon!";
-            formMessage.className = "bg-green-100 text-green-700 p-4 rounded-lg mb-4 text-center";
-            formMessage.classList.remove("hidden");
-            formMessage.style.animation = "fadeInUp 0.5s ease-out";
-            contactForm.reset();
-          } else {
-            throw new Error("Form submission failed");
-          }
-        })
-        .catch((error) => {
-          formMessage.textContent =
-            "Sorry, there was an error sending your message. Please try again later or email me directly.";
-          formMessage.className = "bg-red-100 text-red-700 p-4 rounded-lg mb-4 text-center";
-          formMessage.classList.remove("hidden");
-          formMessage.style.animation = "shake 0.5s ease-in-out";
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Send Message";
-          contactForm.classList.remove("form-loading");
-        });
-    });
-
-    // Add focus animations to form inputs
-    const formInputs = contactForm.querySelectorAll('input, textarea');
-    formInputs.forEach(input => {
-      input.classList.add('form-input');
-
-      input.addEventListener('focus', () => {
-        input.parentElement.classList.add('focused');
-      });
-
-      input.addEventListener('blur', () => {
-        if (!input.value) {
-          input.parentElement.classList.remove('focused');
-        }
-      });
-    });
+  function updateFAB() {
+    if (window.pageYOffset > 300) {
+      fab.style.opacity = "1";
+      fab.style.visibility = "visible";
+    } else {
+      fab.style.opacity = "0";
+      fab.style.visibility = "hidden";
+    }
+    ticking = false;
   }
 
-  // Smooth scrolling for anchor links
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(updateFAB);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // FIX: set initial state
+  updateFAB();
+}
+
+  // ============================================
+// 10. SMOOTH SCROLLING
+// ============================================
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    if (anchor.dataset.scrollInit) return;
+    anchor.dataset.scrollInit = 'true';
+
+    anchor.addEventListener('click', function (e) {
+      try {
         const href = this.getAttribute('href');
 
-        // Skip if it's just "#"
-        if (href === '#') return;
+        if (!href || href === '#' || href.length < 2) return;
 
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-
-          // Calculate offset for fixed header
-          const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-          const targetPosition = target.offsetTop - headerHeight - 20;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+        let target;
+        try {
+          target = document.querySelector(href);
+        } catch {
+          return;
         }
-      });
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          20;
+
+        window.scrollTo({
+          top: Math.max(0, targetPosition),
+          behavior: 'smooth'
+        });
+      } catch (e) {
+        console.error('Error in smooth scroll:', e);
+      }
     });
-  }
+  });
+}
 
-  // Add ripple effect to buttons
-  function initRippleEffect() {
-    document.addEventListener('click', function (e) {
-      const target = e.target.closest('.btn-ripple');
-      if (!target) return;
+ // ============================================
+// 11. RIPPLE EFFECT
+// ============================================
+function initRippleEffect() {
+  if (document.body.dataset.rippleInit) return; // FIX
+  document.body.dataset.rippleInit = 'true';
 
-      const ripple = document.createElement('span');
-      const rect = target.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top - size / 2;
+  document.addEventListener('click', function (e) {
+    const target = e.target.closest('.btn-ripple');
+    if (!target) return;
 
-      ripple.style.cssText = `
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: scale(0);
-        animation: ripple 0.6s linear;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${x}px;
-        top: ${y}px;
-        pointer-events: none;
-      `;
+    const ripple = document.createElement('span');
+    const rect = target.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
 
-      target.style.position = 'relative';
-      target.style.overflow = 'hidden';
-      target.appendChild(ripple);
+    ripple.style.cssText = `
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      width: ${size}px;
+      height: ${size}px;
+      left: ${x}px;
+      top: ${y}px;
+      pointer-events: none;
+    `;
 
-      setTimeout(() => {
-        ripple.remove();
-      }, 600);
-    });
-  }
+    target.style.position = 'relative';
+    target.style.overflow = 'hidden';
+    target.appendChild(ripple);
 
-  // Enhanced card interactions
-  function initCardInteractions() {
-    const cards = document.querySelectorAll('.project-card, .card-hover');
+    setTimeout(() => ripple.remove(), 600);
+  });
+}
 
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        if (window.innerWidth < 768) return; // Only on desktop
+ // ============================================
+// 12. ENHANCED CARD INTERACTIONS
+// ============================================
+function initCardInteractions() {
+  if (window.innerWidth < 768) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  const cards = document.querySelectorAll('.project-card, .card-hover');
+
+  cards.forEach(card => {
+    let ticking = false;
+
+    card.addEventListener('mousemove', (e) => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -437,61 +530,218 @@ document.addEventListener("DOMContentLoaded", function () {
         const rotateY = (x - centerX) / 25;
         const rotateX = (centerY - y) / 25;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-      });
+        card.style.transform =
+          `perspective(1000px)
+           rotateX(${rotateX}deg)
+           rotateY(${rotateY}deg)
+           scale3d(1.02, 1.02, 1.02)`;
 
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        ticking = false;
       });
     });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform =
+        'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+ // ============================================
+// 12.5. PROJECTS LOADER - REWRITTEN & FIXED
+// ============================================
+function initWebCollection() {
+  const grid = document.getElementById('web-collection-grid');
+  
+  if (!grid) {
+    console.error('❌ Grid not found');
+    return;
   }
 
-  // Initialize everything
-  function init() {
+  // YOUR PROJECTS
+  const websites = [
+    {
+      title: "FadeZone Barbers",
+      description: "Ostrava's king of street style. Fresh fades, sharp beard trims. No appointments. Walk-ins only.",
+      link: "webs/Barber/index.html",
+      image: null,
+      color: '#E11D48'  // Red for barber
+    },
+    {
+      title: "Beauty Spa",
+      description: "Luxury wellness and beauty treatments. Relax, rejuvenate, and feel your best.",
+      link: "webs/Beauty spa/index.html",
+      image: null,
+      color: '#EC4899'  // Pink for spa
+    },
+    {
+      title: "Precision Recomp",
+      description: "Professional body recomposition and fitness training programs.",
+      link: "webs/Precision Recomp/index.html",
+      image: null,
+      color: '#06B6D4'  // Cyan for fitness
+    }
+  ];
+
+  if (!websites || websites.length === 0) {
+    grid.innerHTML = '<p>No projects found</p>';
+    return;
+  }
+
+  // Clear loading message
+  grid.innerHTML = '';
+
+  // Build HTML
+  websites.forEach((site) => {
+    try {
+      const card = document.createElement('article');
+      card.className = 'group bg-white rounded-2xl overflow-hidden border border-slate-200/70 hover:shadow-xl transition-all duration-500';
+      
+      const link = document.createElement('a');
+      link.href = site.link;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.className = 'flex flex-col h-full';
+
+      // Image section
+      const imgSection = document.createElement('div');
+      imgSection.className = 'relative h-52 overflow-hidden bg-slate-100';
+      imgSection.style.backgroundColor = site.color;
+      
+      const placeholder = document.createElement('div');
+      placeholder.className = 'w-full h-full flex items-center justify-center';
+      placeholder.innerHTML = `
+        <div class="text-center text-white">
+          <div style="font-size: 3rem; margin-bottom: 8px;">🔗</div>
+          <p style="font-size: 12px; font-weight: 500;">Click to view</p>
+        </div>
+      `;
+      imgSection.appendChild(placeholder);
+      
+      link.appendChild(imgSection);
+
+      // Content section
+      const content = document.createElement('div');
+      content.className = 'flex flex-col flex-1 p-6';
+      
+      const title = document.createElement('h3');
+      title.style.cssText = 'font-size: 20px; font-weight: 600; color: #1e293b; margin-bottom: 8px;';
+      title.textContent = site.title;
+      content.appendChild(title);
+      
+      const desc = document.createElement('p');
+      desc.style.cssText = 'font-size: 14px; color: #64748b; line-height: 1.5; margin-bottom: 16px;';
+      desc.textContent = site.description;
+      content.appendChild(desc);
+      
+      const cta = document.createElement('div');
+      cta.style.cssText = `margin-top: auto; display: flex; align-items: center; gap: 8px; color: ${site.color}; font-weight: 500; font-size: 14px;`;
+      cta.textContent = 'View website →';
+      content.appendChild(cta);
+      
+      link.appendChild(content);
+      card.appendChild(link);
+      grid.appendChild(card);
+    } catch (e) {
+      console.error('Error creating project card for', site.title, ':', e);
+    }
+  });
+
+  console.log('✅ Projects loaded:', websites.length);
+}
+
+ // ============================================
+// 13. INITIALIZATION
+// ============================================
+function init() {
+  if (document.body.dataset.appInit) return;
+  document.body.dataset.appInit = 'true';
+
+  try {
+    // Initialize projects first
+    initWebCollection();
+    
+    // Core functionality
+    removeLoader();
     initializeTypingEffect();
     initScrollAnimations();
-    initMagneticButtons();
-    createParticles();
-    initImageLoading();
     initProgressBar();
     initMobileMenu();
     initFAB();
-    initContactForm();
     initSmoothScroll();
-    initRippleEffect();
-    initCardInteractions();
 
-    // Add stagger container class to resources and projects grids
+    // Image loading
+    initImageLoading();
+
+    // Add stagger container class to specific grids (BEFORE enhanced effects)
+    const webGridContainer = document.getElementById('web-collection-grid');
     const resourcesGrid = document.querySelector('#resources .grid');
-    const projectsGrid = document.querySelector('#projects .grid');
     const aboutGrid = document.querySelector('#about .grid');
 
+    if (webGridContainer) webGridContainer.classList.add('stagger-container');
     if (resourcesGrid) resourcesGrid.classList.add('stagger-container');
-    if (projectsGrid) projectsGrid.classList.add('stagger-container');
     if (aboutGrid) aboutGrid.classList.add('stagger-container');
 
-    console.log('🚀 tommyy.fit portfolio initialized with enhanced animations!');
+    // Enhanced interactions (skip on mobile or reduced motion)
+    if (
+      window.innerWidth >= 768 &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      initMagneticButtons();
+      createParticles();
+      initRippleEffect();
+      initCardInteractions();
+    }
+
+    console.log('✅ tommyy.fit portfolio initialized successfully!');
+  } catch (e) {
+    console.error('❌ Error initializing portfolio:', e);
   }
+}
 
-  // Start the initialization
-  init();
-});
+// Start initialization - INSIDE DOMContentLoaded
+init();
 
-// Add performance optimization for animations
-window.addEventListener('load', function () {
-  // RequestAnimationFrame for smooth animations
-  function updateAnimations() {
-    // Any continuous animations would go here
-    requestAnimationFrame(updateAnimations);
+ // ============================================
+// 14. PERFORMANCE MONITORING (SAFE)
+// ============================================
+try {
+  if ('PerformanceObserver' in window && !window.__perfObserverInit) {
+    window.__perfObserverInit = true;
+
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (entry.entryType === 'largest-contentful-paint') {
+          console.log('LCP:', Math.round(entry.startTime), 'ms');
+        }
+      }
+    });
+    observer.observe({ entryTypes: ['largest-contentful-paint'] });
   }
-  updateAnimations();
-});
+} catch (e) {
+  console.warn('Performance monitoring unavailable:', e.message);
+}
 
-// Handle page visibility changes for performance
+// ============================================
+// 15. PAGE VISIBILITY OPTIMIZATION
+// ============================================
 document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
-    // Page is hidden, could pause non-essential animations
+    console.log('Page hidden - pausing animations');
   } else {
-    // Page is visible again
+    console.log('Page visible - resuming animations');
   }
 });
+
+// ============================================
+// 16. RESIZE HANDLER
+// ============================================
+let resizeTimeout;
+window.addEventListener('resize', function () {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    console.log('Window resized');
+    // Future: re-init card interactions if needed
+  }, 250);
+}, { passive: true });
+}); // Close DOMContentLoaded event listener

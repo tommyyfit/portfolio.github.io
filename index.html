@@ -2,594 +2,823 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>tommyy.fit — Design, Performance & Resources</title>
-  <meta name="description"
-    content="Professional portfolio of tommyy.fit: fitness coach, nutrition expert, world traveler, web designer. Explore recipes, travel spots & training tips." />
 
-  <!-- SEO & Social -->
-  <link rel="canonical" href="https://tommyyfit.github.io/portfolio.github.io/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="tommyy.fit — Design, Performance & Resources" />
-  <meta property="og:description"
-    content="Professional portfolio of tommyy.fit: fitness coach, nutrition expert, world traveler, web designer. Explore recipes, travel spots & training tips." />
-  <meta property="og:url" content="https://tommyyfit.github.io/portfolio.github.io/" />
-  <meta property="og:image" content="https://tommyyfit.github.io/portfolio.github.io/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="tommyy.fit — Design, Performance & Resources" />
-  <meta name="twitter:description"
-    content="Professional portfolio of tommyy.fit: fitness coach, nutrition expert, world traveler, web designer. Explore recipes, travel spots & training tips." />
-  <meta name="twitter:image" content="https://tommyyfit.github.io/portfolio.github.io/og-image.png" />
-  <meta name="theme-color" content="#0f172a" />
+  <head>
+    <!-- =====================================================
+       BASIC META
+       ===================================================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="style.css" as="style" />
-  <link rel="preload" href="script.js" as="script" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>tommyy.fit | Modern Web Development & Design</title>
 
-  <!-- Favicon & Manifest -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="description"
+      content="Professional web developer building modern, responsive, and performance-focused websites for individuals and businesses." />
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
-    rel="stylesheet" />
+    <!-- =====================================================
+       CANONICAL
+       ===================================================== -->
+    <link rel="canonical" href="https://tommyyfit.github.io/portfolio.github.io/" />
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            midnight: "#0f172a",
-            sky: "#38bdf8",
-            mint: "#10b981",
-            accent: "#fbbf24",
-            slate: {
-              600: "#475569",
-              700: "#334155",
-              800: "#1e293b",
-              900: "#0f172a",
-            },
-          },
-          fontFamily: {
-            display: ["Poppins", "sans-serif"],
-            body: ["Inter", "sans-serif"],
-          },
-          animation: {
-            fadeIn: "fadeIn 1s ease-out forwards",
-            float: "float 3s ease-in-out infinite",
-            pulseGlow: "pulseGlow 2s infinite",
-            bounceIn: "bounceIn 0.7s cubic-bezier(.68,-0.55,.27,1.55) both",
-            slideUp: "slideUp 0.7s cubic-bezier(.68,-0.55,.27,1.55) both",
-            ripple: "ripple 0.5s linear",
-            typing: "typing 2.5s steps(30, end) forwards",
-            blink: "blink 1s steps(1) infinite",
-            gradient: "gradient 8s ease infinite",
-            heroGradient: "heroGradient 8s ease-in-out infinite alternate",
-            textReveal: "textReveal 1s ease forwards",
-          },
-          keyframes: {
-            fadeIn: {
-              "0%": { opacity: 0, transform: "translateY(20px)" },
-              "100%": { opacity: 1, transform: "translateY(0)" },
-            },
-            float: {
-              "0%, 100%": { transform: "translateY(0)" },
-              "50%": { transform: "translateY(-10px)" },
-            },
-            pulseGlow: {
-              "0%, 100%": { boxShadow: "0 0 0 0 rgba(16,185,129,0.7)" },
-              "50%": { boxShadow: "0 0 40px 10px rgba(16,185,129,0.3)" },
-            },
-            bounceIn: {
-              "0%": { opacity: 0, transform: "scale(0.3)" },
-              "50%": { opacity: 1, transform: "scale(1.05)" },
-              "70%": { transform: "scale(0.9)" },
-              "100%": { opacity: 1, transform: "scale(1)" },
-            },
-            slideUp: {
-              "0%": { opacity: 0, transform: "translateY(40px)" },
-              "100%": { opacity: 1, transform: "translateY(0)" },
-            },
-            ripple: {
-              "0%": { boxShadow: "0 0 0 0 rgba(56,189,248,0.4)" },
-              "100%": { boxShadow: "0 0 0 20px rgba(56,189,248,0)" },
-            },
-            typing: {
-              from: { width: 0 },
-            },
-            blink: {
-              "0%, 100%": { opacity: 1 },
-              "50%": { opacity: 0 },
-            },
-            gradient: {
-              "0%, 100%": { backgroundPosition: "0% 50%" },
-              "50%": { backgroundPosition: "100% 50%" },
-            },
-            heroGradient: {
-              "0%, 100%": {
-                background: "linear-gradient(120deg, rgba(56, 189, 248, 0.12) 0%, rgba(16, 185, 129, 0.1) 100%)",
-              },
-              "50%": {
-                background: "linear-gradient(240deg, rgba(16, 185, 129, 0.14) 0%, rgba(56, 189, 248, 0.1) 100%)",
+    <!-- =====================================================
+       OPEN GRAPH / SOCIAL
+       ===================================================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="tommyy.fit" />
+    <meta property="og:title" content="tommyy.fit | Modern Web Development & Design" />
+    <meta property="og:description"
+      content="Professional web development portfolio showcasing clean design, strong performance, and modern web solutions." />
+    <meta property="og:url" content="https://tommyyfit.github.io/portfolio.github.io/" />
+    <meta property="og:image" content="https://tommyyfit.github.io/portfolio.github.io/src/dailytaskmanager.png" />
+
+    <!-- =====================================================
+       TWITTER
+       ===================================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="tommyy.fit | Modern Web Development & Design" />
+    <meta name="twitter:description"
+      content="Modern, responsive, and high-performance websites built with clean code and thoughtful design." />
+    <meta name="twitter:image" content="https://tommyyfit.github.io/portfolio.github.io/src/dailytaskmanager.png" />
+
+    <!-- =====================================================
+       THEME / PWA
+       ===================================================== -->
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- =====================================================
+       PERFORMANCE: FONTS
+       ===================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <!-- =====================================================
+       TAILWIND CSS (LAYOUT ONLY)
+       ===================================================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            /* --------------------------------------------------
+               COLORS
+            -------------------------------------------------- */
+            colors: {
+              midnight: "#0f172a",
+              sky: "#38bdf8",
+              mint: "#10b981",
+              accent: "#fbbf24",
+
+              slate: {
+                600: "#475569",
+                700: "#334155",
+                800: "#1e293b",
+                900: "#0f172a",
               },
             },
-            textReveal: {
-              "0%": { opacity: 0, transform: "translateY(20px)" },
-              "100%": { opacity: 1, transform: "translateY(0)" },
+
+            /* --------------------------------------------------
+               TYPOGRAPHY
+            -------------------------------------------------- */
+            fontFamily: {
+              display: ["Poppins", "system-ui", "sans-serif"],
+              body: ["Inter", "system-ui", "sans-serif"],
+            },
+
+            /* --------------------------------------------------
+               ANIMATIONS (USED SPARINGLY)
+            -------------------------------------------------- */
+            animation: {
+              fadeIn: "fadeIn 0.8s ease-out forwards",
+              slideUp: "slideUp 0.7s ease-out forwards",
+              floatSlow: "floatSlow 4s ease-in-out infinite",
+              pulseGlow: "pulseGlow 2.5s ease-in-out infinite",
+              heroGradient: "heroGradient 10s ease-in-out infinite alternate",
+              textReveal: "textReveal 0.9s ease-out forwards",
+            },
+
+            /* --------------------------------------------------
+               KEYFRAMES
+            -------------------------------------------------- */
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+
+              slideUp: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(2rem)",
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateY(0)",
+                },
+              },
+
+              floatSlow: {
+                "0%, 100%": {
+                  transform: "translateY(0)",
+                },
+                "50%": {
+                  transform: "translateY(-0.5rem)",
+                },
+              },
+
+              pulseGlow: {
+                "0%, 100%": {
+                  boxShadow: "0 0 0 0 rgba(16,185,129,0.45)",
+                },
+                "50%": {
+                  boxShadow: "0 0 24px 6px rgba(16,185,129,0.25)",
+                },
+              },
+
+              heroGradient: {
+                "0%": {
+                  background:
+                    "linear-gradient(120deg, rgba(56,189,248,0.12), rgba(16,185,129,0.08))",
+                },
+                "100%": {
+                  background:
+                    "linear-gradient(240deg, rgba(16,185,129,0.12), rgba(56,189,248,0.08))",
+                },
+              },
+
+              textReveal: {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateY(1rem)",
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateY(0)",
+                },
+              },
             },
           },
         },
-      },
-    };
-  </script>
+      };
+    </script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <!-- =====================================================
+       CUSTOM STYLES (VISUALS ONLY)
+       ===================================================== -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body class="font-body bg-white text-slate-600 antialiased">
-  <!-- Loader Overlay -->
+<body class="font-body bg-white text-slate-600 antialiased overflow-x-hidden">
+
+  <!-- =====================================================
+       PAGE LOADER
+       ===================================================== -->
   <div id="loader"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-midnight transition-opacity duration-700">
+    class="fixed inset-0 z-[60] flex items-center justify-center bg-midnight transition-opacity duration-700"
+    aria-hidden="true">
     <div class="flex flex-col items-center">
       <div class="w-16 h-16 border-4 border-sky border-t-mint rounded-full animate-spin mb-4"
         style="animation-duration: 1.5s"></div>
-      <span class="text-white text-lg font-display tracking-widest animate-pulse">Loading...</span>
+      <span class="text-white text-lg font-display tracking-widest animate-pulse">
+        Loading…
+      </span>
     </div>
   </div>
-
-  <!-- Progress Bar -->
+  
   <div id="progress" aria-hidden="true"></div>
 
-  <!-- NAVIGATION -->
-  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-md z-40 transition-all duration-300">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#hero" class="flex items-center group" aria-label="Home">
-        <span
-          class="text-2xl md:text-3xl font-display font-extrabold tracking-tight text-midnight group-hover:text-mint transition-colors duration-300 select-none"
-          style="letter-spacing: -0.02em">tommyy.fit</span>
+  <!-- =====================================================
+       FIXED HEADER
+       ===================================================== -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="group flex items-center" aria-label="Home">
+        <span class="text-2xl md:text-3xl font-display font-extrabold tracking-tight
+                 text-midnight group-hover:text-mint transition-colors duration-300 select-none"
+          style="letter-spacing: -0.02em">
+          tommyy.fit
+        </span>
       </a>
 
-      <ul class="hidden md:flex space-x-8">
-        <li><a href="#about"
-            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">About</a></li>
-        <li><a href="#resources"
-            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Resources</a></li>
-        <li><a href="#projects"
-            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Projects</a></li>
-        <li><a href="#contact"
-            class="font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Contact</a></li>
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center space-x-8">
+        <li>
+          <a href="#about" class="font-medium text-slate-800 hover:text-mint transition-colors">About</a>
+        </li>
+        <li>
+          <a href="#projects" class="font-medium text-slate-800 hover:text-mint transition-colors">Work</a>
+        </li>
+        <li>
+          <a href="#pricing" class="font-medium text-slate-800 hover:text-mint transition-colors">Pricing</a>
+        </li>
+        <li>
+          <a href="#contact" class="font-medium text-slate-800 hover:text-mint transition-colors">Contact</a>
+        </li>
       </ul>
 
-      <button id="mobile-btn" aria-expanded="false" aria-label="Toggle mobile menu"
-        class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-mint rounded-lg">
+      <!-- Mobile Menu Button -->
+      <button id="mobile-btn" aria-expanded="false" aria-label="Open mobile menu"
+        class="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-slate-800" fill="none" viewBox="0 0 24 24"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-      class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-xl z-50 md:hidden p-6 transform translate-x-full transition-transform duration-300 ease-in-out"
-      aria-hidden="true">
-      <button id="close-menu" class="absolute top-4 right-4 p-2" aria-label="Close menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <div class="mt-16 flex flex-col space-y-6">
-        <a href="#about"
-          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">About</a>
-        <a href="#resources"
-          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Resources</a>
-        <a href="#projects"
-          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Projects</a>
-        <a href="#contact"
-          class="text-lg font-medium text-slate-800 hover:text-mint transition-colors duration-300 py-2">Contact</a>
-      </div>
-    </div>
   </header>
 
-  <main>
-    <!-- HERO SECTION -->
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <div class="absolute inset-0 bg-midnight z-0">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-midnight/80 to-midnight/95 z-10"></div>
-        <div class="absolute inset-0 z-20 animate-heroGradient"></div>
+  <!-- =====================================================
+       HEADER SPACER (CRITICAL)
+       Prevents content from sliding under fixed header
+       ===================================================== -->
+  <div class="h-16"></div>
 
-        <!-- Particle Background -->
-        <div id="particles-container" class="absolute inset-0 z-5"></div>
+  <!-- =====================================================
+       MOBILE MENU PANEL
+       ===================================================== -->
+  <aside id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 z-[55] w-64
+           bg-white shadow-xl transform translate-x-full
+           transition-transform duration-300 ease-in-out md:hidden" aria-hidden="true">
+    <button id="close-menu" class="absolute top-4 right-4 p-2" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <nav class="mt-20 flex flex-col space-y-6">
+      <a href="#about" class="text-lg font-medium text-slate-800 hover:text-mint">About</a>
+      <a href="#projects" class="text-lg font-medium text-slate-800 hover:text-mint">Work</a>
+      <a href="#pricing" class="text-lg font-medium text-slate-800 hover:text-mint">Pricing</a>
+      <a href="#contact" class="text-lg font-medium text-slate-800 hover:text-mint">Contact</a>
+    </nav>
+  </aside>
+
+  <main>
+
+    <!-- =====================================================
+     HERO SECTION
+     ===================================================== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden section-reveal"
+      role="banner">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-midnight" aria-hidden="true">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-midnight/80 to-midnight/95"></div>
+        <div class="absolute inset-0 animate-heroGradient"></div>
+
+        <!-- Particle layer -->
+        <div id="particles-container" class="absolute inset-0"></div>
       </div>
 
-      <div class="relative z-30 flex flex-col items-center justify-center w-full text-center px-6 py-24">
-        <h1
-          class="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold text-white mb-6 animate-float hero-stagger">
-          tommyy.<span class="text-gradient animate-text-reveal">fit</span>
+      <!-- Content -->
+      <div class="relative z-10 max-w-4xl mx-auto px-6
+           py-28 md:py-32
+           text-center flex flex-col items-center">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl
+             font-display font-extrabold text-white
+             mb-6 hero-stagger">
+          tommyy.<span class="text-gradient">fit</span>
         </h1>
 
-        <div class="h-12 overflow-hidden mb-8 hero-stagger animate-delay-1">
-          <p id="typed-subtitle" class="text-xl md:text-3xl text-white font-light cursor-blink animate-text-reveal"
-            aria-live="polite">
-            Fitness • Nutrition • Travel • Web Development
+        <div class="h-12 md:h-14 overflow-hidden mb-8
+             hero-stagger animate-delay-1">
+          <p id="typed-subtitle" class="text-xl md:text-3xl
+               text-white font-light cursor-blink" aria-live="polite" aria-describedby="hero-description">
+            Modern websites built for clarity, performance, and growth
           </p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 mt-8 hero-stagger animate-delay-2">
-          <a href="#resources"
-            class="magnetic-btn px-8 py-4 bg-gradient-to-r from-sky to-mint text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform animate-pulseGlow">
-            Explore Resources
+        <p id="hero-description" class="sr-only">
+          I build beautiful, fast websites that help you connect with your audience.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-8
+             hero-stagger animate-delay-2">
+          <a href="#projects" class="magnetic-btn px-8 py-4
+               bg-gradient-to-r from-sky to-mint
+               text-white font-semibold rounded-full
+               shadow-lg hover:shadow-xl
+               transition-all duration-300">
+            View Work
           </a>
-          <a href="#contact"
-            class="magnetic-btn px-8 py-4 bg-white/10 text-white font-semibold rounded-full backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
-            Get In Touch
+
+          <a href="#contact" class="magnetic-btn px-8 py-4
+               bg-white/10 text-white font-semibold
+               rounded-full backdrop-blur-sm
+               border border-white/20
+               hover:bg-white/20
+               transition-all duration-300">
+            Free Discovery Call
           </a>
         </div>
       </div>
 
-      <!-- Scroll indicator -->
-      <div
-        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce hero-stagger animate-delay-3">
-        <a href="#about" class="text-white/80 hover:text-white transition-colors" aria-label="Scroll down">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10
+           animate-bounce hero-stagger animate-delay-3">
+        <a href="#about" class="text-white/80 hover:text-white transition-colors" aria-label="Scroll to About section">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </a>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="py-20 bg-slate-50 section-reveal">
-      <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight mb-6">About Me</h2>
+    <!-- =====================================================
+     ABOUT SECTION
+     ===================================================== -->
+    <section id="about" class="section-reveal bg-slate-50">
+      <div class="max-w-5xl mx-auto px-6 py-20 text-center">
 
-        <div class="max-w-3xl mx-auto text-lg md:text-xl text-slate-700 leading-relaxed">
-          <p class="mb-6">
-            I'm Tommy, a person who loves fitness, healthy nutrition, travelling and also web development. I'm
-            passionate
-            about helping people transform their lives.
-          </p>
+        <!-- Heading -->
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight mb-4">
+          About me
+        </h2>
 
-          <p class="mb-6">
-            My mission is to share knowledge and experience across fitness, nutrition, travel
-            and trying to make it easier for others to build stronger bodies and minds.
+
+        <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 leading-relaxed mb-14">
+          I create websites that work beautifully and load lightning fast. My focus is simple:
+          help you connect with the right people through clear, engaging design.
+        </p>
+
+
+        <!-- Main text -->
+        <div class="about-text max-w-3xl mx-auto text-base md:text-lg text-slate-700 leading-relaxed space-y-6">
+          <p>
+            Hey, I'm Tommy. I build websites that actually convert.
+            No bloated code, no unnecessary animations. Just clean, purposeful design that does the job.
           </p>
 
           <p>
-            Through this portfolio, I provide practical resources, training guidance, and inspiration to help you on
-            your
-            journey to a healthier, more fulfilling life.
+            What matters to me: your site should load fast, look good everywhere, and feel natural to use.
+            I care about the code behind the scenes because maintainable code means your site stays reliable.
+          </p>
+
+          <p>
+            Whether you're starting fresh or giving your site a refresh,
+            I'll work with you to understand what you need and build something that actually lasts.
           </p>
         </div>
 
-        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-          <div class="bg-white p-4 rounded-xl shadow-sm text-center card-hover animate-on-scroll">
-            <div class="text-3xl mb-2">🏋️</div>
-            <h3 class="font-semibold text-slate-800">Fitness</h3>
+        <!-- Feature cards -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
+          <div class="bg-white p-7 rounded-2xl border border-slate-200/70
+               shadow-sm text-center card-hover animate-on-scroll">
+            <div class="text-3xl mb-4">💻</div>
+            <h3 class="font-semibold text-slate-800 mb-2">
+              Web development
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Modern, responsive websites built with clean and maintainable code.
+            </p>
           </div>
 
-          <div class="bg-white p-4 rounded-xl shadow-sm text-center card-hover animate-on-scroll">
-            <div class="text-3xl mb-2">🥗</div>
-            <h3 class="font-semibold text-slate-800">Nutrition</h3>
+          <div class="bg-white p-7 rounded-2xl border border-slate-200/70
+               shadow-sm text-center card-hover animate-on-scroll">
+            <div class="text-3xl mb-4">🎨</div>
+            <h3 class="font-semibold text-slate-800 mb-2">
+              UI & UX design
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Clear layouts and intuitive user experiences that feel natural to use.
+            </p>
           </div>
 
-          <div class="bg-white p-4 rounded-xl shadow-sm text-center card-hover animate-on-scroll">
-            <div class="text-3xl mb-2">✈️</div>
-            <h3 class="font-semibold text-slate-800">Travel</h3>
+          <div class="bg-white p-7 rounded-2xl border border-slate-200/70
+               shadow-sm text-center card-hover animate-on-scroll">
+            <div class="text-3xl mb-4">⚡</div>
+            <h3 class="font-semibold text-slate-800 mb-2">
+              Performance
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Fast, optimized solutions focused on reliability and long-term quality.
+            </p>
           </div>
 
-          <div class="bg-white p-4 rounded-xl shadow-sm text-center card-hover animate-on-scroll">
-            <div class="text-3xl mb-2">💻</div>
-            <h3 class="font-semibold text-slate-800">Web Dev</h3>
-          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- RESOURCES -->
-    <section id="resources" class="py-20 relative overflow-hidden section-reveal">
-      <div class="absolute inset-0 bg-slate-900/95 z-0"></div>
+    <!-- =====================================================
+     PRICING SECTION
+     ===================================================== -->
+    <section id="pricing" class="section-reveal bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-20 text-center">
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-white text-center mb-16">Resources</h2>
+        <!-- Heading -->
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight mb-4">
+          Transparent pricing
+        </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <a href="recipes.html"
-            class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-mint/30 transition-all duration-500 card-hover group animate-on-scroll">
-            <div
-              class="w-14 h-14 rounded-lg bg-mint/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl">🍲</span>
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">Healthy Recipes</h3>
-            <p class="text-slate-300 text-sm">Discover delicious, nutritious meal ideas to fuel your body.</p>
-          </a>
-
-          <a href="travel.html"
-            class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-sky/30 transition-all duration-500 card-hover group animate-on-scroll">
-            <div
-              class="w-14 h-14 rounded-lg bg-sky/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl">🌎</span>
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">Travel Spots</h3>
-            <p class="text-slate-300 text-sm">Explore top destinations and practical travel planning tips.</p>
-          </a>
-
-          <a href="training.html"
-            class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-mint/30 transition-all duration-500 card-hover group animate-on-scroll">
-            <div
-              class="w-14 h-14 rounded-lg bg-mint/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl">💪</span>
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">Training Plans</h3>
-            <p class="text-slate-300 text-sm">Access effective workout routines for all fitness levels.</p>
-          </a>
-
-          <a href="webdev.html"
-            class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-sky/30 transition-all duration-500 card-hover group animate-on-scroll">
-            <div
-              class="w-14 h-14 rounded-lg bg-sky/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl">👨‍💻</span>
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">Web Development</h3>
-            <p class="text-slate-300 text-sm">Showcase of my web development projects and skills.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="py-20 bg-white section-reveal">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight text-center mb-4">Featured Projects</h2>
-        <p class="text-lg text-slate-600 text-center mb-16 max-w-2xl mx-auto">
-          Explore my latest work in web development, fitness apps, and digital solutions.
+        <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-600 leading-relaxed mb-16">
+          Every project is different, so here are a few ways I can help you.
+          Not sure what you need? Let's chat. It's free, no pressure.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
-          <div
-            class="project-card bg-slate-50 rounded-2xl overflow-hidden group border border-slate-100 hover:border-mint/20 transition-all duration-500 card-hover animate-on-scroll">
-            <a href="https://tommyyfit.github.io/dailytaskmanager.github.io/" class="block">
-              <div class="relative h-52 rounded-xl overflow-hidden shadow-lg">
-                <img loading="lazy" src="src/dailytaskmanager.png" alt="Daily Task Manager project"
-                  class="w-full h-full object-cover" />
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-semibold text-slate-800 mb-2">Daily Task Manager</h3>
-                <p class="text-slate-600 text-sm mb-4">🚀 Powered by HTML • CSS • JS ⚡</p>
-                <span class="text-mint font-medium flex items-center">
-                  View Project
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </div>
+        <!-- Pricing Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+          <!-- ESSENTIAL -->
+          <div class="bg-slate-50 p-7 rounded-2xl border border-slate-200/70
+               shadow-sm card-hover animate-on-scroll text-left flex flex-col">
+            <h3 class="text-xl font-semibold text-slate-800 mb-2">
+              Essential Website
+            </h3>
+
+            <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+              A clean, modern website for individuals, portfolios, or small businesses
+              that need a strong and professional online presence.
+            </p>
+
+            <ul class="text-sm text-slate-600 mb-8 space-y-2">
+              <li>Custom modern design</li>
+              <li>Fully responsive layout</li>
+              <li>Basic SEO setup</li>
+            </ul>
+
+            <span class="mt-auto text-mint font-semibold text-lg">
+              From €50
+            </span>
+          </div>
+
+          <!-- PROFESSIONAL (PRIMARY) -->
+          <div class="relative bg-gradient-to-r from-sky to-mint text-white
+               p-8 rounded-2xl shadow-xl card-hover animate-on-scroll
+               border border-transparent scale-[1.04] flex flex-col">
+            <!-- Badge -->
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2
+                 bg-white text-mint text-xs font-semibold
+                 px-3 py-1 rounded-full shadow">
+            </span>
+
+            <h3 class="text-xl font-semibold mb-2 mt-2">
+              Professional Website
+            </h3>
+
+            <p class="text-sm mb-6 leading-relaxed text-white/90">
+              A complete solution for businesses and personal brands that want a
+              polished, scalable website built for long-term growth.
+            </p>
+
+            <ul class="text-sm mb-8 space-y-2 text-white/95">
+              <li>Custom design & structure</li>
+              <li>Performance optimization</li>
+              <li>SEO optimization</li>
+              <li>CMS for easy content editing</li>
+            </ul>
+
+            <span class="mt-auto text-lg font-semibold">
+              From €120
+            </span>
+          </div>
+
+          <!-- DISCOVERY -->
+          <div class="bg-slate-50 p-7 rounded-2xl border border-slate-200/70
+               shadow-sm card-hover animate-on-scroll text-left flex flex-col">
+            <h3 class="text-xl font-semibold text-slate-800 mb-2">
+              Free Discovery Call
+            </h3>
+
+            <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+              Not sure which option fits your needs?
+              Let’s talk and clarify your idea, goals, and next steps.
+            </p>
+
+            <ul class="text-sm text-slate-600 mb-8 space-y-2">
+              <li>Project requirements review</li>
+              <li>Technical recommendations</li>
+              <li>Clear pricing estimate</li>
+            </ul>
+
+            <a href="mailto:contact@tommyy.fit?subject=Free%20Discovery%20Call" class="mt-auto inline-flex items-center gap-2
+                 text-mint font-semibold text-sm
+                 hover:gap-3 transition-all">
+              Schedule a free call →
             </a>
           </div>
 
-          <!-- Placeholder for future projects -->
-          <div
-            class="project-card bg-slate-50 rounded-2xl overflow-hidden group border border-slate-100 hover:border-mint/20 transition-all duration-500 card-hover animate-on-scroll">
-            <a href="https://tommyyfit.github.io/mindbodyjournal.github.io/" class="block">
-              <div class="relative h-52 rounded-xl overflow-hidden shadow-lg">
-                <img loading="lazy" src="src/mindbodyjournal.png" alt="Mind body journal project"
-                  class="w-full h-full object-cover" />
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-semibold text-slate-800 mb-2">Mind body journal</h3>
-                <p class="text-slate-600 text-sm mb-4">🚀 Powered by HTML • CSS • JS ⚡</p>
-                <span class="text-mint font-medium flex items-center">
-                  View Project
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          </div>
-
-          <div
-            class="project-card bg-slate-50 rounded-2xl overflow-hidden group border border-slate-100 hover:border-mint/20 transition-all duration-500 card-hover animate-on-scroll">
-            <a href="https://tommyyfit.github.io/mindplan.github.io/" class="block">
-              <div class="relative h-52 rounded-xl overflow-hidden shadow-lg">
-                <img loading="lazy" src="src/mindplan.png" alt="Mind plan project" class="w-full h-full object-cover" />
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-semibold text-slate-800 mb-2">Mind plan</h3>
-                <p class="text-slate-600 text-sm mb-4">🚀 Powered by HTML • CSS • JS ⚡</p>
-                <span class="text-mint font-medium flex items-center">
-                  View Project
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section id="timeline" class="py-20 bg-slate-50 section-reveal">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight text-center mb-16">My Journey</h2>
-
-        <div class="relative">
-          <!-- Timeline line -->
-          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-mint/20 transform -translate-x-1/2"></div>
-
-          <!-- Timeline items -->
-          <div class="space-y-12 relative">
-            <div class="flex flex-col md:flex-row items-start">
-              <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
-                <h3 class="text-xl font-semibold text-slate-800">August 2025</h3>
-                <p class="text-slate-600">Web Developement</p>
-              </div>
-              <div
-                class="absolute left-4 md:left-1/2 -ml-3.5 mt-2 w-7 h-7 rounded-full bg-sky border-4 border-white shadow">
-              </div>
-              <div class="md:w-1/2 md:pl-12 mt-8 md:mt-0">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                  <p>Started doing web developement and offering it as a service.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row items-start">
-              <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
-                <h3 class="text-xl font-semibold text-slate-800">July 2025</h3>
-                <p class="text-slate-600">Portfolio Launched</p>
-              </div>
-              <div
-                class="absolute left-4 md:left-1/2 -ml-3.5 mt-2 w-7 h-7 rounded-full bg-mint border-4 border-white shadow">
-              </div>
-              <div class="md:w-1/2 md:pl-12 mt-8 md:mt-0">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                  <p>The official launch of tommyy.fit portfolio website 20 July.</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-20 bg-white section-reveal">
-      <div class="max-w-3xl mx-auto px-6 text-center">
-        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight mb-6">Get in Touch</h2>
-        <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
-          Have questions about fitness, nutrition, or web development? Interested in collaborating? Let's connect!
+    <!-- =====================================================
+     WEB COLLECTION 2026
+     ===================================================== -->
+    <section id="projects" class="section-reveal bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-20">
+
+        <!-- Heading -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight mb-4">
+            Projects
+          </h2>
+          <p class="text-lg text-slate-600">
+            A selection of work I've built. Focused on real results and clean design.
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div id="web-collection-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8
+                max-w-5xl mx-auto stagger-container">
+          <!-- Projects will be loaded here by JavaScript -->
+          <div class="text-center text-slate-500 col-span-full py-8">
+            Loading projects...
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+     TIMELINE SECTION
+     ===================================================== -->
+    <section id="timeline" class="section-reveal bg-slate-50">
+      <div class="max-w-5xl mx-auto px-6 py-20">
+
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight text-center mb-16 animate-on-scroll">
+          My Journey
+        </h2>
+
+        <div class="relative timeline">
+
+          <!-- Animated vertical line -->
+          <div class="timeline-line absolute left-4 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2" aria-hidden="true">
+          </div>
+
+          <!-- ITEM -->
+          <div class="timeline-item grid md:grid-cols-2 gap-10 mb-16 pl-8 md:pl-0">
+
+            <!-- Left -->
+            <div class="md:text-right animate-on-scroll">
+              <span class="text-xs text-mint font-semibold tracking-widest uppercase">
+                August 2025
+              </span>
+              <h3 class="text-lg font-semibold text-slate-800 mt-2">
+                Web Development Services
+              </h3>
+            </div>
+
+            <!-- Right -->
+            <div class="relative animate-on-scroll">
+              <span class="timeline-dot bg-mint" aria-hidden="true"></span>
+
+              <div class="timeline-card">
+                <p>
+                  Began providing professional web development services with a focus on
+                  modern design, performance optimization, and clean, maintainable code
+                  tailored to real business needs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="timeline-item grid md:grid-cols-2 gap-10 pl-8 md:pl-0">
+
+            <!-- Left -->
+            <div class="md:text-right animate-on-scroll">
+              <span class="text-xs text-sky font-semibold tracking-widest uppercase">
+                July 2025
+              </span>
+              <h3 class="text-lg font-semibold text-slate-800 mt-2">
+                Portfolio Website Launch
+              </h3>
+            </div>
+
+            <!-- Right -->
+            <div class="relative animate-on-scroll">
+              <span class="timeline-dot bg-sky" aria-hidden="true"></span>
+
+              <div class="timeline-card">
+                <p>
+                  Launched <strong>tommyy.fit</strong>, a personal portfolio designed to
+                  showcase selected projects, technical expertise, and a clear,
+                  client-focused approach to modern web development.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+     CONTACT SECTION
+     ===================================================== -->
+    <section id="contact" class="section-reveal bg-white">
+      <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-midnight mb-4">
+          Let’s work together
+        </h2>
+
+        <p class="text-lg text-slate-600 mb-12 max-w-xl mx-auto">
+          Need a new website or have a project in mind?
+          Pick what fits and drop me a line. I typically respond within 24 hours.
         </p>
 
-        <div class="flex justify-center space-x-8 mb-12">
-          <a href="mailto:tommyy.fitt@gmail.com"
-            class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center text-2xl hover:bg-mint hover:text-white transition-all duration-300 card-hover"
-            aria-label="Email">
-            ✉️
+        <!-- OFFER OPTIONS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
+
+          <a href="mailto:contact@tommyy.fit?subject=Website%20Project%20Inquiry" class="group bg-slate-50 p-6 rounded-2xl border border-slate-100
+               hover:bg-mint hover:text-grey transition-all card-hover">
+            <div class="text-2xl mb-2">🌐</div>
+            <h3 class="font-semibold mb-1">Business Website</h3>
+            <p class="text-sm opacity-80">Company or personal website</p>
           </a>
-          <a href="https://github.com/tommyyfit"
-            class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center text-2xl hover:bg-slate-800 hover:text-white transition-all duration-300 card-hover"
-            aria-label="GitHub">
-            🐙
+
+          <a href="mailto:contact@tommyy.fit?subject=Landing%20Page%20Inquiry" class="group bg-slate-50 p-6 rounded-2xl border border-slate-100
+               hover:bg-sky hover:text-grey transition-all card-hover">
+            <div class="text-2xl mb-2">🚀</div>
+            <h3 class="font-semibold mb-1">Landing Page</h3>
+            <p class="text-sm opacity-80">Marketing or product launch</p>
           </a>
-          <a href="https://beacons.ai/tommyy.fit"
-            class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center text-2xl hover:bg-sky hover:text-white transition-all duration-300 card-hover"
-            aria-label="Beacons.ai">
-            🌐
+
+          <a href="mailto:contact@tommyy.fit?subject=Web%20App%20Inquiry" class="group bg-slate-50 p-6 rounded-2xl border border-slate-100
+               hover:bg-slate-600 hover:text-grey transition-all card-hover">
+            <div class="text-2xl mb-2">⚙️</div>
+            <h3 class="font-semibold mb-1">Web Application</h3>
+            <p class="text-sm opacity-80">Custom functionality</p>
           </a>
+
+          <a href="mailto:contact@tommyy.fit?subject=Other%20Project" class="group bg-slate-50 p-6 rounded-2xl border border-slate-100
+               hover:bg-yellow-700 hover:text-grey transition-all card-hover">
+            <div class="text-2xl mb-2">💡</div>
+            <h3 class="font-semibold mb-1">Other Project</h3>
+            <p class="text-sm opacity-80">Let’s discuss</p>
+          </a>
+
         </div>
 
-        <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-          <h3 class="text-xl font-semibold text-slate-800 mb-4">Send me a message</h3>
-          <!-- Form with Formspree - UPDATE THE ACTION URL WITH YOUR ACTUAL FORMSPREE ID -->
-          <form id="contactForm" action="https://formspree.io/f/mgvlyvnl" method="POST" class="space-y-4 text-left">
-            <div id="form-message" class="hidden p-4 rounded-lg mb-4 text-center"></div>
+        <div class="mt-12 flex flex-col items-center justify-center w-full">
 
-            <div>
-              <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Name *</label>
-              <input type="text" id="name" name="name" required
-                class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-mint focus:border-transparent outline-none transition-all"
-                placeholder="Your name" />
-              <p class="text-red-500 text-xs mt-1 hidden" id="name-error">Please enter your name</p>
+          <div class="relative w-full max-w-md flex items-center justify-center">
+
+            <div
+              class="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-30">
             </div>
 
-            <div>
-              <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email *</label>
-              <input type="email" id="email" name="email" required
-                class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-mint focus:border-transparent outline-none transition-all"
-                placeholder="Your email address" />
-              <p class="text-red-500 text-xs mt-1 hidden" id="email-error">Please enter a valid email address</p>
+            <div
+              class="relative h-[3px] w-24 rounded-full bg-gradient-to-r from-transparent via-mint to-transparent shadow-[0_0_8px_rgba(0,255,170,0.4)]">
             </div>
 
-            <div>
-              <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Message *</label>
-              <textarea id="message" name="message" rows="4" required
-                class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-mint focus:border-transparent outline-none transition-all"
-                placeholder="How can I help you?"></textarea>
-              <p class="text-red-500 text-xs mt-1 hidden" id="message-error">Please enter your message</p>
-            </div>
+          </div>
 
-            <button type="submit" id="submit-btn"
-              class="w-full bg-gradient-to-r from-sky to-mint text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
-              Send Message
-            </button>
-          </form>
+          <div class="mt-10 h-1 w-1 rounded-full bg-slate-300"></div>
         </div>
+
+        <div class="text-center">
+          <p class="text-slate-500 mb-6">Or contact me directly</p>
+
+          <div class="flex justify-center gap-8 text-2xl">
+            <a href="mailto:contact@tommyy.fit" class="group flex flex-col items-center gap-1" aria-label="Email">
+              <span class="transition-transform group-hover:-translate-y-1">✉️</span>
+              <span class="h-0.5 w-0 bg-mint transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <a href="https://github.com/tommyyfit" class="group flex flex-col items-center gap-1" aria-label="GitHub">
+              <span class="transition-transform group-hover:-translate-y-1">🐙</span>
+              <span class="h-0.5 w-0 bg-midnight transition-all duration-300 group-hover:w-full"></span>
+            </a>
+
+            <a href="https://beacons.ai/tommyy.fit" class="group flex flex-col items-center gap-1" aria-label="Beacons">
+              <span class="transition-transform group-hover:-translate-y-1">🌐</span>
+              <span class="h-0.5 w-0 bg-sky transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-midnight text-white py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-6 md:mb-0">
-          <span class="text-xl font-display font-bold">tommyy.fit</span>
-          <p class="text-slate-400 mt-2">Building stronger bodies & minds using my knowledge.</p>
+  <!-- =====================================================
+     FOOTER
+     ===================================================== -->
+  <footer class="bg-midnight text-white">
+    <div class="max-w-6xl mx-auto px-6 py-14">
+
+      <!-- Top -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+
+        <!-- Brand -->
+        <div class="max-w-sm">
+          <span class="block text-xl font-display font-bold tracking-tight text-white">
+            tommyy<span class="text-mint drop-shadow-sm">.</span><span class="opacity-95">fit</span>
+          </span>
+
+          <p class="mt-3 text-sm leading-relaxed text-slate-400">
+            Creating web solutions that are fast, clean, and built to last.
+            Focused on what actually makes a difference: clarity and reliability.
+          </p>
         </div>
 
-        <div class="flex space-x-6">
-          <a href="mailto:tommyy.fitt@gmail.com" class="text-slate-400 hover:text-white transition-colors"
-            aria-label="Email">
-            <span class="sr-only">Email</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Social -->
+        <nav aria-label="Footer social links" class="flex items-center gap-6">
+          <!-- Email -->
+          <a href="mailto:contact@tommyy.fit" aria-label="Email" class="text-slate-400 hover:text-white
+                 transition-colors duration-200
+                 focus-visible:outline-none focus-visible:ring-2
+                 focus-visible:ring-mint focus-visible:ring-offset-2
+                 focus-visible:ring-offset-midnight">
+            <svg class="h-5 w-5 transition-transform duration-200 hover:scale-110" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </a>
 
-          <a href="https://github.com/tommyyfit" class="text-slate-400 hover:text-white transition-colors"
-            aria-label="GitHub">
-            <span class="sr-only">GitHub</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <!-- GitHub -->
+          <a href="https://github.com/tommyyfit" aria-label="GitHub" class="text-slate-400 hover:text-white
+                 transition-colors duration-200
+                 focus-visible:outline-none focus-visible:ring-2
+                 focus-visible:ring-mint focus-visible:ring-offset-2
+                 focus-visible:ring-offset-midnight">
+            <svg class="h-5 w-5 transition-transform duration-200 hover:scale-110" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </a>
 
-          <a href="https://beacons.ai/tommyy.fit" class="text-slate-400 hover:text-white transition-colors"
-            aria-label="Beacons">
-            <span class="sr-only">Beacons</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <!-- Beacons -->
+          <a href="https://beacons.ai/tommyy.fit" aria-label="Beacons" class="text-slate-400 hover:text-white
+                 transition-colors duration-200
+                 focus-visible:outline-none focus-visible:ring-2
+                 focus-visible:ring-mint focus-visible:ring-offset-2
+                 focus-visible:ring-offset-midnight">
+            <svg class="h-5 w-5 transition-transform duration-200 hover:scale-110" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3" />
             </svg>
           </a>
-        </div>
+        </nav>
       </div>
 
-      <div class="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-slate-500 text-sm">© 2025 tommyy.fit. All rights reserved.</p>
-        <div class="mt-4 md:mt-0">
-          <a href="privacy.html" class="text-slate-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
-        </div>
+      <!-- Footer Divider -->
+      <div class="mt-10 pt-6
+         flex flex-col sm:flex-row
+         items-center justify-between
+         gap-3 sm:gap-6
+         border-t border-slate-800/60">
+        <p class="text-xs sm:text-sm text-slate-500 leading-none">
+          © 2026
+          <span class="text-slate-300 font-medium">tommyy.fit</span>.
+          All rights reserved.
+        </p>
+
+        <a href="privacy.html" class="text-xs sm:text-sm text-slate-500
+           hover:text-white transition-colors duration-200
+           focus-visible:outline-none
+           focus-visible:ring-2 focus-visible:ring-mint
+           focus-visible:ring-offset-2 focus-visible:ring-offset-midnight">
+          Privacy Policy
+        </a>
       </div>
+
     </div>
   </footer>
 
-  <!-- Floating Action Button -->
-  <button id="fab"
-    class="fixed bottom-8 right-8 z-40 bg-gradient-to-r from-sky to-mint text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center text-xl hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-mint focus:ring-offset-2 opacity-0 invisible transition-all duration-300"
-    aria-label="Scroll to top">
-    ↑
+  <!-- =====================================================
+     FLOATING ACTION BUTTON
+     ===================================================== -->
+  <button id="fab" aria-label="Scroll to top" class="
+    fixed bottom-6 right-6 z-50
+    w-11 h-11 rounded-full
+    flex items-center justify-center
+
+    bg-gradient-to-tr from-sky to-mint
+    text-white text-base
+
+    shadow-[0_8px_20px_rgba(56,189,248,0.3)]
+    backdrop-blur-sm
+
+    opacity-0 invisible
+    transition-all duration-300 ease-out
+
+    hover:scale-105 hover:shadow-[0_12px_30px_rgba(16,185,129,0.4)]
+    active:scale-95
+
+    focus:outline-none
+    focus:ring-2 focus:ring-mint focus:ring-offset-2
+  ">
+    <span class="leading-none">↑</span>
   </button>
 
-  <!-- JavaScript -->
+  <!-- =====================================================
+     SCRIPTS
+     ===================================================== -->
+  <script src="translations.js"></script>
   <script src="script.js"></script>
 </body>
 
