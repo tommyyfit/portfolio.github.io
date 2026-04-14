@@ -73,6 +73,28 @@ p { text-wrap: pretty; }
 }
 
 /* =====================================================
+   LOADER SAFETY FALLBACK
+   ===================================================== */
+#loader {
+  animation: loaderAutoHide 0.6s ease 3s forwards;
+}
+
+body.loaded #loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+}
+
+@keyframes loaderAutoHide {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* =====================================================
    LOADER
    ===================================================== */
 .loader-ring {

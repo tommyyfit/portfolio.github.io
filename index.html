@@ -20,6 +20,7 @@
   <meta name="twitter:image" content="https://tommyyfit.github.io/portfolio.github.io/src/logo.png" />
   <meta name="theme-color" content="#080d1a" />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -178,77 +179,52 @@
     <!-- ===== ABOUT ===== -->
     <section id="about" class="section-reveal py-24 md:py-32">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-3xl">
+          <p class="text-xs uppercase tracking-[0.3em] text-mint font-semibold mb-4">About me</p>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
+            Clear websites<br />that help people<br />take action.
+          </h2>
+          <div class="space-y-4 text-slate-400 leading-relaxed">
+            <p>I build websites that are easy to understand, easy to trust, and easy to use.</p>
+            <p>Every page is made to keep attention, guide people clearly, and help them become clients.</p>
+          </div>
+        </div>
 
-          <!-- Left: text -->
-          <div>
-            <p class="text-xs uppercase tracking-[0.3em] text-mint font-semibold mb-4">About me</p>
-            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6 leading-tight">
-              I build sites<br />that work as hard<br />as you do.
-            </h2>
-            <div class="space-y-4 text-slate-400 leading-relaxed">
-              <p>Hey, I'm Tommy. I specialise in landing pages and business websites for service businesses — the kind that actually get people to call, book, or buy.</p>
-              <p>Every site I build is fast, mobile-first, and engineered around one goal: making your visitors trust you enough to take action. No bloated templates, no cookie-cutter code.</p>
-              <p>I work closely with each client — you'll know exactly what's being built and why. Most projects are usually delivered in 3-7 days.</p>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="value-card animate-on-scroll md:col-span-1">
+            <div class="value-icon">
+              <span class="text-xl leading-none">🚀</span>
             </div>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <span class="skill-badge">HTML & CSS</span>
-              <span class="skill-badge">JavaScript</span>
-              <span class="skill-badge">Responsive Design</span>
-              <span class="skill-badge">SEO</span>
-              <span class="skill-badge">Performance</span>
-              <span class="skill-badge">UX/UI</span>
+            <div>
+              <h3 class="font-semibold text-white mb-1">Turn visitors into clients</h3>
+              <p class="text-sm text-slate-500">Your website isn’t just there to look good. It’s built to guide people, earn trust, and turn attention into action.</p>
             </div>
           </div>
-
-          <!-- Right: value props -->
-          <div class="grid grid-cols-1 gap-4">
-            <div class="value-card animate-on-scroll">
-              <div class="value-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 2 5 14h5l-1 8 8-12h-5l1-8Z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">Lightning fast</h3>
-                <p class="text-sm text-slate-500">Pages that load in under 3 seconds. Speed = trust = conversions.</p>
-              </div>
+          <div class="value-card animate-on-scroll">
+            <div class="value-icon value-icon--sky">
+              <span class="text-xl leading-none">⚡</span>
             </div>
-            <div class="value-card animate-on-scroll">
-              <div class="value-icon value-icon--sky">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5">
-                  <rect x="5" y="2" width="14" height="20" rx="2" stroke-linecap="round"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 22v-4h6v4"/>
-                  <rect x="9" y="6" width="6" height="4" rx="1"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">Mobile-first</h3>
-                <p class="text-sm text-slate-500">60%+ of traffic is mobile. Your site will look perfect on every device.</p>
-              </div>
+            <div>
+              <h3 class="font-semibold text-white mb-1">Speed that keeps attention</h3>
+              <p class="text-sm text-slate-500">No waiting, no friction. Fast-loading pages that keep users engaged and ready to take action.</p>
             </div>
-            <div class="value-card animate-on-scroll">
-              <div class="value-icon value-icon--amber">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3a9 9 0 1 0 9 9c0-1.1-.9-2-2-2h-2a2 2 0 0 1-2-2V6a3 3 0 0 0-3-3Z" />
-                  <circle cx="7.5" cy="12.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">Designed to convert</h3>
-                <p class="text-sm text-slate-500">Strategic layouts built around user psychology and clear calls to action.</p>
-              </div>
+          </div>
+          <div class="value-card animate-on-scroll">
+            <div class="value-icon value-icon--amber">
+              <span class="text-xl leading-none">📱</span>
             </div>
-            <div class="value-card animate-on-scroll">
-              <div class="value-icon value-icon--violet">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">Clear communication</h3>
-                <p class="text-sm text-slate-500">You're always in the loop. No ghosting, no surprises.</p>
-              </div>
+            <div>
+              <h3 class="font-semibold text-white mb-1">Built for real-world users</h3>
+              <p class="text-sm text-slate-500">Designed for how people actually browse today. Smooth, intuitive, and flawless on every device.</p>
+            </div>
+          </div>
+          <div class="value-card animate-on-scroll">
+            <div class="value-icon value-icon--violet">
+              <span class="text-xl leading-none">🧠</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-white mb-1">Clarity that drives decisions</h3>
+              <p class="text-sm text-slate-500">Clear structure, strong messaging, and focused design that make it easy for visitors to understand, trust, and stay engaged.</p>
             </div>
           </div>
         </div>
@@ -260,8 +236,8 @@
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
           <p class="text-xs uppercase tracking-[0.3em] text-mint font-semibold mb-4">Portfolio</p>
-          <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">Real sites. Real results.</h2>
-          <p class="text-slate-400">Every project below is a live website I built from scratch — each designed to attract and convert customers for that specific business.</p>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">Real websites. Real results.</h2>
+          <p class="text-slate-400">Every project below is a live site I built from scratch, designed to attract and convert customers for each business.</p>
         </div>
 
         <div id="web-collection-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto stagger-container">
