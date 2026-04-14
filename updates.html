@@ -80,10 +80,10 @@
     },
   };
 </script>
-  <script rel="stylesheet" src="style.css"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-slate-50 text-slate-800 font-body">
+<body class="loaded bg-slate-50 text-slate-800 font-body">
 
 <!-- NAVIGATION -->
 <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-md z-40 transition-all duration-300">
@@ -136,6 +136,7 @@
     <!-- Mobile Button -->
     <button id="mobile-btn"
             aria-expanded="false"
+            aria-controls="mobile-menu"
             aria-label="Toggle mobile menu"
             class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-mint rounded-lg">
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -353,6 +354,7 @@
 </main>
 
 <!-- LOAD DATA -->
+<script src="script.js"></script>
 <script src="updates.js"></script>
 
 <script>
@@ -373,15 +375,15 @@
     empty: document.getElementById("empty"),
     list: document.getElementById("update-log"),
     count: document.getElementById("update-count"),
-    searchInput: document.getElementById("update-search"), // Add an input with this ID!
+    searchInput: document.getElementById("update-search"),
   };
 
   const COLOR_MAP = {
-    mint: { bg: "bg-mint", text: "text-mint", light: "bg-mint/10" },
-    sky: { bg: "bg-sky", text: "text-sky", light: "bg-sky/10" },
-    emerald: { bg: "bg-emerald-500", text: "text-emerald-500", light: "bg-emerald-500/10" },
-    blue: { bg: "bg-blue-500", text: "text-blue-500", light: "bg-blue-500/10" },
-    violet: { bg: "bg-violet-500", text: "text-violet-500", light: "bg-violet-500/10" },
+    mint: { bg: "bg-mint", hoverTextClass: "group-hover:text-mint" },
+    sky: { bg: "bg-sky", hoverTextClass: "group-hover:text-sky" },
+    emerald: { bg: "bg-emerald-500", hoverTextClass: "group-hover:text-emerald-500" },
+    blue: { bg: "bg-blue-500", hoverTextClass: "group-hover:text-blue-500" },
+    violet: { bg: "bg-violet-500", hoverTextClass: "group-hover:text-violet-500" },
   };
 
   // -----------------------------
@@ -415,6 +417,7 @@
     els.list.textContent = "";
 
     if (filteredData.length === 0) {
+      hide(els.list);
       show(els.empty);
       if (els.count) els.count.textContent = "0";
       return;
@@ -428,7 +431,7 @@
 
     filteredData.forEach((update, index) => {
       const dateObj = new Date(update.date);
-      const year = dateObj.getFullYear();
+      const year = Number.isNaN(dateObj.getTime()) ? "Unknown" : dateObj.getFullYear();
 
       // Year Grouping
       if (year !== lastYear) {
@@ -453,11 +456,9 @@
     const li = document.createElement("li");
     const theme = COLOR_MAP[update.color] || COLOR_MAP.mint;
     
-    // Using a more modern "Timeline" look with a side border
     li.className = `
-      group relative mb-6 p-6 bg-white rounded-2xl border border-slate-100 
-      shadow-sm hover:shadow-md transition-all duration-300 
-      animate-in fade-in slide-in-from-bottom-4
+      group relative mb-6 rounded-2xl border border-slate-100 bg-white p-6
+      shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md
     `;
 
     li.innerHTML = `
@@ -473,7 +474,7 @@
           </span>` : ''}
       </div>
 
-      <h3 class="text-lg font-bold text-midnight group-hover:${theme.text} transition-colors mb-2">
+      <h3 class="mb-2 text-lg font-bold text-midnight transition-colors ${theme.hoverTextClass}">
         ${escapeHTML(update.title)}
       </h3>
       
@@ -494,6 +495,29 @@
     renderUpdates(filtered);
   }
 
+  function handleSearchShortcut(event) {
+    if (!els.searchInput) {
+      return;
+    }
+
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      els.searchInput.focus();
+      els.searchInput.select();
+      return;
+    }
+
+    if (event.key === "Escape" && document.activeElement === els.searchInput) {
+      if (els.searchInput.value) {
+        els.searchInput.value = "";
+        STATE.searchTerm = "";
+        renderUpdates();
+      }
+
+      els.searchInput.blur();
+    }
+  }
+
   // -----------------------------
   // INITIALIZATION
   // -----------------------------
@@ -511,6 +535,7 @@
 
     // Attach Search Event
     els.searchInput?.addEventListener("input", handleSearch);
+    document.addEventListener("keydown", handleSearchShortcut);
 
     renderUpdates();
   }
